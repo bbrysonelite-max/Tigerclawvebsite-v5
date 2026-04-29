@@ -1,0 +1,898 @@
+import { useRef, useState, useEffect, useCallback } from "react";
+import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { Zap, ChevronDown, Menu, X, ArrowRight, MessageSquare, Calendar, Users, Clock, Shield, Target } from "lucide-react";
+import LegalDrawer from "@/components/LegalDrawer";
+
+/* ─── IMAGE URLS ─── */
+const HERO_TIGER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-hero-tiger-kREoKjDy7VbVLihfN3ac8E.webp";
+const ORANGE_BREAK = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-orange-break-hLD5W3d5goMaak62rKQ5uW.webp";
+const WINDOW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-window-abstract-RVUW5uXcq4G3LLM9PmxdoP.webp";
+
+/* ─── COLORS ─── */
+const ORANGE = "#E8722A";
+const GREEN = "#22C55E";
+const EYEBROW_GREEN = "#4ADE80";
+const PURPLE = "#9333EA";
+
+/* ─── BUY FLOW ─── */
+// Direct Stripe Payment Link — wizard.tigerclaw.io 307s to this anyway, and
+// the post-Stripe wizard/thank-you flow is being repaired separately.
+const WIZARD_URL = "https://buy.stripe.com/14A8wHapE4OAemeeIU9AA07";
+
+/* ─── COUNTER HOOK ─── */
+function useCounter(end: number, duration: number = 2000, startOnView: boolean = true) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!startOnView || !inView || started.current) return;
+    started.current = true;
+    const startTime = Date.now();
+    const tick = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * end));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [inView, end, duration, startOnView]);
+
+  return { count, ref };
+}
+
+/* ─── FADE-IN SECTION ─── */
+function FadeSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── CURSOR FOLLOWER ─── */
+function CursorFollower() {
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const springX = useSpring(cursorX, { damping: 25, stiffness: 200 });
+  const springY = useSpring(cursorY, { damping: 25, stiffness: 200 });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      cursorX.set(e.clientX - 6);
+      cursorY.set(e.clientY - 6);
+      if (!visible) setVisible(true);
+    };
+    const leave = () => setVisible(false);
+    const enter = () => setVisible(true);
+    window.addEventListener("mousemove", move);
+    document.addEventListener("mouseleave", leave);
+    document.addEventListener("mouseenter", enter);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseleave", leave);
+      document.removeEventListener("mouseenter", enter);
+    };
+  }, [cursorX, cursorY, visible]);
+
+  // Hide on touch devices
+  if (typeof window !== "undefined" && "ontouchstart" in window) return null;
+
+  return (
+    <motion.div
+      className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full"
+      style={{
+        x: springX,
+        y: springY,
+        width: 12,
+        height: 12,
+        background: ORANGE,
+        boxShadow: `0 0 8px ${ORANGE}, 0 0 18px ${ORANGE}cc, 0 0 36px ${ORANGE}66`,
+        opacity: visible ? 1 : 0,
+      }}
+    />
+  );
+}
+
+/* ─── NAV ─── */
+function Nav() {
+  const [showBookBtn, setShowBookBtn] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowBookBtn(window.scrollY > window.innerHeight * 2.5);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const links = [
+    { label: "The Problem", href: "#problem" },
+    { label: "The Thesis", href: "#thesis" },
+    { label: "How It Works", href: "#how" },
+    { label: "Who It's For", href: "#who" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <>
+      {/* ── Desktop floating pill nav ── */}
+      <div className="fixed top-5 left-0 right-0 z-50 hidden md:flex justify-center px-4">
+        <nav className="flex items-center gap-1 px-2 py-2 rounded-full bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2 pl-3 pr-4">
+            <img src="/favicon-64x64.png" alt="Tiger Claw" className="w-7 h-7 rounded-full" />
+          </a>
+
+          <div className="w-px h-5 bg-white/10" />
+
+          {/* Section links */}
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="px-3.5 py-1.5 text-white/60 hover:text-white hover:bg-white/5 text-sm font-medium transition-all duration-200 rounded-full"
+              style={{ fontSize: "0.8rem" }}
+            >
+              {l.label}
+            </a>
+          ))}
+
+          <div className="w-px h-5 bg-white/10" />
+
+          {/* Book a Call — appears after scrolling past 3 sections */}
+          <AnimatePresence>
+            {showBookBtn && (
+              <motion.a
+                href="/contact"
+                initial={{ opacity: 0, width: 0, paddingLeft: 0, paddingRight: 0 }}
+                animate={{ opacity: 1, width: "auto", paddingLeft: 14, paddingRight: 14 }}
+                exit={{ opacity: 0, width: 0, paddingLeft: 0, paddingRight: 0 }}
+                transition={{ duration: 0.3 }}
+                className="py-1.5 text-sm font-semibold rounded-full border whitespace-nowrap overflow-hidden transition-colors duration-200 hover:bg-white/5"
+                style={{ borderColor: ORANGE, color: ORANGE, fontSize: "0.8rem" }}
+              >
+                Book a Call
+              </motion.a>
+            )}
+          </AnimatePresence>
+
+          {/* Get Started CTA */}
+          <a
+            href={WIZARD_URL}
+            className="px-5 py-1.5 text-sm font-semibold text-black rounded-full transition-all duration-300 hover:brightness-110 hover:scale-105 hover:shadow-[0_0_20px_rgba(232,114,42,0.4)] whitespace-nowrap"
+            style={{ background: ORANGE, fontSize: "0.8rem" }}
+          >
+            Get Started
+          </a>
+        </nav>
+      </div>
+
+      {/* ── Mobile top bar ── */}
+      <div className="fixed top-0 left-0 right-0 z-50 md:hidden bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/5">
+        <div className="flex items-center justify-between h-14 px-4">
+          <a href="#" className="flex items-center gap-2">
+            <img src="/favicon-64x64.png" alt="Tiger Claw" className="w-8 h-8 rounded-full" />
+            <span className="text-white font-bold text-base tracking-tight">TIGER CLAW</span>
+          </a>
+          <button className="text-white" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="bg-[#0A0A0A]/98 backdrop-blur-md border-b border-white/5 overflow-hidden"
+            >
+              <div className="px-4 py-4 space-y-3">
+                {links.map((l) => (
+                  <a key={l.href} href={l.href} onClick={() => setMobileOpen(false)} className="block text-white/70 hover:text-white text-sm font-medium py-2 uppercase tracking-wider">
+                    {l.label}
+                  </a>
+                ))}
+                {showBookBtn && (
+                  <a href="/contact" onClick={() => setMobileOpen(false)} className="block text-center px-5 py-3 text-sm font-semibold rounded-lg mt-2 border" style={{ borderColor: ORANGE, color: ORANGE }}>
+                    Book a Call
+                  </a>
+                )}
+                <a href={WIZARD_URL} onClick={() => setMobileOpen(false)} className="block text-center px-5 py-3 text-sm font-semibold text-black rounded-lg mt-2" style={{ background: ORANGE }}>
+                  Get Started
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
+  );
+}
+
+/* ─── HERO ─── */
+function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Tiger background */}
+      <div className="absolute inset-0">
+        <img src={HERO_TIGER} alt="" className="w-full h-full object-cover object-[70%_20%] sm:object-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/60 via-[#0A0A0A]/30 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/40" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-left w-full pt-24 pb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {/* Status badge */}
+          <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
+            <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: GREEN }} />
+            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>System Operational</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="mb-6">
+            <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
+              TIGER CLAW
+            </span>
+            <span className="block text-white/90 text-xl sm:text-2xl lg:text-3xl font-medium leading-snug mt-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              AI Agents that find motivated people.
+            </span>
+            <span className="block text-white/75 text-lg sm:text-xl lg:text-2xl font-normal leading-snug mt-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Built for Network Marketing Professionals.
+            </span>
+          </h1>
+
+          {/* Sub */}
+          <p className="text-white/60 text-lg sm:text-xl max-w-2xl mb-10 leading-relaxed">
+            An AI recruiting agent, running on Telegram, built for network marketers. One job — find prospects, run the first conversation, book the ones who are ready onto your calendar. While you sleep. In your voice. Every day. Forever.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="#pricing" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+              Start for $147/month <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            <a href="#problem" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white/80 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/25 hover:scale-[1.03] hover:-translate-y-0.5 transition-all duration-300">
+              See How It Works
+            </a>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ChevronDown className="w-6 h-6 text-white/30" />
+      </motion.div>
+    </section>
+  );
+}
+
+/* ─── STATS BAR ─── */
+function StatsBar() {
+  const c1 = useCounter(35, 2000);
+  const c2 = useCounter(24, 2000);
+  const c3 = useCounter(100, 2000);
+
+  return (
+    <section className="border-y border-white/5 bg-[#0A0A0A]">
+      <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-3 gap-4 text-center" ref={c1.ref}>
+        <div>
+          <div className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif", color: ORANGE }}>{c1.count}</div>
+          <div className="text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Years Experience</div>
+        </div>
+        <div ref={c2.ref}>
+          <div className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif", color: ORANGE }}>{c2.count}/7</div>
+          <div className="text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Always Running</div>
+        </div>
+        <div ref={c3.ref}>
+          <div className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif", color: ORANGE }}>{c3.count}%</div>
+          <div className="text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-1" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>Automated</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── THE PROBLEM ─── */
+function ProblemSection() {
+  return (
+    <section id="problem" className="py-24 sm:py-32 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            WHAT MOST PEOPLE ARE ABOUT TO MISS
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            THE <span style={{ color: ORANGE }}>PROBLEM</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-white/60 text-lg leading-relaxed mb-8">
+            Here's what I've watched for thirty-five years.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.25}>
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            Most distributors grind. They work their warm market until their friends screen their calls. They run out of people. Seventy percent of them quit.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.35}>
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            The ones who don't quit try to motivate their downline. They push. They drag. They coach. They call at 11 PM when someone's about to walk. They rebuild the same person's confidence twelve times.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.45}>
+          <p className="text-white/80 text-lg leading-relaxed mb-8">
+            And then that person quits anyway.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.55}>
+          <div className="border-l-2 pl-6 py-4 my-10" style={{ borderColor: ORANGE }}>
+            <p className="text-white text-xl sm:text-2xl font-medium leading-relaxed italic">
+              "That's not a failure of leadership. That's not a failure of training. That's the business depending on unreliable humans doing reliable things."
+            </p>
+            <p className="text-white/60 text-sm mt-4 uppercase tracking-wider" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              — Tiger Claw Founder, 35 years in network marketing
+            </p>
+          </div>
+        </FadeSection>
+
+        <FadeSection delay={0.65}>
+          <p className="text-white/60 text-lg leading-relaxed">
+            For thirty-five years that problem had no solution. Now it does.
+          </p>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── ORANGE BREAK ─── */
+function OrangeBreak() {
+  return (
+    <section className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+      <img src={ORANGE_BREAK} alt="" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <FadeSection>
+          <p className="text-3xl sm:text-5xl lg:text-6xl font-bold text-black/80 text-center px-4" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.03em" }}>
+            KEEP SCROLLING
+          </p>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── THE THESIS ─── */
+function ThesisSection() {
+  return (
+    <section id="thesis" className="py-24 sm:py-32 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            THE THESIS
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            AI DOESN'T REPLACE YOUR <span style={{ color: ORANGE }}>DOWNLINE</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-white/80 text-2xl sm:text-3xl font-medium leading-relaxed mb-8">
+            It replaces the <em className="not-italic font-bold" style={{ color: ORANGE }}>unreliable parts</em> of your downline.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.25}>
+          <p className="text-white/60 text-lg leading-relaxed mb-10">
+            You still need people. You just stop being dependent on the parts where people reliably fail.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.35}>
+          <p className="text-white/50 text-lg leading-relaxed">
+            That's Tiger Claw.
+          </p>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── THE WINDOW ─── */
+function WindowSection() {
+  return (
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img src={WINDOW_IMG} alt="" className="w-full h-full object-cover opacity-30" />
+        <div className="absolute inset-0 bg-[#0A0A0A]/80" />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            PATTERN RECOGNITION
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            THE WINDOW IS <span style={{ color: ORANGE }}>OPEN</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-white/80 text-xl sm:text-2xl leading-relaxed mb-6">
+            AI is going to change the world. You know it, and I know it.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.25}>
+          <p className="text-white/60 text-lg leading-relaxed mb-6">
+            The question isn't whether AI will transform how people build businesses. The question is whether you'll be using it — or competing against people who are.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.35}>
+          <p className="text-white/60 text-lg leading-relaxed mb-10">
+            Tiger Claw puts that advantage in your hands. Right now. While the window is still open.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.45}>
+          <a href="#pricing" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+            GET STARTED <ArrowRight className="w-5 h-5" />
+          </a>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── WHAT TIGER CLAW IS ─── */
+function WhatItIs() {
+  return (
+    <section id="how" className="py-24 sm:py-32 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            WHAT TIGER CLAW IS
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            YOUR AI <span style={{ color: ORANGE }}>RECRUITING AGENT</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-white/70 text-lg leading-relaxed mb-10">
+            A recruiting agent built by network marketers, for network marketers.
+          </p>
+        </FadeSection>
+
+        {/* What it does */}
+        <FadeSection delay={0.25}>
+          <div className="grid sm:grid-cols-2 gap-4 mb-12">
+            {[
+              { icon: <Target className="w-5 h-5" />, title: "Find Prospects", desc: "Identifies motivated people who match your ideal customer profile" },
+              { icon: <MessageSquare className="w-5 h-5" />, title: "Run First Conversation", desc: "Engages on Telegram in your voice, handles objections naturally" },
+              { icon: <Calendar className="w-5 h-5" />, title: "Book Your Calendar", desc: "Qualified prospects get booked onto your Cal.com for Zoom presentations" },
+              { icon: <Clock className="w-5 h-5" />, title: "While You Sleep", desc: "Runs 24/7 on cloud infrastructure. Your schedule, your volume" },
+            ].map((item, i) => (
+              <div key={i} className="p-5 rounded-lg border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-200">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style={{ background: `${ORANGE}15`, color: ORANGE }}>
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold text-base mb-1">{item.title}</h3>
+                <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </FadeSection>
+
+        {/* What it's NOT */}
+        <FadeSection delay={0.35}>
+          <div className="border border-white/5 rounded-lg p-6 bg-white/[0.02]">
+            <h3 className="text-sm font-semibold tracking-[0.15em] uppercase mb-4" style={{ color: "#EF4444", fontFamily: "'IBM Plex Mono', monospace" }}>
+              WHAT TIGER CLAW IS NOT
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {[
+                "Not an AI SDR",
+                "Not a chatbot",
+                "Not a CRM",
+                "Not a lead-gen service",
+                "Not hype",
+                "Not fake screenshots",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-white/70 text-sm">
+                  <X className="w-4 h-4 flex-shrink-0" style={{ color: "#EF4444" }} />
+                  {item}
+                </div>
+              ))}
+            </div>
+            <p className="text-white/60 text-sm mt-5 leading-relaxed">
+              The AI SDR category raised seventy-four million dollars, promised to replace sales teams, and lost seventy percent of its customers within months. Tiger Claw is something different.
+            </p>
+          </div>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── WHO IT'S FOR ─── */
+function WhoSection() {
+  return (
+    <section id="who" className="py-24 sm:py-32 bg-[#0A0A0A] border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            WHO IT'S FOR
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            NOT FOR <span style={{ color: ORANGE }}>EVERYONE</span>
+          </h2>
+        </FadeSection>
+
+        <div className="space-y-6">
+          {[
+            {
+              check: true,
+              text: "Network marketers who already know how to recruit and are tired of being the motivation for everyone around them.",
+            },
+            {
+              check: true,
+              text: "People who recognize a window when it's open and don't wait for proof.",
+            },
+            {
+              check: true,
+              text: "Distributors who want to do thirty-five years of what I did in about five — because they have AI and I didn't.",
+            },
+          ].map((item, i) => (
+            <FadeSection key={i} delay={i * 0.12}>
+              <div className="flex gap-4 items-start p-5 rounded-lg border border-white/5 bg-white/[0.02]">
+                <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GREEN }}>
+                  <svg className="w-3.5 h-3.5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <p className="text-white/80 text-base sm:text-lg leading-relaxed">{item.text}</p>
+              </div>
+            </FadeSection>
+          ))}
+        </div>
+
+        <FadeSection delay={0.5}>
+          <p className="text-white/60 text-base mt-10 leading-relaxed">
+            If that's you, keep reading. If it's not, no hard feelings. Send this to someone who might need it.
+          </p>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── PRICING ─── */
+function PricingSection() {
+  return (
+    <section id="pricing" className="py-24 sm:py-32 bg-[#0A0A0A]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            PRICING
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            ONE PRICE. <span style={{ color: ORANGE }}>NO GAMES.</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <div className="border border-white/10 rounded-xl p-8 sm:p-10 bg-white/[0.02] relative overflow-hidden">
+            {/* Glow */}
+            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full blur-[100px] opacity-20" style={{ background: ORANGE }} />
+
+            <div className="relative z-10">
+              {/* Price */}
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-6xl sm:text-7xl font-bold text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>$147</span>
+                <span className="text-white/60 text-lg">/month</span>
+              </div>
+
+              <p className="text-white/70 text-sm mb-8" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+                Cancel anytime. No contracts. No setup fees.
+              </p>
+
+              {/* What you get */}
+              <div className="space-y-3 mb-10">
+                {[
+                  "One Tiger Claw agent",
+                  "One Telegram bot",
+                  "One Cal.com calendar integration",
+                  "One API key",
+                  "Running 24 hours a day, 7 days a week",
+                  "No per-conversation charges",
+                  "No seat limits",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: GREEN }} />
+                    <span className="text-white/80 text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+
+
+              {/* CTA */}
+              <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-lg font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+                Start for $147/month <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── THE OFFER / CTA ─── */
+function OfferSection() {
+  return (
+    <section className="py-24 sm:py-32 bg-[#0A0A0A] border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <FadeSection>
+          <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            THE OFFER
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <span style={{ color: ORANGE }}>WHO DO YOU KNOW</span>
+          </h2>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-white/70 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-6">
+            Who do you know — in your organization, in your upline, in your downline — who's grinding the wrong way? Running out of warm market. Trying to motivate people who won't budge. Working Zoom calls that feel like starting fires underwater.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.25}>
+          <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
+            Send them the link. If they're the right kind of person, they'll get it in four minutes. If they're not, they won't. That's the filter.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.35}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#pricing" className="inline-flex items-center justify-center gap-2 px-10 py-4 text-lg font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+              GET STARTED <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── WINDOW THREE CLOSER ─── */
+function WindowThreeCloser() {
+  return (
+    <section className="py-24 sm:py-32 relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={WINDOW_IMG} alt="" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-[#0A0A0A]/85" />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <FadeSection>
+          <p className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            WINDOW THREE IS <span style={{ color: ORANGE }}>OPEN</span>
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.15}>
+          <p className="text-2xl sm:text-3xl font-bold text-white/60 mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            IT'S CLOSING.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.3}>
+          <p className="text-3xl sm:text-4xl font-bold mb-12" style={{ fontFamily: "'Bebas Neue', sans-serif", color: ORANGE }}>
+            YOUR MOVE.
+          </p>
+        </FadeSection>
+
+        <FadeSection delay={0.45}>
+          <a href="#pricing" className="inline-flex items-center justify-center gap-2 px-12 py-5 text-lg font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+            Start for $147/month <ArrowRight className="w-5 h-5" />
+          </a>
+        </FadeSection>
+      </div>
+    </section>
+  );
+}
+
+/* ─── FOOTER ─── */
+function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
+  const legalLinks = [
+    { label: "Privacy Policy", id: "privacy" },
+    { label: "Terms of Service", id: "terms" },
+    { label: "Acceptable Use", id: "aup" },
+    { label: "Cookie Policy", id: "cookies" },
+    { label: "DMCA", id: "dmca" },
+    { label: "Refund Policy", id: "refund" },
+    { label: "Earnings Disclaimer", id: "earnings" },
+    { label: "Accessibility", id: "accessibility" },
+  ];
+
+  return (
+    <footer className="border-t border-white/10 bg-[#050505] pt-12 pb-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Top row: logo + contact */}
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-8 mb-10">
+          <div>
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: ORANGE }}>
+                <Zap className="w-4 h-4 text-black" />
+              </div>
+              <span className="text-white font-bold text-sm tracking-tight">TIGER CLAW</span>
+            </div>
+            <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              BotCraft Works LLC (DBA Tiger Claw)<br />
+              <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+            </p>
+          </div>
+
+          <div className="text-left sm:text-right">
+            <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              &copy; {new Date().getFullYear()} BotCraft Works LLC. All rights reserved.
+            </p>
+          </div>
+        </div>
+
+        {/* Legal links */}
+        <div className="border-t border-white/10 pt-6 mb-6">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((link, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => onOpenLegal(link.id)}
+                className="text-white/60 hover:text-white text-sm transition-colors duration-200 cursor-pointer"
+                style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => onOpenLegal("do-not-sell")}
+            className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors duration-200 underline underline-offset-2 cursor-pointer"
+            style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+          >
+            Do Not Sell or Share My Personal Information
+          </button>
+        </div>
+
+        {/* Disclaimers */}
+        <div className="border-t border-white/10 pt-6 space-y-3">
+          <p className="text-white/60 text-xs leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+            Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company and program compliance.
+          </p>
+          <p className="text-white/60 text-xs leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+            Results shown are not typical. See{" "}
+            <button
+              type="button"
+              onClick={() => onOpenLegal("earnings")}
+              className="underline underline-offset-2 hover:text-white transition-colors cursor-pointer"
+            >
+              Earnings Disclaimer
+            </button>
+            .
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ─── BOOKING SECTION ─── */
+function BookingSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const CAL_URL = "https://cal.com/brent-bryson-l9viqn/tiger-claw-ai-meeting-agents";
+
+  return (
+    <section id="book" ref={ref} className="relative py-24 sm:py-32 bg-[#0A0A0A]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12"
+        >
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+            TALK TO THE FOUNDER
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+            BOOK A MEETING
+          </h2>
+          <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            Product questions, setup questions, or want to see Tiger Claw in action? Pick a time.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="rounded-2xl overflow-hidden border border-white/10 bg-[#111]" style={{ minHeight: "650px" }}
+        >
+          <iframe
+            src={CAL_URL + "?embed=true&theme=dark&layout=month_view"}
+            title="Book a meeting"
+            className="w-full border-0"
+            style={{ height: "700px", minHeight: "650px" }}
+            loading="lazy"
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── PAGE ─── */
+export default function Home() {
+  const [legalOpen, setLegalOpen] = useState(false);
+  const [legalSection, setLegalSection] = useState<string>("privacy");
+
+  const openLegal = (section: string) => {
+    setLegalSection(section);
+    setLegalOpen(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0A0A0A]">
+      <CursorFollower />
+      <Nav />
+      <Hero />
+      <StatsBar />
+      <ProblemSection />
+      <OrangeBreak />
+      <ThesisSection />
+      <WindowSection />
+      <WhatItIs />
+      <WhoSection />
+      <PricingSection />
+      <OfferSection />
+      <BookingSection />
+      <Footer onOpenLegal={openLegal} />
+      <LegalDrawer open={legalOpen} onClose={() => setLegalOpen(false)} initialSection={legalSection} />
+    </div>
+  );
+}

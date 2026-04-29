@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.08 0.005 60);
+  --foreground: oklch(0.95 0.005 60);
+  --card: oklch(0.12 0.005 60);
+  --card-foreground: oklch(0.95 0.005 60);
+  --popover: oklch(0.12 0.005 60);
+  --popover-foreground: oklch(0.95 0.005 60);
+  --primary: oklch(0.75 0.18 55);
+  --primary-foreground: oklch(0.08 0.005 60);
+  --secondary: oklch(0.15 0.005 60);
+  --secondary-foreground: oklch(0.85 0.005 60);
+  --muted: oklch(0.18 0.005 60);
+  --muted-foreground: oklch(0.6 0.01 60);
+  --accent: oklch(0.7 0.19 145);
+  --accent-foreground: oklch(0.08 0.005 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.75 0.18 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    margin: 0;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; }
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: oklch(0.08 0.005 60); }
+::-webkit-scrollbar-thumb { background: oklch(0.3 0.005 60); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.4 0.005 60); }
+
+html { scroll-behavior: smooth; }
+
+/* Legal page typography */
+.legal-prose {
+  color: var(--foreground);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.legal-prose h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 1.5rem 0 1.25rem;
+  color: var(--foreground);
+}
+.legal-prose h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid oklch(1 0 0 / 8%);
+  color: var(--foreground);
+}
+.legal-prose h3 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  margin: 2rem 0 0.75rem;
+  color: var(--foreground);
+}
+.legal-prose h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: oklch(0.6 0.01 60);
+  margin: 1.5rem 0 0.5rem;
+}
+.legal-prose p { margin: 0.75rem 0; color: oklch(0.78 0.005 60); }
+.legal-prose a { color: #E8722A; text-decoration: underline; text-underline-offset: 3px; }
+.legal-prose a:hover { color: #f08e4d; }
+.legal-prose ul, .legal-prose ol { margin: 0.75rem 0 0.75rem 1.5rem; color: oklch(0.78 0.005 60); }
+.legal-prose li { margin: 0.4rem 0; }
+.legal-prose strong { color: var(--foreground); font-weight: 600; }
+.legal-prose hr { border: 0; border-top: 1px solid oklch(1 0 0 / 8%); margin: 3rem 0; }
+.legal-prose code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  background: oklch(0.15 0.005 60);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+  color: var(--foreground);
+}
+.legal-prose pre {
+  background: oklch(0.12 0.005 60);
+  border: 1px solid oklch(1 0 0 / 8%);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: oklch(0.85 0.005 60);
+  margin: 1rem 0;
+}
+.legal-prose pre code { background: transparent; padding: 0; }
+.legal-prose blockquote {
+  border-left: 2px solid #E8722A;
+  padding: 0.5rem 0 0.5rem 1rem;
+  margin: 1rem 0;
+  color: oklch(0.7 0.005 60);
+  font-style: italic;
+}
