@@ -7,7 +7,7 @@ import LegalDrawer from "@/components/LegalDrawer";
 
 /* ─── CONTACT PAGE ───
    Design: Tiger Claw dark theme — true black, orange accents, Space Grotesk + IBM Plex Mono
-   Layout: Two-column — contact form left, contact info + Cal.com right
+   Layout: Two-column — contact form left, contact info right
    No personal names in headings. Production-ready.
 ─── */
 
@@ -16,8 +16,6 @@ const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const FOOTER_DISCLAIMER =
   "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company and program compliance.";
-
-const CAL_URL = "https://cal.com/brent-bryson-l9viqn/tiger-claw-ai-meeting-agents";
 
 /* ─── CURSOR FOLLOWER ─── */
 function CursorFollower() {
@@ -131,7 +129,7 @@ function ContactForm() {
     // Build mailto link as fallback
     const subject = encodeURIComponent("Tiger Claw Inquiry");
     const body = encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:success@tigerclaw.io?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:help@tigerclaw.io?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -213,7 +211,7 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
     { label: "Cookie Policy", id: "cookies" },
     { label: "DMCA", id: "dmca" },
     { label: "Refund Policy", id: "refund" },
-    { label: "Earnings Disclaimer", id: "earnings" },
+    { label: "Results Disclaimer", id: "earnings" },
     { label: "Accessibility", id: "accessibility" },
   ];
 
@@ -334,8 +332,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Email</p>
-                      <a href="mailto:success@tigerclaw.io" className="hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
-                        success@tigerclaw.io
+                      <a href="mailto:help@tigerclaw.io" className="hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
+                        help@tigerclaw.io
                       </a>
                     </div>
                   </div>
@@ -359,7 +357,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Cal.com Booking */}
+      {/* Conversation CTA */}
       <section className="pb-20 sm:pb-28 bg-[#0A0A0A]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
@@ -370,13 +368,13 @@ export default function Contact() {
             className="text-center mb-12"
           >
             <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
-              SCHEDULE A CALL
+              SEE TIGER CLAW IN ACTION
             </p>
             <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
-              BOOK A MEETING
+              SCHEDULE A CONVERSATION
             </h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-              Product questions, setup questions, or want to see Tiger Claw in action? Pick a time.
+              Product questions, setup questions, or want to see whether Tiger Claw fits your follow-up workflow? Send a note and we will help with the next step.
             </p>
           </motion.div>
 
@@ -385,16 +383,18 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="rounded-2xl overflow-hidden border border-white/10 bg-[#111]"
-            style={{ minHeight: "650px" }}
+            className="max-w-2xl mx-auto rounded-2xl border border-white/10 bg-[#111] p-8 sm:p-10 text-center"
           >
-            <iframe
-              src={CAL_URL + "?embed=true&theme=dark&layout=month_view"}
-              title="Book a meeting"
-              className="w-full border-0"
-              style={{ height: "700px", minHeight: "650px" }}
-              loading="lazy"
-            />
+            <p className="text-white/70 text-base leading-relaxed mb-6" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Use one inbox for product questions, setup help, and conversation requests.
+            </p>
+            <a
+              href="mailto:help@tigerclaw.io?subject=Tiger%20Claw%20Conversation"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5"
+              style={{ background: ORANGE, color: "#000", fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              Schedule a Conversation <ArrowLeft className="w-4 h-4 rotate-[135deg]" />
+            </a>
           </motion.div>
         </div>
       </section>
