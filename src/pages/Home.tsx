@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown, Clock, Menu, MessageSquare, NotebookTabs, Shield, Target, UserRoundCheck, X } from "lucide-react";
+import FooterSocialLinks from "@/components/FooterSocialLinks";
 import LegalDrawer from "@/components/LegalDrawer";
 
 const HERO_TIGER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-hero-tiger-kREoKjDy7VbVLihfN3ac8E.webp";
@@ -507,6 +508,7 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
               BotCraft Works LLC (DBA Tiger Claw)<br />
               <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
             </p>
+            <FooterSocialLinks />
           </div>
           <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
             &copy; {new Date().getFullYear()} BotCraft Works LLC. All rights reserved.

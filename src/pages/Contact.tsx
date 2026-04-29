@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Mail, MapPin, Send, ArrowLeft, Menu, X } from "lucide-react";
 import { Link } from "wouter";
+import FooterSocialLinks from "@/components/FooterSocialLinks";
 import LegalDrawer from "@/components/LegalDrawer";
 
 /* ─── CONTACT PAGE ───
@@ -229,6 +230,7 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
               BotCraft Works LLC (DBA Tiger Claw)<br />
               <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
             </p>
+            <FooterSocialLinks />
           </div>
           <div className="text-left sm:text-right">
             <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
