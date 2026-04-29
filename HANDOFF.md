@@ -3,7 +3,7 @@
 > ## ⚠️ KNOWN GOOD STATE — DO NOT MODIFY WITHOUT BRENT APPROVAL
 >
 > - **Public face:** approved
-> - **CTA:** production Stripe Payment Link (`https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c`)
+> - **CTA:** branded `/start` route redirects to production Stripe checkout
 > - **Stripe product description:** `AI-powered follow-up and conversation support software for independent operators, affiliates, and relationship-driven professionals.`
 > - **Post-payment path:** `wizard.tigerclaw.io`
 > - **Wizard:** untouched
@@ -95,8 +95,9 @@ drawer at `src/components/LegalDrawer.tsx`, opened from footer link clicks.
    - `<link rel="icon">` tags in `index.html`
 
 6. **Buy CTAs**
-   - `WIZARD_URL` constant in `Home.tsx` points at
-     `https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c` (Stripe Payment Link directly)
+   - `WIZARD_URL` constant in `Home.tsx` points at `/start`.
+   - `vercel.json` redirects `/start` to the production Stripe Payment Link
+     `https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c`.
    - Stripe redirects successful purchases to
      `https://wizard.tigerclaw.io/signup?session_id={CHECKOUT_SESSION_ID}` so
      the wizard can verify the payment session and open the hatch flow.
@@ -159,7 +160,7 @@ without a second-pass review. Build passing is not the same as code being review
 2. Mobile rendering: unverified.
 3. Full paid checkout should still be smoke-tested with a real Stripe checkout
    session before paid traffic. The configured handoff is now:
-   marketing CTA → Stripe Payment Link →
+   marketing CTA → `/start` → Stripe Payment Link →
    `wizard.tigerclaw.io/signup?session_id={CHECKOUT_SESSION_ID}`.
 
 ---

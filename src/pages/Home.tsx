@@ -11,7 +11,7 @@ const WINDOW_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mG
 const ORANGE = "#E8722A";
 const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
-const WIZARD_URL = "https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c";
+const WIZARD_URL = "/start";
 const FOOTER_DISCLAIMER =
   "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company. Results are not guaranteed. Users are responsible for their own company, platform, program, privacy, advertising, and communication compliance.";
 
