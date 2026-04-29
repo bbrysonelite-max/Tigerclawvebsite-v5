@@ -1,0 +1,24 @@
+{
+  "theGoods": {
+    "name": "The Goods",
+    "website": "https://thegoods.ai",
+    "bios": {
+      "linkedin": "The Goods builds cloud-native AI agent infrastructure for operators, agencies, and teams. Creator of Tiger Claw, an AI follow-up assistant for relationship-driven builders.",
+      "x": "Building AI agent infrastructure for operators. Founder-led. Value-first. Creator of Tiger Claw.",
+      "youtube": "Founder demos, AI-agent workflows, product build notes, and practical systems for follow-up, prospect conversations, and operator leverage.",
+      "tiktok": "AI follow-up systems, prospect conversation tips, product demos, and founder-built tools for relationship-driven operators.",
+      "instagram": "AI follow-up tools, product demos, founder notes, and practical systems for independent builders and relationship-driven operators."
+    }
+  },
+  "tigerClaw": {
+    "name": "Tiger Claw",
+    "website": "https://tigerclaw.io",
+    "bios": {
+      "linkedin": "Tiger Claw is your AI follow-up assistant for prospect conversations, objection support, notes, and next-step guidance.",
+      "x": "Your AI follow-up assistant. Remember prospects, draft better replies, handle objections, and keep conversations moving.",
+      "youtube": "Demos and practical walkthroughs for using Tiger Claw as your AI follow-up assistant.",
+      "tiktok": "Follow-up tips, prospect conversation support, and Tiger Claw demos for relationship-driven builders.",
+      "instagram": "Your AI follow-up assistant for prospect conversations, replies, objections, notes, and next steps."
+    }
+  }
+}
