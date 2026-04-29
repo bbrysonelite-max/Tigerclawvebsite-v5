@@ -23,7 +23,7 @@ export const sections = [
   { id: "aup", label: "Acceptable Use" },
   { id: "cookies", label: "Cookie Policy" },
   { id: "dmca", label: "DMCA" },
-  { id: "refund", label: "Refund Policy" },
+  { id: "refund", label: "Cancellation" },
   { id: "earnings", label: "Results Disclaimer" },
   { id: "accessibility", label: "Accessibility" },
   { id: "not-affiliated", label: "Not Affiliated" },
@@ -82,15 +82,15 @@ export function PrivacyPolicy() {
       <H3>Information We Collect</H3>
       <P><Bold>From Operators (our paying customers):</Bold></P>
       <ul className="mb-4">
-        <Li>Account information: name, email address, payment information (processed by Stripe; we do not store card numbers)</Li>
-        <Li>Configuration data: your Telegram bot token, Cal.com URL, and an API key, which you provide to enable the Service (we store these securely; you may revoke them at any time)</Li>
+        <Li>Account information: name, email address, and payment information processed by our payment processor; we do not store card numbers</Li>
+        <Li>Configuration data: connected messaging credentials, calendar booking links, and API keys you provide to enable the Service (we store these securely; you may revoke them at any time)</Li>
         <Li>Usage data: how you interact with the Service, including conversation notes, follow-up activity, performance metrics, and error logs</Li>
         <Li>Communications: messages you send to our support or that we send to you</Li>
       </ul>
 
-      <P><Bold>From Prospects (people your agent converses with on Telegram):</Bold></P>
+      <P><Bold>From Prospects (people your assistant helps you communicate with):</Bold></P>
       <ul className="mb-4">
-        <Li>Telegram handle and chat identifiers</Li>
+        <Li>Messaging handles and chat identifiers</Li>
         <Li>Messages, notes, and follow-up details you submit or connect to the Service</Li>
         <Li>Publicly available information provided to us by our third-party data provider, including but not limited to usernames, publicly posted statements, and links to public sources</Li>
       </ul>
@@ -114,12 +114,12 @@ export function PrivacyPolicy() {
       <H3>Third-Party Services We Use</H3>
       <P>We share information with the following service providers as necessary to operate the Service:</P>
       <ul className="mb-4">
-        <Li><Bold>Stripe</Bold> — payment processing</Li>
-        <Li><Bold>Google Cloud Platform / Google Cloud Run</Bold> — hosting infrastructure</Li>
-        <Li><Bold>Supabase</Bold> — database services</Li>
-        <Li><Bold>Telegram Messenger</Bold> — message delivery to your agents and prospects</Li>
-        <Li><Bold>Cal.com</Bold> — calendar booking on your behalf (Bring Your Own Calendar)</Li>
-        <Li><Bold>Google AI Studio (Gemini)</Bold> — AI processing, using your API key (Bring Your Own Key)</Li>
+        <Li><Bold>Payment processors</Bold> — payment processing</Li>
+        <Li><Bold>Hosting providers</Bold> — hosting infrastructure</Li>
+        <Li><Bold>Database providers</Bold> — database services</Li>
+        <Li><Bold>Messaging providers</Bold> — message delivery to your agents and prospects</Li>
+        <Li><Bold>Calendar providers</Bold> — calendar booking on your behalf</Li>
+        <Li><Bold>AI providers</Bold> — AI processing, using your API key when applicable</Li>
         <Li><Bold>Third-party data provider</Bold> — supplies publicly sourced prospect information</Li>
       </ul>
       <P>Each of these providers has their own privacy practices, which we encourage you to review.</P>
@@ -174,7 +174,7 @@ export function TermsOfService() {
       <P>Tiger Claw is an independent software product built to support prospect conversation management, follow-up organization, reply drafting, objection support, notes, and next-step guidance. Users configure their own workflow, connected tools, and communication practices, and use the Service to support prospect conversations they are responsible for managing.</P>
 
       <H3>4. Subscription and Billing</H3>
-      <P><Bold>Price:</Bold> The Service is offered at $147 per month, billed monthly via Stripe. Prices are subject to change with 30 days' notice to active operators.</P>
+      <P><Bold>Price:</Bold> The Service is offered at $147 per month, billed monthly through our payment processor. Prices are subject to change with 30 days' notice to active operators.</P>
       <P><Bold>Billing cycle:</Bold> Subscriptions renew automatically each month until canceled.</P>
       <P><Bold>Cancellation:</Bold> You may cancel at any time through your account or by contacting <EmailLink />. Cancellation takes effect at the end of your current billing cycle. You will retain access to the Service through the end of the paid period.</P>
       <P><Bold>Refunds:</Bold> Fees are non-refundable after 7 days except where required by law. If you believe you have been charged in error, contact <EmailLink /> within 30 days and we will review your request in good faith.</P>
@@ -198,7 +198,7 @@ export function TermsOfService() {
         <Li>Impersonate any person or entity, or misrepresent your identity or affiliation</Li>
         <Li>Spam, harass, threaten, defraud, or harm prospects or any other person</Li>
         <Li>Send unsolicited commercial communications in violation of CAN-SPAM, TCPA, or similar laws</Li>
-        <Li>Promote adult content, illegal substances, weapons, or other content prohibited by Telegram's Terms of Service</Li>
+        <Li>Promote adult content, illegal substances, weapons, or other content prohibited by a connected messaging platform's terms of service</Li>
         <Li>Attempt to reverse engineer, decompile, disassemble, or otherwise extract the source code of the Service</Li>
         <Li>Interfere with or disrupt the Service, servers, or networks connected to the Service</Li>
         <Li>Use the Service to build a competing product</Li>
@@ -208,7 +208,7 @@ export function TermsOfService() {
       <P><Bold>You are solely responsible for how you use the Service and for the content of communications you send.</Bold> Tiger Claw provides software support; you direct its use.</P>
 
       <H3>7. AI Disclosure Responsibility</H3>
-      <P>The Service may use AI-generated notes, drafts, summaries, and guidance. You agree to comply with all applicable laws regarding AI disclosure, including ensuring that prospects receive any disclosure required by law or regulation.</P>
+      <P>AI may draft notes, replies, summaries, and guidance. You review, edit, approve, send, and stay compliant. You agree to comply with all applicable laws regarding AI disclosure, including ensuring that prospects receive any disclosure required by law or regulation.</P>
 
       <H3>8. Intellectual Property</H3>
       <P>Tiger Claw and its licensors own all rights in the Service, including software, designs, logos, and content. You retain ownership of content you provide, including your configuration, prospect data you upload, notes, and conversation records, and you grant us a license to use that content solely to operate and improve the Service.</P>
@@ -226,7 +226,7 @@ export function TermsOfService() {
       <P>Some jurisdictions do not allow these limitations; in those jurisdictions, our liability is limited to the maximum extent permitted.</P>
 
       <H3>12. Indemnification</H3>
-      <P>You agree to defend, indemnify, and hold harmless Tiger Claw, BotCraft Works LLC, and their officers, employees, and agents from any claim, loss, damage, or expense (including reasonable attorneys' fees) arising out of: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third-party right, including Telegram's Terms of Service, any law, or any individual's privacy rights; (d) content sent by your agent; or (e) any claim that your use of the Service caused harm to a prospect or other person.</P>
+      <P>You agree to defend, indemnify, and hold harmless Tiger Claw, BotCraft Works LLC, and their officers, employees, and agents from any claim, loss, damage, or expense (including reasonable attorneys' fees) arising out of: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third-party right, including a connected messaging platform's terms of service, any law, or any individual's privacy rights; (d) content sent through your workflow; or (e) any claim that your use of the Service caused harm to a prospect or other person.</P>
 
       <H3>13. Termination</H3>
       <P>We may suspend or terminate your access to the Service at any time, with or without cause, with reasonable notice where practicable. You may cancel at any time under Section 4.</P>
@@ -298,7 +298,7 @@ export function AcceptableUse() {
         <Li>Sexual or adult content</Li>
         <Li>Violent, hateful, or discriminatory content</Li>
         <Li>Content that promotes self-harm, eating disorders, or dangerous behavior</Li>
-        <Li>Content that violates Telegram's Terms of Service</Li>
+        <Li>Content that violates a connected messaging platform's terms of service</Li>
       </ul>
 
       <P><Bold>Technical abuse:</Bold></P>
@@ -395,7 +395,7 @@ export function EarningsDisclaimer() {
       <SectionHeading id="earnings" title="Results Disclaimer" />
       <EffectiveDate />
 
-      <P>Tiger Claw is an independent software product built to support prospect conversation management, follow-up organization, reply drafting, objection support, notes, and next-step guidance. Tiger Claw is not produced, approved, sponsored, endorsed, recommended, or authorized by any network marketing, direct selling, multi-level marketing, affiliate marketing, social-selling, gig-economy, or opportunity-based company.</P>
+      <P>Tiger Claw is an independent software product built to support prospect conversation management, follow-up organization, reply drafting, objection support, notes, and next-step guidance. Tiger Claw is not produced, approved, sponsored, endorsed, recommended, or authorized by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.</P>
       <P>Users are solely responsible for ensuring that their use of Tiger Claw complies with the rules, policies, compensation-plan requirements, advertising standards, income-claim rules, privacy obligations, and communication requirements of any company, platform, or program they participate in.</P>
       <P>Tiger Claw does not guarantee sales, signups, commissions, rank advancement, income, recruiting results, customer acquisition, lead conversion, or any other business outcome. Tiger Claw provides software tools for organization, communication support, follow-up assistance, and workflow guidance. Results depend on the user's own effort, market, relationships, compliance, and business activity.</P>
       <P>Tiger Claw does not provide legal, financial, tax, compensation-plan, or company-compliance advice. Users should review their own company policies and consult qualified advisors when needed.</P>
@@ -420,7 +420,7 @@ export function NotAffiliated() {
     <div>
       <SectionHeading id="not-affiliated" title="Not Affiliated Disclaimer" />
 
-      <P>Tiger Claw is an independent software tool. It is not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.</P>
+      <P>Tiger Claw is an independent software tool. It is not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.</P>
     </div>
   );
 }

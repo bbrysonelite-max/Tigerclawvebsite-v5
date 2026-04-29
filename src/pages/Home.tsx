@@ -13,7 +13,7 @@ const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const WIZARD_URL = "https://buy.stripe.com/14A8wHapE4OAemeeIU9AA07";
 const FOOTER_DISCLAIMER =
-  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company and program compliance.";
+  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company. Results are not guaranteed. Users are responsible for their own company, platform, program, privacy, advertising, and communication compliance.";
 
 function FadeSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -222,7 +222,7 @@ function ProblemSection() {
             THE DAILY FOLLOW-UP PROBLEM
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Recruiting gets <span style={{ color: ORANGE }}>messy fast.</span>
+            Follow-up gets <span style={{ color: ORANGE }}>messy fast.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
@@ -387,6 +387,12 @@ function PricingSection() {
               <p className="text-white/70 text-sm mb-8" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 Cancel anytime. No contracts. No setup fees.
               </p>
+              <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
+                Checkout starts a Tiger Claw AI follow-up assistant
+                subscription. It supports human-reviewed reply drafts, notes,
+                and next steps; it does not run automated recruiting or promise
+                business outcomes.
+              </p>
               <div className="space-y-3 mb-10">
                 {[
                   "Your AI Follow-Up Assistant",
@@ -416,8 +422,8 @@ function PricingSection() {
 function FAQSection() {
   const faqs = [
     {
-      q: "Is Tiger Claw affiliated with any network marketing, direct selling, MLM, affiliate marketing, or social-selling company?",
-      a: "No. Tiger Claw is independently built and operated. It is not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.",
+      q: "Is Tiger Claw affiliated with any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company?",
+      a: "No. Tiger Claw is independently built and operated. It is not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.",
     },
     {
       q: "Does Tiger Claw guarantee sales, signups, commissions, rank advancement, or income?",
@@ -426,6 +432,10 @@ function FAQSection() {
     {
       q: "Do I still have to follow my company's rules?",
       a: "Yes. You are responsible for following the policies, compensation-plan rules, income-claim rules, advertising rules, privacy rules, and communication requirements of any company or program you participate in.",
+    },
+    {
+      q: "Who reviews and sends AI drafts?",
+      a: "AI may draft notes, replies, summaries, and guidance. You review, edit, approve, send, and stay compliant.",
     },
   ];
 
@@ -484,13 +494,18 @@ function OfferSection() {
 }
 
 function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
+  const siteLinks = [
+    { label: "Contact", href: "/contact" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Support Promise", href: "/contact#support-promise" },
+  ];
   const legalLinks = [
     { label: "Privacy Policy", id: "privacy" },
     { label: "Terms of Service", id: "terms" },
     { label: "Acceptable Use", id: "aup" },
     { label: "Cookie Policy", id: "cookies" },
     { label: "DMCA", id: "dmca" },
-    { label: "Refund Policy", id: "refund" },
+    { label: "Cancellation", id: "refund" },
     { label: "Results Disclaimer", id: "earnings" },
     { label: "Accessibility", id: "accessibility" },
   ];
@@ -516,6 +531,11 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
         </div>
         <div className="border-t border-white/10 pt-6 mb-6">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {siteLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-white/60 hover:text-white text-sm transition-colors duration-200" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+                {link.label}
+              </a>
+            ))}
             {legalLinks.map((link) => (
               <button key={link.id} type="button" onClick={() => onOpenLegal(link.id)} className="text-white/60 hover:text-white text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 {link.label}

@@ -15,7 +15,7 @@ const ORANGE = "#E8722A";
 const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const FOOTER_DISCLAIMER =
-  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company and program compliance.";
+  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company. Results are not guaranteed. Users are responsible for their own company, platform, program, privacy, advertising, and communication compliance.";
 
 /* ─── CURSOR FOLLOWER ─── */
 function CursorFollower() {
@@ -204,13 +204,18 @@ function ContactForm() {
 
 /* ─── FOOTER ─── */
 function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
+  const siteLinks = [
+    { label: "Contact", href: "/contact" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Support Promise", href: "/contact#support-promise" },
+  ];
   const legalLinks = [
     { label: "Privacy Policy", id: "privacy" },
     { label: "Terms of Service", id: "terms" },
     { label: "Acceptable Use", id: "aup" },
     { label: "Cookie Policy", id: "cookies" },
     { label: "DMCA", id: "dmca" },
-    { label: "Refund Policy", id: "refund" },
+    { label: "Cancellation", id: "refund" },
     { label: "Results Disclaimer", id: "earnings" },
     { label: "Accessibility", id: "accessibility" },
   ];
@@ -238,6 +243,11 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
         </div>
         <div className="border-t border-white/10 pt-6 mb-6">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {siteLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-white/60 hover:text-white text-sm transition-colors duration-200" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+                {link.label}
+              </a>
+            ))}
             {legalLinks.map((link, i) => (
               <button key={i} type="button" onClick={() => onOpenLegal(link.id)} className="text-white/60 hover:text-white text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 {link.label}
@@ -354,6 +364,31 @@ export default function Contact() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Support Promise */}
+      <section id="support-promise" className="pb-20 sm:pb-28 bg-[#0A0A0A]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10"
+          >
+            <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
+              SUPPORT PROMISE
+            </p>
+            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+              A clear next step within one business day.
+            </h2>
+            <p className="text-white/70 text-lg leading-relaxed" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Send product questions, setup questions, billing questions, or
+              cancellation requests to help@tigerclaw.io. We will respond within
+              24 business hours and point you to the next useful step.
+            </p>
+          </motion.div>
         </div>
       </section>
 

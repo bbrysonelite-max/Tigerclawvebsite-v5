@@ -7,18 +7,19 @@ Product: Tiger Claw AI Follow-Up Assistant - $147/month
 ## Public disclaimer
 
 Independent software tool. Not produced, approved, sponsored, endorsed, or
-recommended by any network marketing, direct selling, MLM, affiliate marketing,
-or social-selling company. Results are not guaranteed. Users are responsible for
-their own company and program compliance.
+recommended by any company, platform, marketplace, network, affiliate program,
+direct selling company, network marketing company, or social-selling company.
+Results are not guaranteed. Users are responsible for their own company,
+platform, program, privacy, advertising, and communication compliance.
 
 ## Independent product language
 
 Tiger Claw is an independent software product built to support prospect
 conversation management, follow-up organization, reply drafting, objection
 support, notes, and next-step guidance. Tiger Claw is not produced, approved,
-sponsored, endorsed, recommended, or authorized by any network marketing, direct
-selling, multi-level marketing, affiliate marketing, social-selling,
-gig-economy, or opportunity-based company.
+sponsored, endorsed, recommended, or authorized by any company, platform,
+marketplace, network, affiliate program, direct selling company, network
+marketing company, or social-selling company.
 
 Users are solely responsible for ensuring that their use of Tiger Claw complies
 with the rules, policies, compensation-plan requirements, advertising standards,
@@ -38,12 +39,14 @@ consult qualified advisors when needed.
 
 ## FAQ copy
 
-Q: Is Tiger Claw affiliated with any network marketing, direct selling, MLM,
-affiliate marketing, or social-selling company?
+Q: Is Tiger Claw affiliated with any company, platform, marketplace, network,
+affiliate program, direct selling company, network marketing company, or
+social-selling company?
 
 A: No. Tiger Claw is independently built and operated. It is not produced,
-approved, sponsored, endorsed, or recommended by any network marketing, direct
-selling, MLM, affiliate marketing, or social-selling company.
+approved, sponsored, endorsed, or recommended by any company, platform,
+marketplace, network, affiliate program, direct selling company, network
+marketing company, or social-selling company.
 
 Q: Does Tiger Claw guarantee sales, signups, commissions, rank advancement, or
 income?
@@ -57,3 +60,8 @@ Q: Do I still have to follow my company's rules?
 A: Yes. You are responsible for following the policies, compensation-plan rules,
 income-claim rules, advertising rules, privacy rules, and communication
 requirements of any company or program you participate in.
+
+Q: Who reviews and sends AI drafts?
+
+A: AI may draft notes, replies, summaries, and guidance. You review, edit,
+approve, send, and stay compliant.
