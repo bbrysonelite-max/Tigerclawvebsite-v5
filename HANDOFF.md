@@ -3,7 +3,8 @@
 > ## ⚠️ KNOWN GOOD STATE — DO NOT MODIFY WITHOUT BRENT APPROVAL
 >
 > - **Public face:** approved
-> - **CTA:** existing Stripe Checkout link (`https://buy.stripe.com/14A8wHapE4OAemeeIU9AA07`)
+> - **CTA:** production Stripe Payment Link (`https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c`)
+> - **Stripe product description:** `AI-powered follow-up and conversation support software for independent operators, affiliates, and relationship-driven professionals.`
 > - **Post-payment path:** `wizard.tigerclaw.io`
 > - **Wizard:** untouched
 > - **Admin/dashboard:** untouched
@@ -95,9 +96,10 @@ drawer at `src/components/LegalDrawer.tsx`, opened from footer link clicks.
 
 6. **Buy CTAs**
    - `WIZARD_URL` constant in `Home.tsx` points at
-     `https://buy.stripe.com/14A8wHapE4OAemeeIU9AA07` (Stripe Payment Link directly)
-   - `wizard.tigerclaw.io` is bypassed — it just 307s to Stripe and the post-Stripe
-     flow is broken (see "Known broken" below)
+     `https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c` (Stripe Payment Link directly)
+   - Stripe redirects successful purchases to
+     `https://wizard.tigerclaw.io/signup?session_id={CHECKOUT_SESSION_ID}` so
+     the wizard can verify the payment session and open the hatch flow.
    - Wired into: pricing-card "Start for $147/month" button + nav "Get Started" pill
      (desktop + mobile)
    - Other CTAs (`#pricing` anchors) still scroll to the pricing section
@@ -153,15 +155,12 @@ without a second-pass review. Build passing is not the same as code being review
 
 ## Known broken / pending
 
-1. **Post-Stripe flow:** `wizard.tigerclaw.io` 307s to Stripe Payment Link, but the
-   Stripe success URL → wizard hatch flow → customer dashboard handoff is broken.
-   Brent flagged: thank-you email + wizard repair pending. Marketing CTAs go DIRECT
-   to Stripe right now to skip the broken intermediate.
-2. **The full funnel is not yet end-to-end working.** A purchase will hit Stripe
-   and (per Brent) something downstream is broken. Repair in a future session
-   before paid traffic.
-3. Cursor follower: visual quality unverified.
-4. Mobile rendering: unverified.
+1. Cursor follower: visual quality unverified.
+2. Mobile rendering: unverified.
+3. Full paid checkout should still be smoke-tested with a real Stripe checkout
+   session before paid traffic. The configured handoff is now:
+   marketing CTA → Stripe Payment Link →
+   `wizard.tigerclaw.io/signup?session_id={CHECKOUT_SESSION_ID}`.
 
 ---
 
@@ -177,7 +176,8 @@ vercel --yes --prod # deploy to tigerclaw.io
 
 To test what was shipped today, the right move is:
 1. Open `https://tigerclaw.io/` in a browser
-2. Click "Get Started" in the nav → confirm Stripe page loads
+2. Click "Get Started" in the nav → confirm Stripe page loads for the
+   production `$147/month` Tiger Claw product
 3. Click any footer legal link → confirm drawer slides in from right
 4. Open in mobile viewport → confirm mobile nav + layout
 5. Walk the page top to bottom on desktop and mobile
