@@ -126,20 +126,23 @@ export function PrivacyPolicy() {
 
       <H3>Prospect Data — Important Disclosure</H3>
       <P>Tiger Claw may receive information about prospects from third-party data providers, connected tools, or information you provide. We use this information to support conversation memory, reply drafting, objection support, follow-up organization, and next-step guidance. We do not sell this information to third parties. Prospects may contact us at <EmailLink /> to request information about data we hold on them, request deletion, or opt out.</P>
+      <P>You own the prospect conversation data, notes, and records you provide to the Service. We use that information to operate, support, secure, and improve the Service, not to sell prospect conversation data to third parties.</P>
+      <P>Suppression, unsubscribe, and do-not-contact requests must be honored. If a prospect asks not to be contacted, you are responsible for respecting that request in your own communications, and we may retain limited suppression records as needed to prevent future contact.</P>
 
       <H3>How Long We Keep Information</H3>
-      <P>We retain account and configuration data for as long as your account is active, plus a reasonable period thereafter for legal, accounting, and operational purposes. Conversation logs and prospect data are retained for as long as necessary to provide the Service and comply with applicable law. You may request deletion at any time by contacting <EmailLink />.</P>
+      <P>We retain account and configuration data for as long as your account is active, plus a reasonable period thereafter for legal, accounting, and operational purposes. Conversation logs and prospect data are retained for as long as necessary to provide the Service and comply with applicable law. You may request export or deletion at any time by contacting <EmailLink />.</P>
 
       <H3>Your Rights</H3>
       <P>Depending on where you live, you may have rights to:</P>
       <ul className="mb-4">
         <Li>Access the personal information we hold about you</Li>
+        <Li>Request an export of your tenant-owned data</Li>
         <Li>Correct inaccurate information</Li>
         <Li>Request deletion of your information</Li>
         <Li>Opt out of certain uses or sharing</Li>
         <Li>Withdraw consent previously given</Li>
       </ul>
-      <P>To exercise any of these rights, contact us at <EmailLink />. We will respond within the time required by applicable law.</P>
+      <P>To exercise any of these rights, contact us at <EmailLink />. We will respond within the time required by applicable law. Cancellation does not remove your ability to request export or deletion of eligible data.</P>
       <P><Bold>California residents:</Bold> Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), you have additional rights including the right to know, delete, and opt out of the sale or sharing of your personal information. We do not sell personal information. To exercise your rights, contact us at <EmailLink /> or use the "Do Not Sell or Share My Personal Information" link in our footer.</P>
       <P><Bold>EU/UK residents:</Bold> If you are in the European Union or United Kingdom, we process your data under GDPR/UK GDPR. Our legal bases include contract performance, legitimate interests, and consent where required. You have rights under GDPR including access, rectification, erasure, restriction, portability, and objection. Contact <EmailLink /> to exercise these rights or lodge a complaint with your local supervisory authority.</P>
 
@@ -176,7 +179,7 @@ export function TermsOfService() {
       <H3>4. Subscription and Billing</H3>
       <P><Bold>Price:</Bold> The Service is offered at $147 per month, billed monthly through our payment processor. Prices are subject to change with 30 days' notice to active operators.</P>
       <P><Bold>Billing cycle:</Bold> Subscriptions renew automatically each month until canceled.</P>
-      <P><Bold>Cancellation:</Bold> You may cancel at any time through your account or by contacting <EmailLink />. Cancellation takes effect at the end of your current billing cycle. You will retain access to the Service through the end of the paid period.</P>
+      <P><Bold>Cancellation:</Bold> You may cancel at any time through your account or by contacting <EmailLink />. Cancellation takes effect at the end of your current billing cycle. You will retain access to the Service through the end of the paid period. We do not use long-term contracts, hidden cancellation steps, or cancellation friction to trap users.</P>
       <P><Bold>Refunds:</Bold> Fees are non-refundable after 7 days except where required by law. If you believe you have been charged in error, contact <EmailLink /> within 30 days and we will review your request in good faith.</P>
       <P><Bold>Failed payments:</Bold> If payment fails, we may suspend or terminate the Service after reasonable notice.</P>
 
@@ -197,6 +200,7 @@ export function TermsOfService() {
         <Li>Make false, misleading, or unsubstantiated earnings claims in violation of Federal Trade Commission (FTC) rules or any other applicable consumer protection law</Li>
         <Li>Impersonate any person or entity, or misrepresent your identity or affiliation</Li>
         <Li>Spam, harass, threaten, defraud, or harm prospects or any other person</Li>
+        <Li>Contact anyone who has unsubscribed, opted out, asked not to be contacted, or otherwise must be suppressed</Li>
         <Li>Send unsolicited commercial communications in violation of CAN-SPAM, TCPA, or similar laws</Li>
         <Li>Promote adult content, illegal substances, weapons, or other content prohibited by a connected messaging platform's terms of service</Li>
         <Li>Attempt to reverse engineer, decompile, disassemble, or otherwise extract the source code of the Service</Li>
@@ -205,20 +209,20 @@ export function TermsOfService() {
         <Li>Circumvent any access controls, rate limits, or usage restrictions</Li>
         <Li>Promote any business opportunity that has been the subject of an active enforcement action by the FTC, SEC, or comparable regulator, unless and until that action is resolved</Li>
       </ul>
-      <P><Bold>You are solely responsible for how you use the Service and for the content of communications you send.</Bold> Tiger Claw provides software support; you direct its use.</P>
+      <P><Bold>You are solely responsible for how you use the Service and for the content of communications you send.</Bold> Tiger Claw provides software support; you direct its use. You are responsible for company, program, legal, advertising, privacy, income-claim, and communication compliance.</P>
 
       <H3>7. AI Disclosure Responsibility</H3>
-      <P>AI may draft notes, replies, summaries, and guidance. You review, edit, approve, send, and stay compliant. You agree to comply with all applicable laws regarding AI disclosure, including ensuring that prospects receive any disclosure required by law or regulation.</P>
+      <P>AI may draft notes, replies, summaries, and guidance. AI drafts require human review before use. You review, edit, approve, send, and stay compliant. You agree to comply with all applicable laws regarding AI disclosure, including ensuring that prospects receive any disclosure required by law or regulation.</P>
 
       <H3>8. Intellectual Property</H3>
-      <P>Tiger Claw and its licensors own all rights in the Service, including software, designs, logos, and content. You retain ownership of content you provide, including your configuration, prospect data you upload, notes, and conversation records, and you grant us a license to use that content solely to operate and improve the Service.</P>
+      <P>Tiger Claw and its licensors own all rights in the Service, including software, designs, logos, and content. You retain ownership of content you provide, including your configuration, prospect data you upload, notes, prospect conversation data, and conversation records, and you grant us a license to use that content solely to operate, support, secure, and improve the Service.</P>
 
       <H3>9. Third-Party Services</H3>
       <P>The Service may rely on third-party services including payment processors, hosting providers, AI providers, communication tools, calendar tools, and data providers. We are not responsible for the availability, accuracy, or conduct of these services. Your use of them is governed by their own terms.</P>
 
       <H3>10. Disclaimer of Warranties</H3>
       <P><Bold>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR UNINTERRUPTED OPERATION.</Bold></P>
-      <P>We do not warrant that the Service will be error-free, secure, or available at all times. We do not warrant that using the Service will result in any specific sales, signups, commissions, rank advancement, income, recruiting results, customer acquisition, lead conversion, or other business outcome.</P>
+      <P>We do not warrant that the Service will be error-free, secure, or available at all times. We do not warrant that using the Service will result in any specific sales, signups, commissions, rank or rank advancement, income, recruiting results, customer acquisition, lead conversion, or other business outcome.</P>
 
       <H3>11. Limitation of Liability</H3>
       <P><Bold>TO THE MAXIMUM EXTENT PERMITTED BY LAW, TIGER CLAW'S TOTAL LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</Bold></P>
@@ -395,9 +399,10 @@ export function EarningsDisclaimer() {
       <SectionHeading id="earnings" title="Results Disclaimer" />
       <EffectiveDate />
 
-      <P>Tiger Claw is an independent software product built to support prospect conversation management, follow-up organization, reply drafting, objection support, notes, and next-step guidance. Tiger Claw is not produced, approved, sponsored, endorsed, recommended, or authorized by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.</P>
-      <P>Users are solely responsible for ensuring that their use of Tiger Claw complies with the rules, policies, compensation-plan requirements, advertising standards, income-claim rules, privacy obligations, and communication requirements of any company, platform, or program they participate in.</P>
-      <P>Tiger Claw does not guarantee sales, signups, commissions, rank advancement, income, recruiting results, customer acquisition, lead conversion, or any other business outcome. Tiger Claw provides software tools for organization, communication support, follow-up assistance, and workflow guidance. Results depend on the user's own effort, market, relationships, compliance, and business activity.</P>
+      <P>Tiger Claw is an independent software product built to support prospect conversation management, follow-up organization, reply drafting, objection support, notes, and next-step guidance. Tiger Claw is not produced, approved, sponsored, endorsed, recommended, or authorized by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.</P>
+      <P>Users are solely responsible for ensuring that their use of Tiger Claw complies with the rules, policies, compensation-plan requirements, advertising standards, income-claim rules, privacy obligations, do-not-contact requests, and communication requirements of any company or program they participate in.</P>
+      <P>Tiger Claw does not guarantee sales, signups, commissions, rank or rank advancement, income, recruiting results, customer acquisition, lead conversion, or any other business outcome. Tiger Claw provides software tools for organization, communication support, follow-up assistance, and workflow guidance. Results depend on the user's own effort, market, relationships, compliance, and business activity.</P>
+      <P>AI may draft notes, replies, summaries, and guidance, but AI drafts require human review before use. Users remain responsible for reviewing, editing, approving, sending, and staying compliant with their own company, program, and legal obligations.</P>
       <P>Tiger Claw does not provide legal, financial, tax, compensation-plan, or company-compliance advice. Users should review their own company policies and consult qualified advisors when needed.</P>
     </div>
   );
@@ -420,7 +425,7 @@ export function NotAffiliated() {
     <div>
       <SectionHeading id="not-affiliated" title="Not Affiliated Disclaimer" />
 
-      <P>Tiger Claw is an independent software tool. It is not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.</P>
+      <P>Tiger Claw is an independent software tool. It is not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.</P>
     </div>
   );
 }

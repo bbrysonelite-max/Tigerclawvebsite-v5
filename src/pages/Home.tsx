@@ -13,7 +13,7 @@ const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const WIZARD_URL = "/start";
 const FOOTER_DISCLAIMER =
-  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company. Results are not guaranteed. Users are responsible for their own company, platform, program, privacy, advertising, and communication compliance.";
+  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
 
 function FadeSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -165,11 +165,14 @@ function Hero() {
             <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
             <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>AI Follow-Up Assistant</span>
           </div>
-          <h1 className="mb-6">
+          <h1 className="mb-4">
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
-              Never lose the next conversation.
+              Where is the Fortune?
             </span>
           </h1>
+          <p className="text-white/90 text-2xl sm:text-3xl max-w-2xl mb-4 leading-tight font-semibold">
+            Never lose the next conversation.
+          </p>
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
             Tiger Claw helps independent distributors, affiliates, and relationship-driven operators remember prospect details, draft better replies, handle common objections, and keep serious conversations moving toward the next step.
           </p>
@@ -422,20 +425,28 @@ function PricingSection() {
 function FAQSection() {
   const faqs = [
     {
-      q: "Is Tiger Claw affiliated with any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company?",
-      a: "No. Tiger Claw is independently built and operated. It is not produced, approved, sponsored, endorsed, or recommended by any company, platform, marketplace, network, affiliate program, direct selling company, network marketing company, or social-selling company.",
+      q: "Is Tiger Claw affiliated with any network marketing, direct selling, MLM, affiliate marketing, or social-selling company?",
+      a: "No. Tiger Claw is independently built and operated. It is not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.",
     },
     {
-      q: "Does Tiger Claw guarantee sales, signups, commissions, rank advancement, or income?",
-      a: "No. Tiger Claw helps with organization, follow-up, reply drafting, objection support, notes, and next-step guidance. It does not guarantee sales, signups, commissions, rank advancement, income, or any specific business result.",
+      q: "Does Tiger Claw guarantee sales, signups, commissions, rank, income, or outcomes?",
+      a: "No. Tiger Claw helps with organization, follow-up, reply drafting, objection support, notes, and next-step guidance. It does not guarantee sales, signups, commissions, rank, income, or any specific business outcome.",
     },
     {
-      q: "Do I still have to follow my company's rules?",
-      a: "Yes. You are responsible for following the policies, compensation-plan rules, income-claim rules, advertising rules, privacy rules, and communication requirements of any company or program you participate in.",
+      q: "Do I still have to follow my company, program, and legal rules?",
+      a: "Yes. You are responsible for following the policies, compensation-plan rules, income-claim rules, advertising rules, privacy rules, do-not-contact requests, and communication requirements of any company or program you participate in.",
     },
     {
       q: "Who reviews and sends AI drafts?",
-      a: "AI may draft notes, replies, summaries, and guidance. You review, edit, approve, send, and stay compliant.",
+      a: "AI may draft notes, replies, summaries, and guidance. AI drafts require human review before use. You review, edit, approve, send, and stay compliant.",
+    },
+    {
+      q: "Who owns my prospect conversation data?",
+      a: "You own the prospect conversation data, notes, and records you provide. Tiger Claw uses that information to operate, support, secure, and improve the service.",
+    },
+    {
+      q: "Can I export or delete my data?",
+      a: "Yes. You can request export or deletion by contacting help@tigerclaw.io. Cancellation does not trap you or remove your ability to request export or deletion of eligible data.",
     },
   ];
 
