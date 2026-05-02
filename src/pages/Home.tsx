@@ -167,7 +167,7 @@ function Hero() {
           </div>
           <h1 className="mb-4">
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
-              Where is the Fortune?
+              Fortune is in the follow-up.
             </span>
           </h1>
           <p className="text-white/90 text-2xl sm:text-3xl max-w-2xl mb-4 leading-tight font-semibold">
