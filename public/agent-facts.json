@@ -1,0 +1,57 @@
+{
+  "name": "Tiger Claw",
+  "legalName": "BotCraft Works LLC",
+  "url": "https://www.tigerclaw.io/",
+  "versionDate": "2026-05-03",
+  "supportEmail": "help@tigerclaw.io",
+  "category": "Stateless multi-tenant agent-hosting platform",
+  "currentFlagshipProduct": "AI follow-up assistant",
+  "currentAudience": [
+    "independent distributors",
+    "affiliates",
+    "social sellers",
+    "relationship-driven operators"
+  ],
+  "currentCapabilities": [
+    "prospect conversation memory",
+    "human-reviewed reply drafting",
+    "common objection support",
+    "follow-up organization",
+    "next-step guidance",
+    "qualified prospect booking-link handoff"
+  ],
+  "currentSetupPath": [
+    "start at www.tigerclaw.io",
+    "complete Stripe checkout or approved promotion-code checkout",
+    "complete the setup wizard",
+    "provide an operator-owned BotFather token",
+    "provide an operator-owned AI key",
+    "provide a public calendar booking link",
+    "launch the Telegram agent"
+  ],
+  "pricing": {
+    "amount": 147,
+    "currency": "USD",
+    "interval": "month",
+    "billingProvider": "Stripe",
+    "startUrl": "https://www.tigerclaw.io/start"
+  },
+  "supportAndCancellation": {
+    "contactUrl": "https://www.tigerclaw.io/contact",
+    "email": "help@tigerclaw.io",
+    "dashboardRefundPath": "Customer dashboard refund/deactivate path",
+    "refundNote": "Refund eligibility is governed by posted terms and applicable law."
+  },
+  "boundaries": [
+    "No guaranteed sales, commissions, signups, rank, income, or business outcome.",
+    "No affiliation with any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.",
+    "No unsupported messaging-surface claim.",
+    "No active claim of agentic checkout protocol support unless this JSON is updated to say it is live.",
+    "AI drafts require human review."
+  ],
+  "machineReadableArtifacts": {
+    "llmsTxt": "https://www.tigerclaw.io/llms.txt",
+    "agentFactsPage": "https://www.tigerclaw.io/agent-facts",
+    "sitemap": "https://www.tigerclaw.io/sitemap.xml"
+  }
+}

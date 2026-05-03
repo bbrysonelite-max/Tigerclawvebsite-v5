@@ -509,6 +509,7 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
     { label: "Support Promise", href: "/contact#support-promise" },
+    { label: "Agent Facts", href: "/agent-facts" },
   ];
   const legalLinks = [
     { label: "Privacy Policy", id: "privacy" },

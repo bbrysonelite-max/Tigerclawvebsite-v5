@@ -16,12 +16,15 @@ Framer Motion, Radix Tooltip, and Lucide React.
 Important files:
 
 - `src/pages/Home.tsx`: Homepage copy and primary public marketing content.
+- `src/pages/AgentFacts.tsx`: Public agent-readable truth page.
 - `src/pages/Contact.tsx`: Contact page.
 - `src/pages/Legal.tsx`: Legal content rendered inside the drawer.
 - `src/components/LegalDrawer.tsx`: Footer legal drawer.
 - `src/content/legal.md`: Legal and disclaimer source copy.
-- `index.html`: Public title, description, Open Graph, and Twitter metadata.
-- `public/`: Favicons and touch icon.
+- `index.html`: Public title, description, Open Graph, Twitter metadata, and
+  JSON-LD structured data.
+- `public/`: Favicons, touch icon, `llms.txt`, `agent-facts.json`,
+  `robots.txt`, and `sitemap.xml`.
 - `releases/`: Known-good release snapshots and handoff artifacts.
 
 ## Local development
@@ -47,16 +50,28 @@ npm run build
 After deployment, verify the public metadata with:
 
 ```bash
-curl -L https://tigerclaw.io | tr '<' '\n<' | grep -iE "title|description|og:title|og:description|twitter:title|twitter:description"
+curl -L https://www.tigerclaw.io | tr '<' '\n<' | grep -iE "title|description|og:title|og:description|twitter:title|twitter:description|ld\\+json"
 ```
 
 Verify prohibited public copy with:
 
 ```bash
-curl -L https://tigerclaw.io | grep -iE "Nu Skin|Nuskin|stateless|multi-tenant|Mine|Hive|lead intelligence refinery|AI Director of Operations|Autonomous AI Sales Agents|closes deals|guarantee|guaranteed|commissions|rank advancement|income"
+curl -L https://www.tigerclaw.io | grep -iE "Nu Skin|Nuskin|Mine|Hive|lead intelligence refinery|AI Director of Operations|Autonomous AI Sales Agents|closes deals|guarantee|guaranteed|commissions|rank advancement|income"
 ```
 
-The second command must return no customer-facing matches.
+The second command must return no customer-facing matches on the homepage.
+The agent-readable files may use platform terms such as `stateless` and
+`multi-tenant` when they are factual and conservative.
+
+Verify the agent-readable artifacts with:
+
+```bash
+curl -L https://www.tigerclaw.io/llms.txt
+curl -L https://www.tigerclaw.io/agent-facts.json
+curl -L https://www.tigerclaw.io/agent-facts
+curl -L https://www.tigerclaw.io/sitemap.xml
+curl -L https://www.tigerclaw.io/robots.txt
+```
 
 ## Deployment
 
@@ -73,23 +88,29 @@ domain, alias it to `tigerclaw.io` and `www.tigerclaw.io`.
 
 ## Product positioning rules
 
-Keep TigerClaw.io focused on the customer product, not the internal platform.
+Keep TigerClaw.io focused on the customer product on visible sales pages. The
+agent-readable artifacts may also state the platform truth.
 
 Use this core positioning:
 
 > Tiger Claw is your AI follow-up assistant.
 
+For `/agent-facts`, `llms.txt`, `agent-facts.json`, and JSON-LD, use this
+platform positioning:
+
+> Tiger Claw is a stateless multi-tenant agent-hosting platform. The current
+> flagship product is an AI follow-up assistant for relationship-driven
+> operators.
+
 Do not use public copy that implies affiliation with any network marketing,
 direct selling, MLM, affiliate marketing, or social-selling company. Do not name
 specific companies in public copy unless legal counsel approves the exact use.
 
-Avoid these terms in customer-facing metadata and visible public copy:
+Avoid these terms in homepage/customer-facing sales copy:
 
 - `Autonomous AI Sales Agents`
 - `AI Director of Operations`
 - `sales engagement platform`
-- `stateless agent factory`
-- `multi-tenant platform`
 - `lead intelligence refinery`
 - `data moat`
 - `Mine`
@@ -116,7 +137,7 @@ The public metadata for TigerClaw.io must stay aligned with the customer product
 Title:
 
 ```text
-Tiger Claw | Your AI Follow-Up Assistant
+Tiger Claw | AI Follow-Up Assistant
 ```
 
 Meta description:
@@ -128,7 +149,7 @@ Tiger Claw helps independent distributors, affiliates, and relationship-driven o
 Open Graph and Twitter title:
 
 ```text
-Tiger Claw — Your AI Follow-Up Assistant
+Tiger Claw — AI Follow-Up Assistant
 ```
 
 Open Graph and Twitter description:

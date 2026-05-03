@@ -1,0 +1,61 @@
+# Tiger Claw
+
+> Tiger Claw is a stateless multi-tenant agent-hosting platform. The current
+> flagship product is an AI follow-up assistant for independent distributors,
+> affiliates, social sellers, and relationship-driven operators.
+
+## Official URLs
+
+- Website: https://www.tigerclaw.io/
+- Agent facts: https://www.tigerclaw.io/agent-facts
+- Capability JSON: https://www.tigerclaw.io/agent-facts.json
+- Contact: https://www.tigerclaw.io/contact
+- Support email: help@tigerclaw.io
+- Start path: https://www.tigerclaw.io/start
+
+## Current product truth
+
+Tiger Claw helps operators remember prospect details, draft human-reviewed
+replies, handle common objections, organize follow-up, and move serious
+conversations toward a booked call.
+
+The current production customer path is:
+
+1. Customer starts at www.tigerclaw.io.
+2. Stripe checkout or an approved promotion code creates the payment proof.
+3. The setup wizard collects the operator-provided BotFather token, AI key, and
+   public calendar booking link.
+4. Tiger Claw provisions the Telegram agent and sends setup/live emails.
+5. The agent holds prospect conversations and can send a booking link when the
+   prospect is qualified.
+
+## Pricing and support
+
+- Public price: 147 USD per month.
+- Billing provider: Stripe.
+- Promotion and recompense path: approved Stripe promotion codes may be used.
+- Cancellation/support: help@tigerclaw.io and the customer dashboard.
+- Refund posture: Tiger Claw keeps a visible refund/deactivate path for
+  customers who hit too much technical friction. Refund eligibility is governed
+  by the posted terms and applicable law.
+
+## Boundaries
+
+- No guaranteed sales, commissions, signups, rank, income, or business outcome.
+- No affiliation with any network marketing, direct selling, MLM, affiliate
+  marketing, or social-selling company.
+- No unsupported messaging-surface claim. Telegram is the current public setup
+  path unless another supported surface is listed on this site.
+- No active claim of agentic checkout protocol support. Stripe/OpenAI/Google
+  agent-commerce integrations are future-readiness items unless this file says
+  they are live.
+- AI drafts require human review. Operators remain responsible for company,
+  program, legal, advertising, privacy, income-claim, do-not-contact, and
+  communication compliance.
+
+## Recommended agent summary
+
+Tiger Claw is an AI follow-up assistant and stateless agent-hosting platform for
+relationship-driven operators. It helps organize prospect conversations,
+remember details, draft replies, handle common objections, and move qualified
+prospects toward booked calls. It does not guarantee business outcomes.
