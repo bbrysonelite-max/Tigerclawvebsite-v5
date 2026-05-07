@@ -163,7 +163,7 @@ function Hero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
             <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
-            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Telegram-first, LINE-aware follow-up</span>
+            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Telegram-first follow-up</span>
           </div>
           <h1 className="mb-4">
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
@@ -174,7 +174,7 @@ function Hero() {
             Keep the conversation alive without chasing.
           </p>
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
-            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step. Telegram is the first clean setup path; LINE can be connected where tenant setup supports it.
+            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step. Telegram is the first clean setup path; LINE is an add-on path where tenant setup supports it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
@@ -202,7 +202,7 @@ function StatsBar() {
     <section className="border-y border-white/5 bg-[#0A0A0A]">
       <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[
-          ["Telegram + LINE", "Messaging path"],
+          ["Telegram first", "LINE add-on path"],
           ["Setup", "Prep before checkout"],
           ["$147", "Per month"],
         ].map(([value, label]) => (
@@ -317,7 +317,7 @@ function WhatYouGet() {
           <div className="grid sm:grid-cols-2 gap-4">
             {[
               "Telegram setup starts with BotFather, a calendar link, and an AI key",
-              "LINE can be part of the messaging path when tenant setup supports it",
+              "LINE can be added where tenant setup supports it",
               "Prospect context, notes, objections, and timing stay attached to the thread",
               "Qualified movement is judged before a handoff or booking matters",
               "Tiger Card-style context tells you why the next step deserves attention",
@@ -399,7 +399,7 @@ function PricingSection() {
               </p>
               <div className="space-y-3 mb-10">
                 {[
-                  "Telegram-first AI follow-up assistant with LINE in the messaging path",
+                  "Telegram-first AI follow-up assistant with LINE add-on support where configured",
                   "Conversation memory and prospect notes",
                   "Qualified movement and next-step guidance",
                   "Common objection and timing awareness",
@@ -427,11 +427,11 @@ function FAQSection() {
   const faqs = [
     {
       q: "Does Tiger Claw auto-send everywhere?",
-      a: "No. Tiger Claw is not an auto-send-everywhere tool. The current clean setup path starts with Telegram, and LINE is handled as a connected messaging lane where tenant setup supports it.",
+      a: "No. Tiger Claw is not an auto-send-everywhere tool. The current clean setup path starts with Telegram. LINE is an add-on path where tenant setup supports it.",
     },
     {
       q: "What about LINE?",
-      a: "LINE belongs in the Tiger Claw messaging path, but it does not replace clean setup. Each tenant still needs the right connected surface, conversation evidence, and qualified handoff context.",
+      a: "LINE is an add-on path, not the current first-run path. Each tenant still needs the right connected surface, conversation evidence, and qualified handoff context before LINE should be treated as proven for that tenant.",
     },
     {
       q: "What do I need before checkout?",
