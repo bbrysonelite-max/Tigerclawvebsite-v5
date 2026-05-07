@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/start",
-      "destination": "https://buy.stripe.com/28E28jeFUfte7XQ6co9AA0c",
+      "destination": "https://wizard.tigerclaw.io/",
       "permanent": false
     }
   ],
