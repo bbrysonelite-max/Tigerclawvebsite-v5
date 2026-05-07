@@ -75,8 +75,8 @@ function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
     { label: "The Problem", href: "#problem" },
-    { label: "How It Works", href: "#how" },
-    { label: "What You Get", href: "#what-you-get" },
+    { label: "What It Does", href: "#how" },
+    { label: "Handoff", href: "#what-you-get" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "/contact" },
@@ -112,7 +112,7 @@ function Nav() {
                 className="py-1.5 text-sm font-semibold text-black rounded-full whitespace-nowrap overflow-hidden"
                 style={{ background: ORANGE, fontSize: "0.8rem" }}
               >
-                Start for $147/month
+                Start setup
               </motion.a>
             )}
           </AnimatePresence>
@@ -139,7 +139,7 @@ function Nav() {
                   </a>
                 ))}
                 <a href={WIZARD_URL} onClick={() => setMobileOpen(false)} className="block text-center px-5 py-3 text-sm font-semibold text-black rounded-lg mt-2" style={{ background: ORANGE }}>
-                  Start for $147/month
+                  Start setup
                 </a>
               </div>
             </motion.div>
@@ -163,25 +163,25 @@ function Hero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
             <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
-            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>AI Follow-Up Assistant</span>
+            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Telegram-first, LINE-aware follow-up</span>
           </div>
           <h1 className="mb-4">
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
-              Where is the Fortune?
+              The fortune is in the follow-up.
             </span>
           </h1>
           <p className="text-white/90 text-2xl sm:text-3xl max-w-2xl mb-4 leading-tight font-semibold">
-            Never lose the next conversation.
+            Keep the conversation alive without chasing.
           </p>
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
-            Tiger Claw helps independent distributors, affiliates, and relationship-driven operators remember prospect details, draft better replies, handle common objections, and keep serious conversations moving toward the next step.
+            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step. Telegram is the first clean setup path; LINE can be connected where tenant setup supports it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
-              Start for $147/month <ArrowRight className="w-5 h-5" />
+              Start setup <ArrowRight className="w-5 h-5" />
             </a>
             <a href="#how" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white/80 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/25 hover:scale-[1.03] hover:-translate-y-0.5 transition-all duration-300">
-              See How It Works
+              See what it does
             </a>
           </div>
           <p className="text-white/55 text-xs sm:text-sm max-w-3xl mt-5 leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
@@ -202,9 +202,9 @@ function StatsBar() {
     <section className="border-y border-white/5 bg-[#0A0A0A]">
       <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[
-          ["24/7", "Follow-up support"],
+          ["Telegram + LINE", "Messaging path"],
+          ["Setup", "Prep before checkout"],
           ["$147", "Per month"],
-          ["1", "Assistant focused on next steps"],
         ].map(([value, label]) => (
           <div key={label}>
             <div className="text-3xl sm:text-4xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif", color: ORANGE }}>{value}</div>
@@ -230,7 +230,7 @@ function ProblemSection() {
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/80 text-lg sm:text-xl leading-relaxed">
-            Good conversations get buried. Follow-ups slip. Prospects ask the same questions. You forget who needed more time, who was interested, and who was ready for a call. Tiger Claw helps you stay organized, respond with confidence, and keep momentum with the people who matter.
+            Good conversations get buried. Follow-ups slip. People go quiet. You lose track of who was curious, who had an objection, and who was actually ready for a next step. Tiger Claw keeps the thread clear so serious conversations do not die from delay.
           </p>
         </FadeSection>
       </div>
@@ -245,7 +245,7 @@ function OrangeBreak() {
       <div className="absolute inset-0 flex items-center justify-center bg-black/10">
         <FadeSection>
           <p className="text-3xl sm:text-5xl lg:text-6xl font-bold text-black/80 text-center px-4" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.03em" }}>
-            FOLLOW UP WITH CONFIDENCE
+            QUALIFIED CONVERSATIONS, NOT NOISE
           </p>
         </FadeSection>
       </div>
@@ -255,12 +255,12 @@ function OrangeBreak() {
 
 function WhatHelpsWith() {
   const items = [
-    { icon: <NotebookTabs className="w-5 h-5" />, title: "Remember prospect details" },
-    { icon: <MessageSquare className="w-5 h-5" />, title: "Draft better replies" },
-    { icon: <Shield className="w-5 h-5" />, title: "Handle common objections" },
-    { icon: <Clock className="w-5 h-5" />, title: "Stay consistent with follow-up" },
-    { icon: <Target className="w-5 h-5" />, title: "Track interest and next steps" },
-    { icon: <Calendar className="w-5 h-5" />, title: "Move serious conversations toward a call" },
+    { icon: <MessageSquare className="w-5 h-5" />, title: "Talk naturally", body: "One question at a time, with replies that feel like a real conversation." },
+    { icon: <NotebookTabs className="w-5 h-5" />, title: "Remember the thread", body: "Pain points, objections, timing, and what the prospect already said." },
+    { icon: <Clock className="w-5 h-5" />, title: "Follow up without chasing", body: "Context-aware follow-up instead of generic just-checking-in messages." },
+    { icon: <Target className="w-5 h-5" />, title: "Spot qualified movement", body: "Curiosity, seriousness, hesitation, and readiness are not treated the same." },
+    { icon: <Shield className="w-5 h-5" />, title: "Protect your time", body: "Tiger keeps casual interest separate from conversations worth human attention." },
+    { icon: <Calendar className="w-5 h-5" />, title: "Offer the next step when earned", body: "A booking link belongs after context, not as a reflex." },
   ];
 
   return (
@@ -268,10 +268,10 @@ function WhatHelpsWith() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <FadeSection>
           <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
-            WHAT TIGER CLAW HELPS WITH
+            WHAT TIGER CLAW DOES
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Your second brain for <span style={{ color: ORANGE }}>prospect conversations.</span>
+            It keeps follow-up <span style={{ color: ORANGE }}>useful.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
@@ -282,6 +282,7 @@ function WhatHelpsWith() {
                   {item.icon}
                 </div>
                 <h3 className="text-white font-semibold text-base">{item.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed mt-2">{item.body}</p>
               </div>
             ))}
           </div>
@@ -301,24 +302,25 @@ function WhatYouGet() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <FadeSection>
           <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
-            WHAT YOU GET
+            THE HANDOFF
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Simple support for <span style={{ color: ORANGE }}>serious builders.</span>
+            A clear reason to <span style={{ color: ORANGE }}>step in.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-10">
-            Tiger Claw gives you an AI assistant configured around your prospecting workflow. It helps with conversation memory, reply drafting, objection support, follow-up organization, and next-step guidance so you can stay focused on building relationships.
+            A booking is not proof by itself. Tiger Claw is built around qualified movement: what the person said, what they care about, why now, and what the operator should do next.
           </p>
         </FadeSection>
         <FadeSection delay={0.25}>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "Conversation memory and organized notes",
-              "Reply drafts you can review and send",
-              "Common objection support",
-              "Follow-up and next-step guidance",
+              "Telegram setup starts with BotFather, a calendar link, and an AI key",
+              "LINE can be part of the messaging path when tenant setup supports it",
+              "Prospect context, notes, objections, and timing stay attached to the thread",
+              "Qualified movement is judged before a handoff or booking matters",
+              "Tiger Card-style context tells you why the next step deserves attention",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3 p-4 rounded-lg border border-white/5 bg-white/[0.03]">
                 <UserRoundCheck className="w-5 h-5 flex-shrink-0" style={{ color: GREEN }} />
@@ -346,9 +348,9 @@ function WhoSection() {
         </FadeSection>
         <div className="space-y-6">
           {[
-            "Independent distributors who want better follow-up habits without adding another complicated tool.",
+            "Independent distributors who need follow-up discipline without turning every conversation into pressure.",
             "Affiliates and social sellers who manage prospect conversations across busy days.",
-            "Relationship-driven operators who want repeatable follow-up support while keeping the human connection in their own hands.",
+            "Relationship-driven operators who want Tiger to help sort, remember, and hand off without replacing human judgment.",
           ].map((text, i) => (
             <FadeSection key={text} delay={i * 0.12}>
               <div className="flex gap-4 items-start p-5 rounded-lg border border-white/5 bg-white/[0.02]">
@@ -391,19 +393,18 @@ function PricingSection() {
                 Cancel anytime. No contracts. No setup fees.
               </p>
               <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
-                Checkout starts a Tiger Claw AI follow-up assistant
-                subscription. It supports human-reviewed reply drafts, notes,
-                and next steps; it does not run automated recruiting or promise
-                business outcomes.
+                Start setup opens the preparation page before checkout. You
+                will need a Telegram bot token, a public calendar link, and an
+                AI key before a Tiger can be hatched cleanly.
               </p>
               <div className="space-y-3 mb-10">
                 {[
-                  "Your AI Follow-Up Assistant",
-                  "Prospect detail memory",
-                  "Reply drafting support",
-                  "Common objection support",
-                  "Follow-up organization",
-                  "Next-step guidance",
+                  "Telegram-first AI follow-up assistant with LINE in the messaging path",
+                  "Conversation memory and prospect notes",
+                  "Qualified movement and next-step guidance",
+                  "Common objection and timing awareness",
+                  "Earned handoff or booking support",
+                  "Operator remains responsible for compliance",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: GREEN }} />
@@ -412,7 +413,7 @@ function PricingSection() {
                 ))}
               </div>
               <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 text-lg font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
-                Start for $147/month <ArrowRight className="w-5 h-5" />
+                Start setup <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -425,20 +426,28 @@ function PricingSection() {
 function FAQSection() {
   const faqs = [
     {
-      q: "Is Tiger Claw affiliated with any network marketing, direct selling, MLM, affiliate marketing, or social-selling company?",
-      a: "No. Tiger Claw is independently built and operated. It is not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.",
+      q: "Does Tiger Claw auto-send everywhere?",
+      a: "No. Tiger Claw is not an auto-send-everywhere tool. The current clean setup path starts with Telegram, and LINE is handled as a connected messaging lane where tenant setup supports it.",
     },
     {
-      q: "Does Tiger Claw guarantee sales, signups, commissions, rank, income, or outcomes?",
-      a: "No. Tiger Claw helps with organization, follow-up, reply drafting, objection support, notes, and next-step guidance. It does not guarantee sales, signups, commissions, rank, income, or any specific business outcome.",
+      q: "What about LINE?",
+      a: "LINE belongs in the Tiger Claw messaging path, but it does not replace clean setup. Each tenant still needs the right connected surface, conversation evidence, and qualified handoff context.",
+    },
+    {
+      q: "What do I need before checkout?",
+      a: "The setup page helps you prepare a Telegram BotFather token, a public calendar link, and an AI key. Getting those ready first makes the hatch cleaner.",
+    },
+    {
+      q: "Does a booking mean Tiger worked?",
+      a: "Not by itself. A booking only matters when the conversation shows qualified movement. Tiger Claw is built to value the conversation quality and handoff context before the booking.",
+    },
+    {
+      q: "Does Tiger Claw promise business results?",
+      a: "No. Tiger Claw helps with conversation memory, follow-up, objection support, notes, and next-step guidance. It does not promise a specific business outcome.",
     },
     {
       q: "Do I still have to follow my company, program, and legal rules?",
-      a: "Yes. You are responsible for following the policies, compensation-plan rules, income-claim rules, advertising rules, privacy rules, do-not-contact requests, and communication requirements of any company or program you participate in.",
-    },
-    {
-      q: "Who reviews and sends AI drafts?",
-      a: "AI may draft notes, replies, summaries, and guidance. AI drafts require human review before use. You review, edit, approve, send, and stay compliant.",
+      a: "Yes. You are responsible for company policies, compensation-plan rules, advertising rules, privacy rules, do-not-contact requests, and communication requirements.",
     },
     {
       q: "Who owns my prospect conversation data?",
@@ -491,12 +500,12 @@ function OfferSection() {
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/70 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            Tiger Claw helps you keep track of the details, draft thoughtful replies, and keep serious conversations moving.
+            Start with the setup checklist. Then hatch the assistant, connect the messaging path, and keep real prospect conversations moving.
           </p>
         </FadeSection>
         <FadeSection delay={0.3}>
           <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-12 py-5 text-lg font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
-            Start for $147/month <ArrowRight className="w-5 h-5" />
+            Start setup <ArrowRight className="w-5 h-5" />
           </a>
         </FadeSection>
       </div>
