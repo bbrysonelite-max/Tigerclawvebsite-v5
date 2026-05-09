@@ -355,8 +355,11 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Location</p>
-                      <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-                        United States
+                      <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+                        Bot Craft Works<br />
+                        15560 N Frank Lloyd Wright<br />
+                        Suite B4-7254<br />
+                        Scottsdale, AZ 85260
                       </p>
                     </div>
                   </div>

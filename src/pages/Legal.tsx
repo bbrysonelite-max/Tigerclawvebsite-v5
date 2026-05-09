@@ -6,13 +6,18 @@ import { Zap, ArrowLeft, ChevronRight } from "lucide-react";
    Dark background (#0A0A0A), readable white text, orange accents.
    Sidebar nav on desktop, dropdown on mobile.
    All emails: help@tigerclaw.io
-   Address removed for privacy — PO Box pending
+   Public mailing address lives in ADDRESS_LINES below.
 ─── */
 
 const ORANGE = "#E8722A";
 const EMAIL = "help@tigerclaw.io";
 const DMCA_EMAIL = "help@tigerclaw.io";
-const ADDRESS = "United States";
+const ADDRESS_LINES = [
+  "Bot Craft Works",
+  "15560 N Frank Lloyd Wright",
+  "Suite B4-7254",
+  "Scottsdale, AZ 85260",
+];
 const EFFECTIVE = "April 23, 2026";
 
 export const LEGAL_EFFECTIVE = EFFECTIVE;
@@ -67,6 +72,23 @@ function EmailLink({ address }: { address?: string }) {
   return <a href={`mailto:${email}`} className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>{email}</a>;
 }
 
+function AddressInline() {
+  return <>{ADDRESS_LINES.join(", ")}</>;
+}
+
+function AddressBlock() {
+  return (
+    <>
+      {ADDRESS_LINES.map((line) => (
+        <span key={line}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </>
+  );
+}
+
 /* ─── CONTENT SECTIONS ─── */
 
 export function PrivacyPolicy() {
@@ -77,7 +99,7 @@ export function PrivacyPolicy() {
 
       <H3>Who We Are</H3>
       <P>This Privacy Policy describes how BotCraft Works LLC, doing business as Tiger Claw ("Tiger Claw," "we," "us," or "our"), collects, uses, and discloses information when you use our website at tigerclaw.io and our Tiger Claw AI Follow-Up Assistant service (the "Service").</P>
-      <P>Contact: <EmailLink /> | Mailing address: {ADDRESS}</P>
+      <P>Contact: <EmailLink /> | Mailing address: <AddressInline /></P>
 
       <H3>Information We Collect</H3>
       <P><Bold>From Operators (our paying customers):</Bold></P>
@@ -360,7 +382,7 @@ export function DMCAPolicy() {
       </ol>
 
       <H3>Send notices to our Designated Agent:</H3>
-      <P>BotCraft Works LLC — DMCA Agent<br />{ADDRESS}<br />Email: <EmailLink address={DMCA_EMAIL} /></P>
+      <P>BotCraft Works LLC — DMCA Agent<br /><AddressBlock />Email: <EmailLink address={DMCA_EMAIL} /></P>
 
       <P><Bold>Counter-notices</Bold> may be submitted by users whose content was removed, following the requirements of 17 U.S.C. § 512(g).</P>
       <P><Bold>Repeat infringers</Bold> will have their accounts terminated.</P>
