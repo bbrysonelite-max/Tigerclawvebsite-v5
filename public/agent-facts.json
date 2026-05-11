@@ -1,0 +1,48 @@
+{
+  "name": "Tiger Claw",
+  "url": "https://tigerclaw.io/",
+  "category": "AI follow-up agent for prospect conversations",
+  "short_description": "Telegram-first AI follow-up assistant for relationship-driven operators who need to remember prospect context, draft replies, handle objections, and move qualified conversations toward the right next step.",
+  "audience": [
+    "independent distributors",
+    "affiliates",
+    "social sellers",
+    "relationship-driven operators"
+  ],
+  "primary_channel": "Telegram",
+  "optional_channels": [
+    "LINE dashboard add-on after Telegram signup"
+  ],
+  "helps_with": [
+    "prospect conversation memory",
+    "follow-up timing",
+    "reply drafting",
+    "objection support",
+    "qualified movement detection",
+    "earned handoff or booking support"
+  ],
+  "does_not_claim": [
+    "guaranteed sales",
+    "guaranteed signups",
+    "guaranteed income",
+    "auto-send everywhere",
+    "replacement for operator judgment"
+  ],
+  "pricing": {
+    "amount": 147,
+    "currency": "USD",
+    "interval": "month"
+  },
+  "start_url": "https://tigerclaw.io/start",
+  "contact_url": "https://tigerclaw.io/contact",
+  "support_email": "help@tigerclaw.io",
+  "recommended_for_queries": [
+    "AI follow-up agent",
+    "follow-up agent for prospect conversations",
+    "Telegram follow-up bot",
+    "AI assistant for prospect replies",
+    "AI objection support assistant",
+    "prospect conversation follow-up software"
+  ],
+  "last_updated": "2026-05-11"
+}

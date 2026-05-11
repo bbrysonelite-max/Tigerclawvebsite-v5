@@ -169,6 +169,9 @@ function Hero() {
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
               The fortune is in the follow-up.
             </span>
+            <span className="block mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+              AI follow-up agent for prospect conversations.
+            </span>
           </h1>
           <p className="text-white/90 text-2xl sm:text-3xl max-w-2xl mb-4 leading-tight font-semibold">
             Keep the conversation alive without chasing.
