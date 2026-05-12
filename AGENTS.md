@@ -171,3 +171,21 @@ platform, or enterprise product unless the user explicitly asks for that work.
 Do not delete release snapshots or handoff files unless the user explicitly asks.
 If a snapshot contains stale public metadata, update the snapshot metadata rather
 than removing the snapshot.
+
+## Related TigerClaw.io repos
+
+Use this repo as the public TigerClaw customer site. Keep these related repos
+separate unless Brent explicitly asks for a cross-repo change.
+
+- Core platform: `bbrysonelite-max/tiger-claw-v4-core`
+- Mine product and build packet: `bbrysonelite-max/Datamine`
+- Research and optimization loop: `bbrysonelite-max/Auto-Research-Loop`
+
+## GitNexus use
+
+- Keep `.gitnexus/` local and untracked.
+- Use `gitnexus analyze --skills --skip-agents-md` after agent docs are
+  installed so GitNexus updates the graph without replacing this rulebook.
+- With multiple repos indexed, always include the repo name or full path when
+  querying GitNexus.
+- Group this repo under `tigerclaw-io` as `public/site`.
