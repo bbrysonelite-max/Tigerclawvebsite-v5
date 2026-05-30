@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { Link, useRoute } from "wouter";
 import { Zap, ArrowLeft, ChevronRight } from "lucide-react";
 
 /* ─── DESIGN: Tiger Claw Legal Page
@@ -23,17 +24,27 @@ const EFFECTIVE = "April 23, 2026";
 export const LEGAL_EFFECTIVE = EFFECTIVE;
 
 export const sections = [
-  { id: "privacy", label: "Privacy Policy" },
-  { id: "terms", label: "Terms of Service" },
-  { id: "aup", label: "Acceptable Use" },
-  { id: "cookies", label: "Cookie Policy" },
-  { id: "dmca", label: "DMCA" },
-  { id: "refund", label: "Cancellation" },
-  { id: "earnings", label: "Results Disclaimer" },
-  { id: "accessibility", label: "Accessibility" },
-  { id: "not-affiliated", label: "Not Affiliated" },
-  { id: "do-not-sell", label: "Do Not Sell" },
+  { id: "privacy", slug: "privacy", label: "Privacy Policy" },
+  { id: "terms", slug: "terms", label: "Terms of Service" },
+  { id: "aup", slug: "acceptable-use", label: "Acceptable Use" },
+  { id: "cookies", slug: "cookies", label: "Cookie Policy" },
+  { id: "dmca", slug: "dmca", label: "DMCA" },
+  { id: "refund", slug: "cancellation", label: "Cancellation & Refunds" },
+  { id: "earnings", slug: "results", label: "Results Disclaimer" },
+  { id: "accessibility", slug: "accessibility", label: "Accessibility" },
+  { id: "not-affiliated", slug: "not-affiliated", label: "Not Affiliated" },
+  { id: "do-not-sell", slug: "do-not-sell", label: "Do Not Sell" },
 ];
+
+export type LegalSection = (typeof sections)[number];
+
+export function sectionBySlug(slug?: string): LegalSection | undefined {
+  return sections.find((s) => s.slug === slug);
+}
+
+export function sectionById(id?: string): LegalSection | undefined {
+  return sections.find((s) => s.id === id);
+}
 
 function SectionHeading({ id, title }: { id: string; title: string }) {
   return (
@@ -463,46 +474,26 @@ export function DoNotSell() {
   );
 }
 
-/* ─── MAIN LEGAL PAGE ─── */
-export default function Legal() {
-  const [activeSection, setActiveSection] = useState("privacy");
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+/* ─── POLICY REGISTRY ─── */
+/* One component per policy, keyed by section id. Used by both the standalone
+   /legal route and the footer slide-out drawer so each policy renders alone. */
+export const policyComponents: Record<string, React.FC> = {
+  privacy: PrivacyPolicy,
+  terms: TermsOfService,
+  aup: AcceptableUse,
+  cookies: CookiePolicy,
+  dmca: DMCAPolicy,
+  refund: RefundPolicy,
+  earnings: EarningsDisclaimer,
+  accessibility: AccessibilityStatement,
+  "not-affiliated": NotAffiliated,
+  "do-not-sell": DoNotSell,
+};
 
-  useEffect(() => {
-    // Scroll to hash on load
-    const hash = window.location.hash.replace("#", "");
-    if (hash) {
-      setTimeout(() => {
-        setActiveSection(hash);
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }, []);
-
-  useEffect(() => {
-    // Track active section on scroll
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-20% 0px -60% 0px" }
-    );
-
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
+/* ─── SHARED SHELL (header + footer) ─── */
+function LegalShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
-      {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -519,95 +510,65 @@ export default function Legal() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
-        {/* Page title */}
-        <div className="mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Legal
-          </h1>
-          <p className="text-white/60 text-base">BotCraft Works LLC (DBA Tiger Claw) | Last updated: {EFFECTIVE}</p>
-        </div>
-
-        {/* Mobile nav toggle */}
-        <div className="lg:hidden mb-8">
-          <button
-            onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white text-sm"
-          >
-            <span>{sections.find((s) => s.id === activeSection)?.label || "Navigate"}</span>
-            <ChevronRight className={`w-4 h-4 transition-transform ${mobileNavOpen ? "rotate-90" : ""}`} />
-          </button>
-          {mobileNavOpen && (
-            <div className="mt-2 rounded-lg border border-white/10 bg-[#111] overflow-hidden">
-              {sections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  onClick={() => setMobileNavOpen(false)}
-                  className={`block px-4 py-3 text-sm border-b border-white/5 last:border-0 transition-colors ${
-                    activeSection === s.id ? "text-white bg-white/5" : "text-white/60 hover:text-white hover:bg-white/[0.03]"
-                  }`}
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="flex gap-12">
-          {/* Desktop sidebar */}
-          <aside className="hidden lg:block w-56 flex-shrink-0">
-            <nav className="sticky top-24 space-y-1">
-              {sections.map((s) => (
-                <a
-                  key={s.id}
-                  href={`#${s.id}`}
-                  className={`block px-3 py-2 rounded-md text-sm transition-all duration-200 ${
-                    activeSection === s.id
-                      ? "text-white bg-white/10 font-medium"
-                      : "text-white/50 hover:text-white/80 hover:bg-white/5"
-                  }`}
-                >
-                  {s.label}
-                </a>
-              ))}
-            </nav>
-          </aside>
-
-          {/* Content */}
-          <main className="flex-1 min-w-0 max-w-3xl">
-            <div className="space-y-4">
-              <PrivacyPolicy />
-              <div className="border-t border-white/5 my-12" />
-              <TermsOfService />
-              <div className="border-t border-white/5 my-12" />
-              <AcceptableUse />
-              <div className="border-t border-white/5 my-12" />
-              <CookiePolicy />
-              <div className="border-t border-white/5 my-12" />
-              <DMCAPolicy />
-              <div className="border-t border-white/5 my-12" />
-              <RefundPolicy />
-              <div className="border-t border-white/5 my-12" />
-              <EarningsDisclaimer />
-              <div className="border-t border-white/5 my-12" />
-              <AccessibilityStatement />
-              <div className="border-t border-white/5 my-12" />
-              <NotAffiliated />
-              <div className="border-t border-white/5 my-12" />
-              <DoNotSell />
-            </div>
-          </main>
-        </div>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+        {children}
       </div>
 
-      {/* Footer */}
       <footer className="border-t border-white/5 bg-[#050505] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-white/50 text-sm">&copy; {new Date().getFullYear()} BotCraft Works LLC (DBA Tiger Claw). All rights reserved.</p>
         </div>
       </footer>
     </div>
+  );
+}
+
+/* ─── MAIN LEGAL PAGE (route-aware) ───
+   /legal           → index list of every policy
+   /legal/:slug      → that one policy on its own, with a "back to all" link */
+export default function Legal() {
+  const [, params] = useRoute("/legal/:slug");
+  const slug = params?.slug;
+  const section = sectionBySlug(slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  // Single-policy view (also the shareable URL for one policy)
+  if (section) {
+    const Policy = policyComponents[section.id];
+    return (
+      <LegalShell>
+        <Link href="/legal" className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-8 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> All policies
+        </Link>
+        <div className="max-w-3xl">{Policy ? <Policy /> : null}</div>
+      </LegalShell>
+    );
+  }
+
+  // Index view — a clean menu, each policy its own card/link
+  return (
+    <LegalShell>
+      <div className="mb-10">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          Legal
+        </h1>
+        <p className="text-white/60 text-base">BotCraft Works LLC (DBA Tiger Claw) · Last updated: {EFFECTIVE}</p>
+      </div>
+      <div className="grid sm:grid-cols-2 gap-3">
+        {sections.map((s) => (
+          <Link
+            key={s.id}
+            href={`/legal/${s.slug}`}
+            className="group flex items-center justify-between gap-3 px-4 py-4 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-colors"
+          >
+            <span className="text-white/85 text-sm font-medium group-hover:text-white">{s.label}</span>
+            <ChevronRight className="w-4 h-4 text-white/30 group-hover:text-white/70 flex-shrink-0 transition-colors" />
+          </Link>
+        ))}
+      </div>
+    </LegalShell>
   );
 }

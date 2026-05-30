@@ -163,7 +163,7 @@ function Hero() {
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
           <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
             <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
-            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Telegram-first follow-up</span>
+            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Always-on follow-up</span>
           </div>
           <h1 className="mb-4">
             <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
@@ -177,7 +177,7 @@ function Hero() {
             Keep the conversation alive without chasing.
           </p>
           <p className="text-white/75 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
-            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step. Every Tiger starts with Telegram; LINE can be added from the dashboard after hatch.
+            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
@@ -205,8 +205,8 @@ function StatsBar() {
     <section className="border-y border-white/5 bg-[#0A0A0A]">
       <div className="max-w-5xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[
-          ["Telegram first", "Add LINE from dashboard"],
-          ["Setup", "Prep before checkout"],
+          ["Around the clock", "Follow-up that never sleeps"],
+          ["Every thread", "Context remembered"],
           ["$147", "Per month"],
         ].map(([value, label]) => (
           <div key={label}>
@@ -319,8 +319,8 @@ function WhatYouGet() {
         <FadeSection delay={0.25}>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "Telegram setup starts with BotFather, a calendar link, and an AI key",
-              "LINE can be added from the dashboard after Telegram signup",
+              "You step in only when a conversation has earned your time",
+              "A clear, human-ready read on why this prospect matters now",
               "Prospect context, notes, objections, and timing stay attached to the thread",
               "Qualified movement is judged before a handoff or booking matters",
               "Tiger Card-style context tells you why the next step deserves attention",
@@ -396,13 +396,13 @@ function PricingSection() {
                 Cancel anytime. No contracts. No setup fees.
               </p>
               <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
-                Start setup opens the preparation page before checkout. You
-                will need a Telegram bot token, a public calendar link, and an
-                AI key before a Tiger can be hatched cleanly.
+                A short setup checklist gets your Tiger ready — we walk you
+                through each step before you pay, so it's working for you from
+                day one.
               </p>
               <div className="space-y-3 mb-10">
                 {[
-                  "Telegram-first AI follow-up assistant with LINE dashboard add-on support",
+                  "An AI follow-up agent that works around the clock",
                   "Conversation memory and prospect notes",
                   "Qualified movement and next-step guidance",
                   "Common objection and timing awareness",
@@ -429,16 +429,16 @@ function PricingSection() {
 function FAQSection() {
   const faqs = [
     {
-      q: "Does Tiger Claw auto-send everywhere?",
-      a: "No. Tiger Claw is not an auto-send-everywhere tool. Every Tiger starts with Telegram. LINE can be added from the dashboard when the tenant has the right LINE channel credentials.",
+      q: "Where does my Tiger work?",
+      a: "Your Tiger starts on Telegram, and you can add LINE from your dashboard once you're set up. More channels are on the way. It follows up where your prospects actually are — not by blasting everywhere at once.",
     },
     {
       q: "What about LINE?",
-      a: "LINE is a dashboard add-on after Telegram signup. Once the tenant connects the right LINE channel credentials, Tiger should be able to continue the conversation there; each tenant still needs real conversation evidence before LINE is treated as proven for that tenant.",
+      a: "LINE is an add-on you turn on from your dashboard after you're up and running on Telegram. Once it's connected, your Tiger keeps the conversation going there too.",
     },
     {
       q: "What do I need before checkout?",
-      a: "The setup page helps you prepare a Telegram BotFather token, a public calendar link, and an AI key. Getting those ready first makes the hatch cleaner.",
+      a: "Just a few quick connections. We walk you through each one on the setup page before you pay, so your Tiger is ready to go from day one.",
     },
     {
       q: "Does a booking mean Tiger worked?",
@@ -503,7 +503,7 @@ function OfferSection() {
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/70 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            Start with the setup checklist. Then hatch the assistant, connect the messaging path, and keep real prospect conversations moving.
+            Start with the quick setup. Then put your Tiger to work and keep every prospect conversation moving.
           </p>
         </FadeSection>
         <FadeSection delay={0.3}>
