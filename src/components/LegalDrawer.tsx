@@ -14,10 +14,15 @@ export default function LegalDrawer({ open, onClose, initialSection }: LegalDraw
   const [activeId, setActiveId] = useState<string | null>(initialSection ?? null);
 
   // When the drawer opens (or the requested section changes), reset to the
-  // requested policy, or the menu if none was requested.
-  useEffect(() => {
+  // requested policy, or the menu if none was requested. Adjusted during
+  // render (the documented prop-change pattern) rather than in an effect.
+  const [prevOpen, setPrevOpen] = useState(open);
+  const [prevSection, setPrevSection] = useState(initialSection);
+  if (open !== prevOpen || initialSection !== prevSection) {
+    setPrevOpen(open);
+    setPrevSection(initialSection);
     if (open) setActiveId(initialSection ?? null);
-  }, [open, initialSection]);
+  }
 
   // Lock body scroll while open
   useEffect(() => {
