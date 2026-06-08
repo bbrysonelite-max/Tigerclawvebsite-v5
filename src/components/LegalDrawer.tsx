@@ -78,12 +78,15 @@ export default function LegalDrawer({ open, onClose, initialSection }: LegalDraw
             <div className="flex-shrink-0 flex items-center justify-between px-5 sm:px-8 h-16 border-b border-white/10 bg-[#0A0A0A]/95 backdrop-blur-md">
               <div className="min-w-0">
                 {activeSection ? (
-                  <button
-                    onClick={() => setActiveId(null)}
-                    className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors"
-                  >
-                    <ArrowLeft className="w-4 h-4" /> All policies
-                  </button>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <button
+                      onClick={() => setActiveId(null)}
+                      className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors flex-shrink-0"
+                    >
+                      <ArrowLeft className="w-4 h-4" /> All
+                    </button>
+                    <span className="text-white font-semibold text-sm truncate" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{activeSection.label}</span>
+                  </div>
                 ) : (
                   <>
                     <h2 className="text-white font-bold text-base sm:text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
@@ -115,10 +118,11 @@ export default function LegalDrawer({ open, onClose, initialSection }: LegalDraw
                       <button
                         key={s.id}
                         onClick={() => setActiveId(s.id)}
-                        className="group flex items-center justify-between gap-3 px-4 py-4 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 transition-colors text-left"
+                        className="group relative flex items-center justify-between gap-3 px-4 py-4 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-[#E8722A]/40 transition-all duration-200 text-left overflow-hidden"
                       >
-                        <span className="text-white/85 text-sm font-medium group-hover:text-white">{s.label}</span>
-                        <ChevronRight className="w-4 h-4 text-white/30 group-hover:text-white/70 flex-shrink-0 transition-colors" />
+                        <span className="absolute left-0 top-0 h-full w-0.5 bg-[#E8722A] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                        <span className="text-white/85 text-sm font-medium group-hover:text-white pl-1">{s.label}</span>
+                        <ChevronRight className="w-4 h-4 text-white/30 group-hover:text-[#E8722A] flex-shrink-0 transition-colors" />
                       </button>
                     ))}
                   </div>
