@@ -55,7 +55,7 @@ function SectionHeading({ id, title }: { id: string; title: string }) {
 }
 
 function EffectiveDate() {
-  return <p className="text-white/60 text-sm mb-6">Effective Date: {EFFECTIVE}</p>;
+  return <p className="text-white/70 text-sm mb-6">Effective Date: {EFFECTIVE}</p>;
 }
 
 function H3({ children }: { children: React.ReactNode }) {
@@ -63,12 +63,12 @@ function H3({ children }: { children: React.ReactNode }) {
 }
 
 function P({ children }: { children: React.ReactNode }) {
-  return <p className="text-white/80 text-[15px] leading-relaxed mb-4">{children}</p>;
+  return <p className="text-white/90 text-[15px] leading-relaxed mb-4">{children}</p>;
 }
 
 function Li({ children }: { children: React.ReactNode }) {
   return (
-    <li className="text-white/80 text-[15px] leading-relaxed mb-2 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white/40">
+    <li className="text-white/90 text-[15px] leading-relaxed mb-2 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white/60">
       {children}
     </li>
   );

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown, Clock, Menu, MessageSquare, NotebookTabs, Shield, Target, UserRoundCheck, X } from "lucide-react";
 import FooterSocialLinks from "@/components/FooterSocialLinks";
-import LegalDrawer from "@/components/LegalDrawer";
 
 const HERO_TIGER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-hero-tiger-kREoKjDy7VbVLihfN3ac8E.webp";
 const ORANGE_BREAK = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-orange-break-hLD5W3d5goMaak62rKQ5uW.webp";
@@ -516,21 +515,22 @@ function OfferSection() {
   );
 }
 
-function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
+function Footer() {
   const siteLinks = [
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
     { label: "Support Promise", href: "/contact#support-promise" },
+    { label: "Brand", href: "/brand" },
   ];
   const legalLinks = [
-    { label: "Privacy Policy", id: "privacy" },
-    { label: "Terms of Service", id: "terms" },
-    { label: "Acceptable Use", id: "aup" },
-    { label: "Cookie Policy", id: "cookies" },
-    { label: "DMCA", id: "dmca" },
-    { label: "Cancellation", id: "refund" },
-    { label: "Results Disclaimer", id: "earnings" },
-    { label: "Accessibility", id: "accessibility" },
+    { label: "Privacy Policy", slug: "privacy" },
+    { label: "Terms of Service", slug: "terms" },
+    { label: "Acceptable Use", slug: "acceptable-use" },
+    { label: "Cookie Policy", slug: "cookies" },
+    { label: "DMCA", slug: "dmca" },
+    { label: "Cancellation", slug: "cancellation" },
+    { label: "Results Disclaimer", slug: "results" },
+    { label: "Accessibility", slug: "accessibility" },
   ];
 
   return (
@@ -560,14 +560,14 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
               </a>
             ))}
             {legalLinks.map((link) => (
-              <button key={link.id} type="button" onClick={() => onOpenLegal(link.id)} className="text-white/60 hover:text-white text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              <a key={link.slug} href={`/legal/${link.slug}`} className="text-white/60 hover:text-white text-sm transition-colors duration-200" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
-          <button type="button" onClick={() => onOpenLegal("do-not-sell")} className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors duration-200 underline underline-offset-2 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+          <a href="/legal/do-not-sell" className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors duration-200 underline underline-offset-2" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
             Do Not Sell or Share My Personal Information
-          </button>
+          </a>
         </div>
         <div className="border-t border-white/10 pt-6">
           <p className="text-white/60 text-xs leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
@@ -580,13 +580,6 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
 }
 
 export default function Home() {
-  const [legalOpen, setLegalOpen] = useState(false);
-  const [legalSection, setLegalSection] = useState<string>("privacy");
-  const openLegal = (section: string) => {
-    setLegalSection(section);
-    setLegalOpen(true);
-  };
-
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
       <CursorFollower />
@@ -601,8 +594,7 @@ export default function Home() {
       <PricingSection />
       <FAQSection />
       <OfferSection />
-      <Footer onOpenLegal={openLegal} />
-      <LegalDrawer open={legalOpen} onClose={() => setLegalOpen(false)} initialSection={legalSection} />
+      <Footer />
     </div>
   );
 }

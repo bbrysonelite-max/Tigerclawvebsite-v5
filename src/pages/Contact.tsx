@@ -3,7 +3,6 @@ import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Mail, MapPin, Send, ArrowLeft, Menu, X } from "lucide-react";
 import { Link } from "wouter";
 import FooterSocialLinks from "@/components/FooterSocialLinks";
-import LegalDrawer from "@/components/LegalDrawer";
 
 /* ─── CONTACT PAGE ───
    Design: Tiger Claw dark theme — true black, orange accents, Space Grotesk + IBM Plex Mono
@@ -203,21 +202,22 @@ function ContactForm() {
 }
 
 /* ─── FOOTER ─── */
-function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
+function Footer() {
   const siteLinks = [
     { label: "Contact", href: "/contact" },
     { label: "FAQ", href: "/#faq" },
     { label: "Support Promise", href: "/contact#support-promise" },
+    { label: "Brand", href: "/brand" },
   ];
   const legalLinks = [
-    { label: "Privacy Policy", id: "privacy" },
-    { label: "Terms of Service", id: "terms" },
-    { label: "Acceptable Use", id: "aup" },
-    { label: "Cookie Policy", id: "cookies" },
-    { label: "DMCA", id: "dmca" },
-    { label: "Cancellation", id: "refund" },
-    { label: "Results Disclaimer", id: "earnings" },
-    { label: "Accessibility", id: "accessibility" },
+    { label: "Privacy Policy", slug: "privacy" },
+    { label: "Terms of Service", slug: "terms" },
+    { label: "Acceptable Use", slug: "acceptable-use" },
+    { label: "Cookie Policy", slug: "cookies" },
+    { label: "DMCA", slug: "dmca" },
+    { label: "Cancellation", slug: "cancellation" },
+    { label: "Results Disclaimer", slug: "results" },
+    { label: "Accessibility", slug: "accessibility" },
   ];
 
   return (
@@ -248,15 +248,15 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
                 {link.label}
               </a>
             ))}
-            {legalLinks.map((link, i) => (
-              <button key={i} type="button" onClick={() => onOpenLegal(link.id)} className="text-white/60 hover:text-white text-sm transition-colors duration-200 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+            {legalLinks.map((link) => (
+              <a key={link.slug} href={`/legal/${link.slug}`} className="text-white/60 hover:text-white text-sm transition-colors duration-200" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
-          <button type="button" onClick={() => onOpenLegal("do-not-sell")} className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors duration-200 underline underline-offset-2 cursor-pointer" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+          <a href="/legal/do-not-sell" className="inline-block mt-3 text-white/60 hover:text-white text-sm transition-colors duration-200 underline underline-offset-2" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
             Do Not Sell or Share My Personal Information
-          </button>
+          </a>
         </div>
         <div className="border-t border-white/10 pt-6 space-y-3">
           <p className="text-white/60 text-xs leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
@@ -272,12 +272,6 @@ function Footer({ onOpenLegal }: { onOpenLegal: (section: string) => void }) {
 export default function Contact() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
-  const [legalOpen, setLegalOpen] = useState(false);
-  const [legalSection, setLegalSection] = useState<string>("privacy");
-  const openLegal = (section: string) => {
-    setLegalSection(section);
-    setLegalOpen(true);
-  };
 
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
@@ -437,8 +431,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <Footer onOpenLegal={openLegal} />
-      <LegalDrawer open={legalOpen} onClose={() => setLegalOpen(false)} initialSection={legalSection} />
+      <Footer />
     </div>
   );
 }
