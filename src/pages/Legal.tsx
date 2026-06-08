@@ -123,7 +123,7 @@ export function PrivacyPolicy() {
 
       <P><Bold>From Prospects (people your assistant helps you communicate with):</Bold></P>
       <ul className="mb-4">
-        <Li>Messaging handles and chat identifiers</Li>
+        <Li>Channel identifiers and handles for the channels you connect — for example Telegram handles and chat IDs, WhatsApp numbers, email addresses, SMS mobile numbers, and LINE user IDs</Li>
         <Li>Messages, notes, and follow-up details you submit or connect to the Service</Li>
         <Li>Publicly available information provided to us by our third-party data provider, including but not limited to usernames, publicly posted statements, and links to public sources</Li>
       </ul>
@@ -160,7 +160,7 @@ export function PrivacyPolicy() {
         <Li><Bold>Payment processors</Bold> — payment processing</Li>
         <Li><Bold>Hosting providers</Bold> — hosting infrastructure</Li>
         <Li><Bold>Database providers</Bold> — database services</Li>
-        <Li><Bold>Messaging providers</Bold> — message delivery to your agents and prospects</Li>
+        <Li><Bold>Messaging channels</Bold> — message delivery through the channels you connect, each via its own provider: Telegram, WhatsApp, Email, SMS, and LINE</Li>
         <Li><Bold>Calendar providers</Bold> — calendar booking on your behalf</Li>
         <Li><Bold>AI providers</Bold> — AI processing, using your API key when applicable</Li>
         <Li><Bold>Third-party data provider</Bold> — supplies publicly sourced prospect information</Li>
