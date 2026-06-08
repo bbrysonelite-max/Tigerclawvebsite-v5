@@ -123,7 +123,7 @@ export function PrivacyPolicy() {
 
       <P><Bold>From Prospects (people your assistant helps you communicate with):</Bold></P>
       <ul className="mb-4">
-        <Li>Messaging handles and chat identifiers</Li>
+        <Li>Channel identifiers and handles for the channels you connect — for example Telegram handles and chat IDs, WhatsApp numbers, email addresses, SMS mobile numbers, and LINE user IDs</Li>
         <Li>Messages, notes, and follow-up details you submit or connect to the Service</Li>
         <Li>Publicly available information provided to us by our third-party data provider, including but not limited to usernames, publicly posted statements, and links to public sources</Li>
       </ul>
@@ -144,13 +144,23 @@ export function PrivacyPolicy() {
         <Li>To develop new features and analyze usage patterns (in aggregate, non-identifying form where possible)</Li>
       </ul>
 
+      <H3>SMS / Text Messaging</H3>
+      <P>If you opt in to receive text messages from Tiger Claw, we collect your mobile phone number and the content of those messages to send the communications you have consented to receive.</P>
+      <ul className="mb-4">
+        <Li><Bold>Consent:</Bold> We send SMS only to people who have given prior express consent — for example, by submitting their mobile number through a form, texting us first, or as part of an existing business relationship.</Li>
+        <Li><Bold>Message types:</Bold> Conversational follow-ups, appointment and video-call reminders, scheduling confirmations, replies to your questions, and occasional account or service updates.</Li>
+        <Li><Bold>No sharing of mobile data:</Bold> Mobile information and SMS opt-in consent are never shared with or sold to third parties or affiliates for their own marketing or promotional purposes. We share mobile information only with the service providers that help us deliver the messages (such as our SMS or telecommunications provider), solely for that purpose.</Li>
+        <Li><Bold>Frequency &amp; rates:</Bold> Message frequency varies based on your activity and conversations. Message and data rates may apply.</Li>
+        <Li><Bold>Opt-out:</Bold> Reply STOP at any time to stop receiving text messages, or reply HELP for assistance. You may also contact us at <EmailLink /> to opt out.</Li>
+      </ul>
+
       <H3>Third-Party Services We Use</H3>
       <P>We share information with the following service providers as necessary to operate the Service:</P>
       <ul className="mb-4">
         <Li><Bold>Payment processors</Bold> — payment processing</Li>
         <Li><Bold>Hosting providers</Bold> — hosting infrastructure</Li>
         <Li><Bold>Database providers</Bold> — database services</Li>
-        <Li><Bold>Messaging providers</Bold> — message delivery to your agents and prospects</Li>
+        <Li><Bold>Messaging channels</Bold> — message delivery through the channels you connect, each via its own provider: Telegram, WhatsApp, Email, SMS, and LINE</Li>
         <Li><Bold>Calendar providers</Bold> — calendar booking on your behalf</Li>
         <Li><Bold>AI providers</Bold> — AI processing, using your API key when applicable</Li>
         <Li><Bold>Third-party data provider</Bold> — supplies publicly sourced prospect information</Li>
