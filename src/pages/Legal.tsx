@@ -144,6 +144,16 @@ export function PrivacyPolicy() {
         <Li>To develop new features and analyze usage patterns (in aggregate, non-identifying form where possible)</Li>
       </ul>
 
+      <H3>SMS / Text Messaging</H3>
+      <P>If you opt in to receive text messages from Tiger Claw, we collect your mobile phone number and the content of those messages to send the communications you have consented to receive.</P>
+      <ul className="mb-4">
+        <Li><Bold>Consent:</Bold> We send SMS only to people who have given prior express consent — for example, by submitting their mobile number through a form, texting us first, or as part of an existing business relationship.</Li>
+        <Li><Bold>Message types:</Bold> Conversational follow-ups, appointment and video-call reminders, scheduling confirmations, replies to your questions, and occasional account or service updates.</Li>
+        <Li><Bold>No sharing of mobile data:</Bold> Mobile information and SMS opt-in consent are never shared with or sold to third parties or affiliates for their own marketing or promotional purposes. We share mobile information only with the service providers that help us deliver the messages (such as our SMS or telecommunications provider), solely for that purpose.</Li>
+        <Li><Bold>Frequency &amp; rates:</Bold> Message frequency varies based on your activity and conversations. Message and data rates may apply.</Li>
+        <Li><Bold>Opt-out:</Bold> Reply STOP at any time to stop receiving text messages, or reply HELP for assistance. You may also contact us at <EmailLink /> to opt out.</Li>
+      </ul>
+
       <H3>Third-Party Services We Use</H3>
       <P>We share information with the following service providers as necessary to operate the Service:</P>
       <ul className="mb-4">
