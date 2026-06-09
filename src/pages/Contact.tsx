@@ -237,7 +237,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
@@ -342,7 +342,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Email</p>
-                      <a href="mailto:help@tigerclaw.io" className="hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
+                      <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
                         help@tigerclaw.io
                       </a>
                     </div>
@@ -388,8 +388,9 @@ export default function Contact() {
             </h2>
             <p className="text-white/70 text-lg leading-relaxed" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Send product questions, setup questions, billing questions, or
-              cancellation requests to help@tigerclaw.io. We will respond within
-              24 business hours and point you to the next useful step.
+              cancellation requests to{" "}
+              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>.
+              We will respond within 24 business hours and point you to the next useful step.
             </p>
           </motion.div>
         </div>

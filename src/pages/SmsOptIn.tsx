@@ -262,7 +262,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
