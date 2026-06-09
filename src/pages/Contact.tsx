@@ -81,6 +81,9 @@ function Nav() {
               {l.label}
             </a>
           ))}
+          <a href="https://wizard.tigerclaw.io/dashboard" className="px-4 py-1.5 text-white/85 hover:text-white text-sm font-semibold transition-colors duration-200 whitespace-nowrap" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            Log In
+          </a>
           <div className="w-px h-5 bg-white/10" />
           <span className="px-4 py-1.5 text-sm font-semibold rounded-full" style={{ background: ORANGE, color: "#000" }}>
             Contact
@@ -111,6 +114,9 @@ function Nav() {
                 {l.label}
               </a>
             ))}
+            <a href="https://wizard.tigerclaw.io/dashboard" onClick={() => setMobileOpen(false)} className="block py-2.5 text-white/70 hover:text-white text-sm font-medium" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              Log In
+            </a>
           </motion.div>
         )}
       </nav>
