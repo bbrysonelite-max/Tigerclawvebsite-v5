@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
 import Brand from "./pages/Brand";
+import SmsOptIn from "./pages/SmsOptIn";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/legal" component={Legal} />
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/brand" component={Brand} />
+      <Route path="/sms" component={SmsOptIn} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
