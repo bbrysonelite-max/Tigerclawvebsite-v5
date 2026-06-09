@@ -74,9 +74,9 @@ function Nav() {
   const [showCta, setShowCta] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const links = [
-    { label: "The Problem", href: "#problem" },
-    { label: "What It Does", href: "#how" },
-    { label: "Handoff", href: "#what-you-get" },
+    { label: "Problem", href: "#problem" },
+    { label: "How It Works", href: "#how" },
+    { label: "What You Get", href: "#what-you-get" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "/contact" },
@@ -90,19 +90,19 @@ function Nav() {
 
   return (
     <>
-      <div className="fixed top-5 left-0 right-0 z-50 hidden md:flex justify-center px-4">
+      <div className="fixed top-5 left-0 right-0 z-50 hidden lg:flex justify-center px-4">
         <nav className="flex items-center gap-1 px-2 py-2 rounded-full bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40">
           <a href="#" className="flex items-center gap-2 pl-3 pr-4">
             <img src="/favicon-64x64.png" alt="Tiger Claw" className="w-7 h-7 rounded-full" />
           </a>
           <div className="w-px h-5 bg-white/10" />
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="px-4 py-1.5 text-white/85 hover:text-white hover:bg-white/5 text-sm font-semibold transition-all duration-200 rounded-full">
+            <a key={l.href} href={l.href} className="px-4 py-1.5 text-white hover:text-[#E8722A] hover:bg-white/5 text-base font-semibold transition-all duration-200 rounded-full">
               {l.label}
             </a>
           ))}
           <div className="w-px h-5 bg-white/10" />
-          <a href={DASH_URL} className="px-4 py-1.5 text-white/85 hover:text-white hover:bg-white/5 text-sm font-semibold transition-all duration-200 rounded-full">
+          <a href={DASH_URL} className="px-4 py-1.5 text-white hover:text-[#E8722A] hover:bg-white/5 text-base font-semibold transition-all duration-200 rounded-full">
             Log In
           </a>
           <AnimatePresence>
@@ -122,7 +122,7 @@ function Nav() {
         </nav>
       </div>
 
-      <div className="fixed top-0 left-0 right-0 z-50 md:hidden bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/5">
+      <div className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-[#0A0A0A]/95 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center justify-between h-14 px-4">
           <a href="#" className="flex items-center gap-2">
             <img src="/favicon-64x64.png" alt="Tiger Claw" className="w-8 h-8 rounded-full" />
@@ -311,25 +311,24 @@ function WhatYouGet() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
         <FadeSection>
           <div className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
-            THE HANDOFF
+            WHAT YOU GET
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            A clear reason to <span style={{ color: ORANGE }}>step in.</span>
+            Save time. <span style={{ color: ORANGE }}>Never drop the ball.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-10">
-            A booking is not proof by itself. Tiger Claw is built around qualified movement: what the person said, what they care about, why now, and what the operator should do next.
+            Stop chasing cold leads and stop forgetting warm ones. Tiger does the follow-up, remembers every detail, and only taps you on the shoulder when someone is ready &mdash; so you spend your time closing, not digging.
           </p>
         </FadeSection>
         <FadeSection delay={0.25}>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "You step in only when a conversation has earned your time",
-              "A clear, human-ready read on why this prospect matters now",
-              "Prospect context, notes, objections, and timing stay attached to the thread",
-              "Qualified movement is judged before a handoff or booking matters",
-              "Tiger Card-style context tells you why the next step deserves attention",
+              "Save hours every week — Tiger does the chasing so you only spend time on people who are ready.",
+              "Never drop the ball — every follow-up, note, and timing cue is remembered for you.",
+              "Walk in warm — you get the full story before you say a word.",
+              "Step in to close, not to dig — the work is done before it ever reaches you.",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3 p-4 rounded-lg border border-white/5 bg-white/[0.03]">
                 <UserRoundCheck className="w-5 h-5 flex-shrink-0" style={{ color: GREEN }} />
@@ -468,6 +467,17 @@ function FAQSection() {
     },
   ];
 
+  const renderAnswer = (text: string) => {
+    const email = "help@tigerclaw.io";
+    const parts = text.split(email);
+    if (parts.length === 1) return text;
+    return parts.flatMap((part, i) =>
+      i < parts.length - 1
+        ? [part, <a key={i} href={`mailto:${email}`} className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>{email}</a>]
+        : [part]
+    );
+  };
+
   return (
     <section id="faq" className="py-24 sm:py-32 bg-[#0A0A0A] border-t border-white/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -484,11 +494,38 @@ function FAQSection() {
             <FadeSection key={item.q} delay={i * 0.1}>
               <div className="p-6 rounded-lg border border-white/5 bg-white/[0.02]">
                 <h3 className="text-white font-semibold text-lg mb-3">{item.q}</h3>
-                <p className="text-white/70 text-base leading-relaxed">{item.a}</p>
+                <p className="text-white/70 text-base leading-relaxed">{renderAnswer(item.a)}</p>
               </div>
             </FadeSection>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function StakesQuote() {
+  return (
+    <section className="py-20 sm:py-28 bg-[#0A0A0A] border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8">
+        <FadeSection>
+          <figure className="relative text-center">
+            <span
+              aria-hidden="true"
+              className="block leading-none mb-2 select-none"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "5rem", color: ORANGE, opacity: 0.5 }}
+            >
+              &ldquo;
+            </span>
+            <blockquote
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}
+            >
+              In this market, the operators who follow up <span style={{ color: ORANGE }}>win.</span> The
+              ones who don&rsquo;t get left behind.
+            </blockquote>
+          </figure>
+        </FadeSection>
       </div>
     </section>
   );
@@ -551,7 +588,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
@@ -600,6 +637,7 @@ export default function Home() {
       <WhoSection />
       <PricingSection />
       <FAQSection />
+      <StakesQuote />
       <OfferSection />
       <Footer />
     </div>
