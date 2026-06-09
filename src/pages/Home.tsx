@@ -11,6 +11,7 @@ const ORANGE = "#E8722A";
 const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const WIZARD_URL = "/start";
+const DASH_URL = "https://wizard.tigerclaw.io/dashboard";
 const FOOTER_DISCLAIMER =
   "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
 
@@ -101,6 +102,9 @@ function Nav() {
             </a>
           ))}
           <div className="w-px h-5 bg-white/10" />
+          <a href={DASH_URL} className="px-4 py-1.5 text-white/85 hover:text-white hover:bg-white/5 text-sm font-semibold transition-all duration-200 rounded-full">
+            Log In
+          </a>
           <AnimatePresence>
             {showCta && (
               <motion.a
@@ -137,6 +141,9 @@ function Nav() {
                     {l.label}
                   </a>
                 ))}
+                <a href={DASH_URL} onClick={() => setMobileOpen(false)} className="block text-white/70 hover:text-white text-sm font-medium py-2 uppercase tracking-wider">
+                  Log In
+                </a>
                 <a href={WIZARD_URL} onClick={() => setMobileOpen(false)} className="block text-center px-5 py-3 text-sm font-semibold text-black rounded-lg mt-2" style={{ background: ORANGE }}>
                   Start setup
                 </a>
