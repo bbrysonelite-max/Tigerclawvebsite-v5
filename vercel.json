@@ -4,6 +4,21 @@
       "source": "/start",
       "destination": "https://wizard.tigerclaw.io/",
       "permanent": false
+    },
+    {
+      "source": "/dashboard",
+      "destination": "https://wizard.tigerclaw.io/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://wizard.tigerclaw.io/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/login",
+      "destination": "https://wizard.tigerclaw.io/dashboard",
+      "permanent": false
     }
   ],
   "headers": [
