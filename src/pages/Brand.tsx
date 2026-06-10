@@ -180,6 +180,80 @@ export default function Brand() {
           </div>
         </Section>
 
+        {/* Product UI — Mission Control (operator dashboard) */}
+        <Section id="product-ui" title="Product UI">
+          <style>{`
+            @keyframes tc-pulse {
+              0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+              50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+            }
+            .tc-pulse { animation: tc-pulse 2s ease-in-out infinite; }
+            @keyframes tc-blink {
+              0%, 92%, 100% { opacity: 1; }
+              94%, 96% { opacity: 0.15; }
+            }
+            .tc-eye { animation: tc-blink 4.5s steps(1) infinite; }
+            .tc-small { font-size: 13px; color: #a1a1aa; transition: color 0.18s ease; }
+            .tc-small:hover { color: #d4d4d8; }
+            .tc-prowl-track { position: relative; height: 3px; background: #1a1a1a; border-radius: 2px; overflow: hidden; width: 100%; }
+            .tc-prowl-cat {
+              position: absolute; top: 0; left: -30%; height: 100%; width: 30%; border-radius: 2px;
+              background: linear-gradient(90deg, transparent, #E8722A 60%, #ffb380);
+              animation: tc-prowl 2.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+            }
+            @keyframes tc-prowl { 0% { left: -30%; } 100% { left: 100%; } }
+          `}</style>
+          <p className="text-white/60 text-sm mb-6 max-w-2xl">
+            The operator dashboard (Mission Control) speaks this system. Two laws govern it:
+            <span className="text-white"> motion never lies</span> — every animation rides on a stored
+            event or a passing check, an idle Tiger is a still screen — and
+            <span className="text-white"> benefits, never tech</span> — the product says what Tiger did
+            for the operator, not what the system did.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Element label="Tiger-eye mark" snippet="rounded-[50%_50%_50%_0] bg-orange-500 rotate(-45deg) + .tc-eye slow blink">
+              <span className="tc-eye inline-block h-[11px] w-[11px] rounded-[50%_50%_50%_0]" style={{ background: ORANGE, transform: "rotate(-45deg)" }} />
+            </Element>
+
+            <Element label="LIVE chip" snippet="rounded-full border px-3 py-1 mono 11px uppercase + .tc-pulse dot — green only when health passes; any worse state shows the readiness word in orange as a doorway">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5">
+                <span className="tc-pulse w-2 h-2 rounded-full" style={{ background: GREEN }} />
+                <span className="text-[11px] uppercase tracking-[0.08em] text-white/80" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>LIVE</span>
+              </span>
+            </Element>
+
+            <Element label="Prowl-line" snippet=".tc-prowl-track + .tc-prowl-cat — 3px orange sweep; fires ONCE per real event batch (looped here as a specimen)">
+              <div className="w-full px-2">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-2" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>ON THE PROWL</p>
+                <div className="tc-prowl-track"><span className="tc-prowl-cat" /></div>
+              </div>
+            </Element>
+
+            <Element label="Text law" snippet=".tc-small — gray #a1a1aa at 13px minimum (bigger, not brighter), hover-brightens to #d4d4d8; white is emphasis only; orange + green are signals">
+              <div className="text-left w-full px-2">
+                <p className="tc-small">Tiger replied to <span className="text-white">Sarah Lopez</span> — hover this line</p>
+                <p className="tc-small mt-1">2 booked this week · <span style={{ color: GREEN }}>ready</span></p>
+              </div>
+            </Element>
+
+            <Element label="Benefit voice" snippet="map every internal state to operator words or hide it — an unmapped value never renders">
+              <div className="text-left w-full px-2 space-y-1.5">
+                <p className="text-sm"><span style={{ color: GREEN }}>✓</span> <span className="text-white/80">A prospect wrote back</span></p>
+                <p className="text-sm line-through decoration-white/30 text-white/40">turn_inbound</p>
+                <p className="text-sm"><span style={{ color: GREEN }}>✓</span> <span className="text-white/80">Tiger knows the moment someone books.</span></p>
+                <p className="text-sm line-through decoration-white/30 text-white/40">webhook verified ✓</p>
+              </div>
+            </Element>
+
+            <Element label="Feed entry" snippet="rows slide in with a ~2.4s orange flash, then go calm — flash fires only on the poll diff">
+              <div className="w-full rounded-lg border px-3 py-2 text-left" style={{ borderColor: ORANGE, background: "rgba(232, 114, 42, 0.1)" }}>
+                <p className="text-sm text-white/90">Draft written for <span className="text-white">Todd</span> — ready for your review</p>
+                <p className="text-[11px] text-white/40 mt-0.5" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>2m ago</p>
+              </div>
+            </Element>
+          </div>
+        </Section>
+
         {/* Voice & bios */}
         <Section id="voice" title="Voice & bios">
           <div className="space-y-4">
