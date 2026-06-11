@@ -397,8 +397,14 @@ function PricingSection() {
                 <span className="text-6xl sm:text-7xl font-bold text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>$147</span>
                 <span className="text-white/60 text-lg">/month</span>
               </div>
-              <p className="text-white/70 text-sm mb-8" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              <p className="text-white/70 text-sm mb-6" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 Cancel anytime. No contracts. No setup fees.
+              </p>
+              <p className="text-white/80 text-sm leading-relaxed mb-1 max-w-2xl">
+                <span className="font-semibold text-white">30-Day Conversation Guarantee</span> — if Tiger doesn't hold a real conversation with a prospect in your first 30 days, you get every dollar back.
+              </p>
+              <p className="text-white/50 text-xs leading-relaxed mb-8 max-w-2xl">
+                Five real exchanges with a real person. Import your people and send at least 10 Tiger Cards — Tiger does the rest.
               </p>
               <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
                 A short setup checklist gets your Tiger ready — we walk you
