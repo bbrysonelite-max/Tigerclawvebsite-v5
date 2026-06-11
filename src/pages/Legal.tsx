@@ -223,7 +223,7 @@ export function TermsOfService() {
       <P><Bold>Price:</Bold> The Service is offered at $147 per month, billed monthly through our payment processor. Prices are subject to change with 30 days' notice to active operators.</P>
       <P><Bold>Billing cycle:</Bold> Subscriptions renew automatically each month until canceled.</P>
       <P><Bold>Cancellation:</Bold> You may cancel at any time through your account or by contacting <EmailLink />. Cancellation takes effect at the end of your current billing cycle. You will retain access to the Service through the end of the paid period. We do not use long-term contracts, hidden cancellation steps, or cancellation friction to trap users.</P>
-      <P><Bold>Refunds:</Bold> Fees are non-refundable after 7 days except where required by law. If you believe you have been charged in error, contact <EmailLink /> within 30 days and we will review your request in good faith.</P>
+      <P><Bold>30-Day Conversation Guarantee.</Bold> If, during your first thirty (30) days of paid service, the Service does not hold a conversation with a prospect reaching at least five (5) exchanged messages (excluding your own operator chat), and you have imported at least one (1) contact and sent at least ten (10) Tiger Card invitations, you may request a full refund of all amounts paid. Otherwise, monthly subscription fees are non-refundable except where required by law, and we do not issue prorated refunds for partial months. If you believe you have been charged in error, contact <EmailLink /> within 30 days and we will review your request in good faith.</P>
       <P><Bold>Failed payments:</Bold> If payment fails, we may suspend or terminate the Service after reasonable notice.</P>
 
       <H3>5. Your Account</H3>
@@ -426,7 +426,7 @@ export function RefundPolicy() {
       <P>Cancellation takes effect at the end of your current monthly billing cycle. You will retain access to the Service until that date.</P>
 
       <H3>Refunds</H3>
-      <P>Monthly subscription fees are non-refundable except where required by law. We do not issue prorated refunds for partial months.</P>
+      <P><Bold>30-Day Conversation Guarantee.</Bold> If, during your first thirty (30) days of paid service, the Service does not hold a conversation with a prospect reaching at least five (5) exchanged messages (excluding your own operator chat), and you have imported at least one (1) contact and sent at least ten (10) Tiger Card invitations, you may request a full refund of all amounts paid. Otherwise, monthly subscription fees are non-refundable except where required by law, and we do not issue prorated refunds for partial months.</P>
       <P><Bold>Billing errors:</Bold> If you believe you have been charged in error, contact <EmailLink /> within 30 days of the charge. We will review in good faith and issue a refund if the error is confirmed.</P>
       <P><Bold>Service failures:</Bold> If the Service is materially unavailable for an extended period due to our fault, contact us and we will consider service credits on a case-by-case basis.</P>
 
