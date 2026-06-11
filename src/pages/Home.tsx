@@ -397,8 +397,14 @@ function PricingSection() {
                 <span className="text-6xl sm:text-7xl font-bold text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>$147</span>
                 <span className="text-white/60 text-lg">/month</span>
               </div>
-              <p className="text-white/70 text-sm mb-8" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              <p className="text-white/70 text-sm mb-6" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 Cancel anytime. No contracts. No setup fees.
+              </p>
+              <p className="text-white/80 text-sm leading-relaxed mb-1 max-w-2xl">
+                <span className="font-semibold text-white">30-Day Conversation Guarantee</span> — if Tiger doesn't hold a real conversation with a prospect in your first 30 days, you get every dollar back.
+              </p>
+              <p className="text-white/50 text-xs leading-relaxed mb-8 max-w-2xl">
+                Five real exchanges with a real person. Import your people and send at least 10 Tiger Cards — Tiger does the rest.
               </p>
               <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
                 A short setup checklist gets your Tiger ready — we walk you
@@ -463,12 +469,12 @@ function FAQSection() {
     },
     {
       q: "Can I export or delete my data?",
-      a: "Yes. You can request export or deletion by contacting help@tigerclaw.io. Cancellation does not trap you or remove your ability to request export or deletion of eligible data.",
+      a: "Yes. You can request export or deletion by contacting support@tigerclaw.io. Cancellation does not trap you or remove your ability to request export or deletion of eligible data.",
     },
   ];
 
   const renderAnswer = (text: string) => {
-    const email = "help@tigerclaw.io";
+    const email = "support@tigerclaw.io";
     const parts = text.split(email);
     if (parts.length === 1) return text;
     return parts.flatMap((part, i) =>
@@ -588,7 +594,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>

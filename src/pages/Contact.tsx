@@ -134,7 +134,7 @@ function ContactForm() {
     // Build mailto link as fallback
     const subject = encodeURIComponent("Tiger Claw Inquiry");
     const body = encodeURIComponent(`Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-    window.location.href = `mailto:help@tigerclaw.io?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@tigerclaw.io?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -237,7 +237,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
@@ -342,8 +342,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-white font-semibold text-sm mb-1" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Email</p>
-                      <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
-                        help@tigerclaw.io
+                      <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white text-sm transition-colors" style={{ fontFamily: "'IBM Plex Mono', monospace", color: ORANGE }}>
+                        support@tigerclaw.io
                       </a>
                     </div>
                   </div>
@@ -389,7 +389,7 @@ export default function Contact() {
             <p className="text-white/70 text-lg leading-relaxed" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               Send product questions, setup questions, billing questions, or
               cancellation requests to{" "}
-              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>.
+              <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>.
               We will respond within 24 business hours and point you to the next useful step.
             </p>
           </motion.div>
@@ -428,7 +428,7 @@ export default function Contact() {
               Use one inbox for product questions, setup help, and conversation requests.
             </p>
             <a
-              href="mailto:help@tigerclaw.io?subject=Tiger%20Claw%20Conversation"
+              href="mailto:support@tigerclaw.io?subject=Tiger%20Claw%20Conversation"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold tracking-wider uppercase transition-all duration-300 hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5"
               style={{ background: ORANGE, color: "#000", fontFamily: "'Space Grotesk', sans-serif" }}
             >

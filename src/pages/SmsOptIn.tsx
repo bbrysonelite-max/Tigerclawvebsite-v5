@@ -9,7 +9,7 @@ import FooterSocialLinks from "@/components/FooterSocialLinks";
    Collects mobile number + explicit (NOT pre-checked) consent, states message
    type, frequency, rates, STOP/HELP, and links to Terms + Privacy.
    Design matches the Tiger Claw dark theme. Submit emails the opt-in to
-   help@tigerclaw.io (same no-backend mailto pattern as Contact).
+   support@tigerclaw.io (same no-backend mailto pattern as Contact).
 ─── */
 
 const ORANGE = "#E8722A";
@@ -147,7 +147,7 @@ function OptInForm() {
       `Consent: YES — agreed to receive recurring automated follow-up text messages from Tiger Claw.\n` +
       `Submitted: ${new Date().toISOString()}`
     );
-    window.location.href = `mailto:help@tigerclaw.io?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:support@tigerclaw.io?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -262,7 +262,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
@@ -364,7 +364,7 @@ export default function SmsOptIn() {
               <li><span className="text-white font-semibold">Message frequency:</span> Varies by your conversation. There is no fixed number.</li>
               <li><span className="text-white font-semibold">Cost:</span> Message and data rates may apply, depending on your mobile plan.</li>
               <li><span className="text-white font-semibold">Opt out:</span> Reply <span className="font-mono">STOP</span> at any time to stop receiving messages.</li>
-              <li><span className="text-white font-semibold">Help:</span> Reply <span className="font-mono">HELP</span> for help, or email <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2" style={{ color: ORANGE }}>help@tigerclaw.io</a>.</li>
+              <li><span className="text-white font-semibold">Help:</span> Reply <span className="font-mono">HELP</span> for help, or email <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2" style={{ color: ORANGE }}>support@tigerclaw.io</a>.</li>
               <li><span className="text-white font-semibold">Privacy:</span> We never sell or share your mobile information or opt-in consent with third parties for their marketing. See our <a href="/legal/privacy" className="underline underline-offset-2" style={{ color: ORANGE }}>Privacy Policy</a>.</li>
             </ul>
           </motion.div>
