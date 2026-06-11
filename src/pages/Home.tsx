@@ -463,12 +463,12 @@ function FAQSection() {
     },
     {
       q: "Can I export or delete my data?",
-      a: "Yes. You can request export or deletion by contacting help@tigerclaw.io. Cancellation does not trap you or remove your ability to request export or deletion of eligible data.",
+      a: "Yes. You can request export or deletion by contacting support@tigerclaw.io. Cancellation does not trap you or remove your ability to request export or deletion of eligible data.",
     },
   ];
 
   const renderAnswer = (text: string) => {
-    const email = "help@tigerclaw.io";
+    const email = "support@tigerclaw.io";
     const parts = text.split(email);
     if (parts.length === 1) return text;
     return parts.flatMap((part, i) =>
@@ -588,7 +588,7 @@ function Footer() {
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
               BotCraft Works LLC (DBA Tiger Claw)<br />
-              <a href="mailto:help@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>help@tigerclaw.io</a>
+              <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>

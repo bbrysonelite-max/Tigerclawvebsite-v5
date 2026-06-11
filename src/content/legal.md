@@ -75,6 +75,6 @@ Claw uses that information to operate, support, secure, and improve the service.
 
 Q: Can I export or delete my data?
 
-A: Yes. You can request export or deletion by contacting help@tigerclaw.io.
+A: Yes. You can request export or deletion by contacting support@tigerclaw.io.
 Cancellation does not trap you or remove your ability to request export or
 deletion of eligible data.

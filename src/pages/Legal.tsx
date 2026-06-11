@@ -6,13 +6,13 @@ import { Zap, ArrowLeft, ChevronRight } from "lucide-react";
 /* ─── DESIGN: Tiger Claw Legal Page
    Dark background (#0A0A0A), readable white text, orange accents.
    Sidebar nav on desktop, dropdown on mobile.
-   All emails: help@tigerclaw.io
+   All emails: support@tigerclaw.io
    Public mailing address lives in ADDRESS_LINES below.
 ─── */
 
 const ORANGE = "#E8722A";
-const EMAIL = "help@tigerclaw.io";
-const DMCA_EMAIL = "help@tigerclaw.io";
+const EMAIL = "support@tigerclaw.io";
+const DMCA_EMAIL = "support@tigerclaw.io";
 const ADDRESS_LINES = [
   "Bot Craft Works",
   "15560 N Frank Lloyd Wright",
