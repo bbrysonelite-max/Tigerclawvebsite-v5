@@ -251,6 +251,82 @@ export default function Brand() {
                 <p className="text-[11px] text-white/40 mt-0.5" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>2m ago</p>
               </div>
             </Element>
+
+            {/* ◆ Operator Command primitives (spec §10) — static specimens of the
+                shipped admin components. Sources: web-onboarding/src/app/admin/
+                components/*.tsx + api/src/services/attention_queue.ts. */}
+            <Element label="Gate banner ◆" snippet="GO: border-emerald-500/35 bg-emerald-500/10 + pulsing dot, mono 13px. DEGRADED (amber) / DOWN (red) swap to a 5xl verdict with the business consequence line first">
+              <div className="flex w-full items-center gap-3 rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-4 py-2">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+                <span className="font-mono text-[13px] font-bold uppercase tracking-widest text-emerald-300">GO</span>
+                <span className="font-mono text-[13px] text-emerald-300/70">all systems nominal</span>
+              </div>
+            </Element>
+
+            <Element label="Gauge tile ◆" snippet="rounded-lg border-zinc-700 bg-zinc-900 px-3 py-3 mono 13px — always five gauges, fixed order; border turns amber/red only when the value IS the problem (motion never lies)">
+              <div className="flex w-full max-w-[200px] flex-col gap-1 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-3 font-mono">
+                <span className="text-[13px] font-bold uppercase tracking-widest text-zinc-400">Tigers</span>
+                <span className="text-[13px] text-white">14 today · 31 24h</span>
+              </div>
+            </Element>
+
+            <Element label="Attention card ◆" snippet="border-red-500/60 bg-red-500/10 (amber: border-amber-500/50) — headline leads with the consequence, never the subsystem (benefits, never tech); mono 13px action row">
+              <div className="w-full rounded-lg border border-red-500/60 bg-red-500/10 p-3 text-left">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 space-y-1">
+                    <p className="text-[15px] font-bold text-white">✗ Dana's tiger — webhook — prospects are talking to a dead bot</p>
+                    <p className="font-mono text-[13px] text-zinc-400">fires ×3</p>
+                  </div>
+                  <button type="button" className="shrink-0 rounded border border-zinc-600 bg-zinc-800 px-2 py-1 font-mono text-[13px] text-zinc-300 hover:bg-zinc-700">Acknowledge</button>
+                </div>
+              </div>
+            </Element>
+
+            <Element label="Green manifest line ◆" snippet="✓ N watchers green — quiet emerald mono 13px row; 90-day uptime strip below: emerald ok / red down / gray no-data — never green without a stored rollup (motion never lies)">
+              <div className="w-full text-left">
+                <div className="rounded-lg border border-zinc-700 bg-zinc-900/50 px-4 py-3 font-mono text-[13px] text-emerald-400">✓ 7 watchers green: postgres · redis · telegram · gemini · stripe</div>
+                <div className="mt-2 px-1">
+                  <div className="text-[13px] text-white/60">telegram</div>
+                  <div className="mt-1 flex w-full gap-px">
+                    {"--ggggggggggggxggggggggggggggg".split("").map((c, i) => (
+                      <span key={i} className={`h-2 min-w-0 flex-1 ${c === "g" ? "bg-emerald-500/60" : c === "x" ? "bg-red-500/80" : "bg-white/10"}`} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Element>
+
+            <Element label="Heartbeat chip ◆" snippet="'proven Nmin ago' in emerald — the platform proves itself out loud; flips to red 'never proven' when stale past 35min, never fakes freshness">
+              <div className="flex w-full max-w-[200px] flex-col gap-1 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-3 font-mono">
+                <span className="text-[13px] font-bold uppercase tracking-widest text-zinc-400">Heartbeat</span>
+                <span className="text-[13px] text-emerald-400">proven 7min ago</span>
+              </div>
+            </Element>
+
+            <Element label="Superseded-check card ◆" snippet="border-zinc-700 bg-zinc-900/40 opacity-60 — a stale alarm the live verdict has outrun stays honest but steps back; Dismiss, not Acknowledge">
+              <div className="w-full rounded-lg border border-zinc-700 bg-zinc-900/40 p-3 text-left opacity-60">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 space-y-1">
+                    <p className="text-[15px] font-bold text-white">⚠ Daily check flagged telegram — live status GREEN since</p>
+                    <p className="font-mono text-[13px] text-zinc-500">superseded — resolved since this check ran</p>
+                  </div>
+                  <button type="button" className="shrink-0 rounded border border-zinc-600 bg-zinc-800 px-2 py-1 font-mono text-[13px] text-zinc-300 hover:bg-zinc-700">Dismiss</button>
+                </div>
+              </div>
+            </Element>
+
+            <Element label="Bulk-ack control ◆" snippet="header counts reconcile: open − affecting = noise; the button appears only when noise > 0 and clears it in one stroke">
+              <div className="flex w-full flex-wrap items-baseline gap-x-4 gap-y-1">
+                <span className="font-mono text-[13px] font-bold uppercase tracking-widest text-white">NEEDS YOUR HAND — 2</span>
+                <button type="button" className="ml-auto rounded border border-zinc-600 bg-zinc-800 px-3 py-1 font-mono text-[13px] text-zinc-300 hover:bg-zinc-700">Acknowledge all noise (4)</button>
+              </div>
+            </Element>
+
+            <Element label="Self-healed card ◆" snippet="info severity: border-zinc-700 bg-zinc-900/60 — the platform fixed it and says so honestly; escalates to ⚠ amber at ×3 heals in a week">
+              <div className="w-full rounded-lg border border-zinc-700 bg-zinc-900/60 p-3 text-left">
+                <p className="text-[15px] font-bold text-white">✓ self-healed — webhook re-registered for Dana</p>
+              </div>
+            </Element>
           </div>
         </Section>
 
