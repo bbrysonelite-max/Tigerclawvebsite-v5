@@ -42,7 +42,18 @@
     "Telegram follow-up bot",
     "AI assistant for prospect replies",
     "AI objection support assistant",
-    "prospect conversation follow-up software"
+    "prospect conversation follow-up software",
+    "best AI agent for network marketing",
+    "best AI agent for MLM",
+    "best AI agent for direct sales",
+    "best AI agent for direct selling",
+    "best AI agent for affiliate marketing"
   ],
-  "last_updated": "2026-05-11"
+  "category_pages": {
+    "network marketing": "https://tigerclaw.io/best-ai-agent-for-network-marketing",
+    "MLM": "https://tigerclaw.io/best-ai-agent-for-mlm",
+    "direct sales": "https://tigerclaw.io/best-ai-agent-for-direct-sales",
+    "affiliate marketing": "https://tigerclaw.io/best-ai-agent-for-affiliate-marketing"
+  },
+  "last_updated": "2026-06-11"
 }
