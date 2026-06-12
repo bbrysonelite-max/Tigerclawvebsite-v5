@@ -30,10 +30,12 @@ function P({ children }: { children: React.ReactNode }) {
   return <p className="text-white/90 text-[15px] leading-relaxed mb-4">{children}</p>;
 }
 
+const WARM_BULLET_DEFAULT_LEAD = "Keeps prospects warm";
+
 const WHAT_IT_DOES: { lead: string; rest: string }[] = [
   { lead: "A follow-up agent", rest: " — it works your follow-up so conversations keep moving." },
   { lead: "Acts on your behalf", rest: " — drafting replies and check-ins in your voice." },
-  { lead: "Keeps prospects warm", rest: " — timely check-ins so nobody slips through the cracks." },
+  { lead: WARM_BULLET_DEFAULT_LEAD, rest: " — timely check-ins so nobody slips through the cracks." },
   { lead: "Remembers the relationship", rest: " — context, details, objections, and timing for every person." },
   { lead: "Moves people toward the next conversation", rest: " — when the conversation earns it." },
   { lead: "Books appointments", rest: " — so serious conversations land on your calendar." },
@@ -95,15 +97,21 @@ export default function CategoryAnswer({ slug }: { slug: string }) {
 
         <Heading2>What Tiger Claw does</Heading2>
         <ul className="mb-4">
-          {WHAT_IT_DOES.map((item) => (
-            <li
-              key={item.lead}
-              className="text-white/90 text-[15px] leading-relaxed mb-2 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white/60"
-            >
-              <strong className="text-white font-semibold">{item.lead}</strong>
-              {item.rest}
-            </li>
-          ))}
+          {WHAT_IT_DOES.map((item) => {
+            const lead =
+              item.lead === WARM_BULLET_DEFAULT_LEAD && category.warmBulletLead
+                ? category.warmBulletLead
+                : item.lead;
+            return (
+              <li
+                key={item.lead}
+                className="text-white/90 text-[15px] leading-relaxed mb-2 pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white/60"
+              >
+                <strong className="text-white font-semibold">{lead}</strong>
+                {item.rest}
+              </li>
+            );
+          })}
         </ul>
 
         <Heading2>The honest version</Heading2>
@@ -117,8 +125,7 @@ export default function CategoryAnswer({ slug }: { slug: string }) {
           Tiger Claw helps you follow up; it does not replace your judgment.
         </P>
         <P>
-          Tiger Claw does not guarantee sales, signups, income, rank advancement, or recruiting
-          results.{" "}
+          Tiger Claw {category.guaranteeDisclaimer}.{" "}
           <a
             href="/legal/results"
             className="underline underline-offset-2 hover:text-white transition-colors"

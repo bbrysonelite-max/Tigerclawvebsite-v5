@@ -26,8 +26,15 @@ export interface CategoryAnswerEntry {
   /** Direct answer paragraph — first thing an extractive model sees. */
   answer: string;
   metaDescription: string;
+  /** Full "does not guarantee ..." phrasing for the honest-version disclaimer. */
+  guaranteeDisclaimer: string;
+  /** Optional override for the "Keeps prospects warm" bullet lead. */
+  warmBulletLead?: string;
   faqs: CategoryFaq[];
 }
+
+const GUARANTEE_DISCLAIMER_NM =
+  "does not guarantee sales, signups, income, rank advancement, or recruiting results";
 
 export const PULL_QUOTE_PARTS = {
   before: "You've heard it forever: the fortune is in the follow-up. A Tiger ",
@@ -72,6 +79,7 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       "Tiger Claw is an AI follow-up assistant built for network marketing — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
       "Tiger Claw is an AI follow-up assistant built for network marketing. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+    guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("network marketing business"),
       FAQ_CHATBOT,
@@ -88,6 +96,7 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       "Tiger Claw is an AI follow-up assistant built for MLM — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
       "Tiger Claw is an AI follow-up assistant built for MLM. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+    guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("MLM business"),
       FAQ_CHATBOT,
@@ -104,6 +113,7 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       "Tiger Claw is an AI follow-up assistant built for direct sales — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
       "Tiger Claw is an AI follow-up assistant built for direct sales. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+    guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("direct sales business"),
       FAQ_CHATBOT,
@@ -120,6 +130,8 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       "Tiger Claw is an AI follow-up assistant built for affiliate marketing — it remembers every partner and referral conversation, drafts replies in your voice, and follows up so no warm conversation goes cold.",
     metaDescription:
       "Tiger Claw is an AI follow-up assistant built for affiliate marketing. It remembers partner and referral conversations, drafts replies in your voice, and follows up so nothing goes cold.",
+    guaranteeDisclaimer: "does not guarantee sales, signups, income, or referral results",
+    warmBulletLead: "Keeps referral conversations warm",
     faqs: [
       {
         q: "Does Tiger Claw work with my affiliate program?",
