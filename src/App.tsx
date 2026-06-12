@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import Legal from "./pages/Legal";
 import Brand from "./pages/Brand";
 import SmsOptIn from "./pages/SmsOptIn";
+import CategoryAnswer from "./pages/CategoryAnswer";
+import { categoryAnswers } from "./pages/categoryAnswers";
 
 function Router() {
   return (
@@ -19,6 +21,11 @@ function Router() {
       <Route path="/legal/:slug" component={Legal} />
       <Route path="/brand" component={Brand} />
       <Route path="/sms" component={SmsOptIn} />
+      {categoryAnswers.map((c) => (
+        <Route key={c.slug} path={`/${c.slug}`}>
+          <CategoryAnswer slug={c.slug} />
+        </Route>
+      ))}
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
