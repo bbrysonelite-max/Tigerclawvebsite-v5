@@ -518,13 +518,14 @@ function FAQItem({ q, children, defaultOpen = false }: { q: string; children: Re
           +
         </motion.span>
       </button>
-      {/* Answer stays mounted while collapsed so crawlers always see the full FAQ text */}
+      {/* Answer stays mounted while collapsed so crawlers always see the full FAQ text;
+          inert removes the hidden region (incl. its mailto link) from tab order and the a11y tree */}
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
         transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="overflow-hidden"
-        aria-hidden={!open}
+        inert={!open}
       >
         <p className="text-white/70 text-base leading-relaxed px-6 pb-6">{children}</p>
       </motion.div>
