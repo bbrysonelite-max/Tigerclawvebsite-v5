@@ -518,19 +518,16 @@ function FAQItem({ q, children, defaultOpen = false }: { q: string; children: Re
           +
         </motion.span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="overflow-hidden"
-          >
-            <p className="text-white/70 text-base leading-relaxed px-6 pb-6">{children}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Answer stays mounted while collapsed so crawlers always see the full FAQ text */}
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="overflow-hidden"
+        aria-hidden={!open}
+      >
+        <p className="text-white/70 text-base leading-relaxed px-6 pb-6">{children}</p>
+      </motion.div>
     </div>
   );
 }
