@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown, Clock, Menu, MessageSquare, NotebookTabs, Shield, Target, UserRoundCheck, X } from "lucide-react";
 import FooterSocialLinks from "@/components/FooterSocialLinks";
+import LegalDrawer from "@/components/LegalDrawer";
 
 const HERO_TIGER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-hero-tiger-kREoKjDy7VbVLihfN3ac8E.webp";
 const ORANGE_BREAK = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-orange-break-hLD5W3d5goMaak62rKQ5uW.webp";
@@ -156,48 +157,99 @@ function Nav() {
   );
 }
 
+function TigerChatDemo() {
+  return (
+    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }}>
+      <div className="rounded-xl border border-white/10 bg-[#1a1a1a] p-5 shadow-[0_40px_120px_rgba(0,0,0,0.6),0_0_90px_rgba(232,114,42,0.12)]">
+        <div className="flex items-center gap-3 pb-4 border-b border-white/10 mb-4">
+          <div className="w-9 h-9 flex-shrink-0 -rotate-45" style={{ background: ORANGE, borderRadius: "50% 50% 50% 0" }} />
+          <div>
+            <div className="text-white text-sm font-semibold">Sarah Lopez</div>
+            <div className="text-[10px] uppercase tracking-[0.12em]" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>Tiger following up · Day 6</div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="text-center text-[10px] text-white/35" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>6 days since her last reply</div>
+          <div className="self-end max-w-[85%] px-4 py-3 rounded-xl rounded-br-sm border text-sm leading-relaxed text-white" style={{ background: "rgba(232,114,42,0.15)", borderColor: "rgba(232,114,42,0.4)" }}>
+            No rush at all, Sarah — how did your sister's event end up going last weekend?
+          </div>
+          <div className="self-start max-w-[85%] px-4 py-3 rounded-xl rounded-bl-sm border border-white/10 bg-white/5 text-sm leading-relaxed text-white/70">
+            omg it went great!! and honestly I've been thinking about what you said…
+          </div>
+          <div className="self-end max-w-[85%] px-4 py-3 rounded-xl rounded-br-sm border text-sm leading-relaxed text-white" style={{ background: "rgba(232,114,42,0.15)", borderColor: "rgba(232,114,42,0.4)" }}>
+            Then let's not lose the momentum. Want me to send over the booking link for Thursday?
+          </div>
+          <div className="self-start max-w-[85%] px-4 py-3 rounded-xl rounded-bl-sm border border-white/10 bg-white/5 text-sm leading-relaxed text-white/70">
+            yes let's do it 🙌
+          </div>
+        </div>
+        <div className="mt-4 flex items-center gap-2.5 px-4 py-3 rounded-lg border" style={{ borderColor: "rgba(74,222,128,0.4)", background: "rgba(74,222,128,0.07)" }}>
+          <div className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse" style={{ background: EYEBROW_GREEN }} />
+          <p className="text-xs text-white/80"><span className="font-semibold" style={{ color: EYEBROW_GREEN }}>Handed to you:</span> Sarah is ready — full notes attached.</p>
+        </div>
+      </div>
+      <p className="text-center text-[10px] uppercase tracking-[0.12em] text-white/35 mt-4" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+        Tiger remembered her sister's event. <span style={{ color: ORANGE }}>You never dropped the ball.</span> · Illustrative example
+      </p>
+    </motion.div>
+  );
+}
+
 function Hero() {
+  const [legalOpen, setLegalOpen] = useState(false);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={HERO_TIGER} alt="" className="w-full h-full object-cover object-[70%_20%] sm:object-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/35 to-[#0A0A0A]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/85 via-[#0A0A0A]/25 to-[#0A0A0A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/75 via-[#0A0A0A]/50 to-[#0A0A0A]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/90 via-[#0A0A0A]/45 to-[#0A0A0A]/65" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-left w-full pt-24 pb-32">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-          <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
-            <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Always-on follow-up</span>
-          </div>
-          <h1 className="mb-4">
-            <span className="block text-5xl sm:text-6xl lg:text-8xl font-bold leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
-              The fortune is in the follow-up.
-            </span>
-            <span className="block mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
-              AI follow-up agent for prospect conversations.
-            </span>
-          </h1>
-          <p className="text-white/90 text-2xl sm:text-3xl max-w-2xl mb-4 leading-tight font-semibold">
-            Keep the conversation alive without chasing.
-          </p>
-          <p className="text-white/75 text-lg sm:text-xl max-w-2xl mb-8 leading-relaxed">
-            Tiger Claw gives relationship-driven operators a helpful messaging assistant that remembers context, listens for real interest, follows up with timing, and moves qualified conversations toward the right next step.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
-              Start setup <ArrowRight className="w-5 h-5" />
-            </a>
-            <a href="#how" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white/80 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/25 hover:scale-[1.03] hover:-translate-y-0.5 transition-all duration-300">
-              See what it does
-            </a>
-          </div>
-          <p className="text-white/55 text-xs sm:text-sm max-w-3xl mt-5 leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-            Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.
-          </p>
-        </motion.div>
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 w-full pt-28 pb-24 lg:pt-24 lg:pb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-left">
+            <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-white/10 bg-white/5">
+              <div className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
+              <span className="text-xs font-medium tracking-widest uppercase" style={{ color: GREEN }}>Always-on follow-up</span>
+            </div>
+            <h1 className="mb-5">
+              <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.95] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+                Tiger does the follow-up.
+              </span>
+              <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.95] mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em", color: ORANGE }}>
+                You do the closing.
+              </span>
+            </h1>
+            <p className="text-white/90 text-xl sm:text-2xl max-w-xl mb-3 leading-snug font-semibold">
+              Tiger Claw is your AI follow-up assistant for prospect conversations.
+            </p>
+            <p className="text-white/75 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
+              It remembers every thread, follows up at the right moment, and taps you when someone is actually ready — like this.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href={WIZARD_URL} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-black rounded-lg transition-all duration-300 hover:brightness-110 hover:scale-[1.04] hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] hover:-translate-y-0.5" style={{ background: ORANGE }}>
+                Start setup <ArrowRight className="w-5 h-5" />
+              </a>
+              <a href="#how" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white/80 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/25 hover:scale-[1.03] hover:-translate-y-0.5 transition-all duration-300">
+                See what it does
+              </a>
+            </div>
+            <p className="text-white/45 text-xs max-w-xl mt-5 leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              Independent software tool — not affiliated with or endorsed by any company.{" "}
+              <button
+                onClick={() => setLegalOpen(true)}
+                className="underline underline-offset-2 text-white/60 hover:text-white transition-colors cursor-pointer"
+              >
+                Full disclosure
+              </button>
+            </p>
+          </motion.div>
+
+          <TigerChatDemo />
+        </div>
       </div>
+
+      <LegalDrawer open={legalOpen} onClose={() => setLegalOpen(false)} initialSection="not-affiliated" />
 
       <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2" animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity }}>
         <ChevronDown className="w-6 h-6 text-white/30" />
@@ -234,13 +286,24 @@ function ProblemSection() {
             THE DAILY FOLLOW-UP PROBLEM
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Follow-up gets <span style={{ color: ORANGE }}>messy fast.</span>
+            Good conversations <span style={{ color: ORANGE }}>die from delay.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/80 text-lg sm:text-xl leading-relaxed">
-            Good conversations get buried. Follow-ups slip. People go quiet. You lose track of who was curious, who had an objection, and who was actually ready for a next step. Tiger Claw keeps the thread clear so serious conversations do not die from delay.
+            Follow-ups slip. Warm people go quiet. You lose track of who was curious, who had an objection, and who was actually ready.
           </p>
+        </FadeSection>
+        <FadeSection delay={0.25}>
+          <div className="mt-14 p-10 sm:p-14 rounded-xl border border-white/10 bg-white/[0.02] relative overflow-hidden">
+            <div className="absolute -top-12 -left-12 w-40 h-40 rounded-full blur-[80px] opacity-20" style={{ background: ORANGE }} />
+            <p className="relative text-4xl sm:text-5xl font-bold text-white leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+              &ldquo;The fortune is in <span style={{ color: ORANGE }}>the follow-up.</span>&rdquo;
+            </p>
+            <p className="relative text-xs uppercase tracking-[0.16em] text-white/40 mt-4" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              The oldest rule in the business — Tiger just never breaks it
+            </p>
+          </div>
         </FadeSection>
       </div>
     </section>
@@ -264,12 +327,12 @@ function OrangeBreak() {
 
 function WhatHelpsWith() {
   const items = [
-    { icon: <MessageSquare className="w-5 h-5" />, title: "Talk naturally", body: "One question at a time, with replies that feel like a real conversation." },
-    { icon: <NotebookTabs className="w-5 h-5" />, title: "Remember the thread", body: "Pain points, objections, timing, and what the prospect already said." },
-    { icon: <Clock className="w-5 h-5" />, title: "Follow up without chasing", body: "Context-aware follow-up instead of generic just-checking-in messages." },
-    { icon: <Target className="w-5 h-5" />, title: "Spot qualified movement", body: "Curiosity, seriousness, hesitation, and readiness are not treated the same." },
-    { icon: <Shield className="w-5 h-5" />, title: "Protect your time", body: "Tiger keeps casual interest separate from conversations worth human attention." },
-    { icon: <Calendar className="w-5 h-5" />, title: "Offer the next step when earned", body: "A booking link belongs after context, not as a reflex." },
+    { icon: <MessageSquare className="w-5 h-5" />, title: "Talks naturally", body: "One question at a time. Feels like a real conversation." },
+    { icon: <NotebookTabs className="w-5 h-5" />, title: "Remembers everything", body: "Pain points, objections, timing — every thread." },
+    { icon: <Clock className="w-5 h-5" />, title: "Follows up on time", body: "Context-aware follow-up. Never “just checking in.”" },
+    { icon: <Target className="w-5 h-5" />, title: "Spots real interest", body: "Curious and serious are not the same. Tiger knows." },
+    { icon: <Shield className="w-5 h-5" />, title: "Guards your time", body: "Casual interest never reaches you. Serious conversations do." },
+    { icon: <Calendar className="w-5 h-5" />, title: "Earns the next step", body: "A booking link belongs after context, not as a reflex." },
   ];
 
   return (
@@ -280,7 +343,7 @@ function WhatHelpsWith() {
             WHAT TIGER CLAW DOES
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            It keeps follow-up <span style={{ color: ORANGE }}>useful.</span>
+            Six jobs. <span style={{ color: ORANGE }}>Handled every day.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
@@ -314,25 +377,23 @@ function WhatYouGet() {
             WHAT YOU GET
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Save time. <span style={{ color: ORANGE }}>Never drop the ball.</span>
+            You close. <span style={{ color: ORANGE }}>Tiger does the rest.</span>
           </h2>
-        </FadeSection>
-        <FadeSection delay={0.15}>
-          <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-10">
-            Stop chasing cold leads and stop forgetting warm ones. Tiger does the follow-up, remembers every detail, and only taps you on the shoulder when someone is ready &mdash; so you spend your time closing, not digging.
-          </p>
         </FadeSection>
         <FadeSection delay={0.25}>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              "Save hours every week — Tiger does the chasing so you only spend time on people who are ready.",
-              "Never drop the ball — every follow-up, note, and timing cue is remembered for you.",
-              "Walk in warm — you get the full story before you say a word.",
-              "Step in to close, not to dig — the work is done before it ever reaches you.",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3 p-4 rounded-lg border border-white/5 bg-white/[0.03]">
-                <UserRoundCheck className="w-5 h-5 flex-shrink-0" style={{ color: GREEN }} />
-                <span className="text-white/80 text-sm">{item}</span>
+              ["Save hours every week", "Tiger does the chasing so you don't have to."],
+              ["Never drop the ball", "Every follow-up, note, and timing cue — remembered."],
+              ["Walk in warm", "You get the full story before you say a word."],
+              ["Step in to close, not to dig", "The work is done before it reaches you."],
+            ].map(([title, body]) => (
+              <div key={title} className="flex items-start gap-3 p-5 rounded-lg border border-white/5 bg-white/[0.03]">
+                <UserRoundCheck className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: GREEN }} />
+                <div>
+                  <div className="text-white font-semibold text-base">{title}</div>
+                  <p className="text-white/60 text-sm leading-relaxed mt-1">{body}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -356,18 +417,21 @@ function WhoSection() {
         </FadeSection>
         <div className="space-y-6">
           {[
-            "Independent distributors who need follow-up discipline without turning every conversation into pressure.",
-            "Affiliates and social sellers who manage prospect conversations across busy days.",
-            "Relationship-driven operators who want Tiger to help sort, remember, and hand off without replacing human judgment.",
-          ].map((text, i) => (
-            <FadeSection key={text} delay={i * 0.12}>
+            ["Independent distributors", "Follow-up discipline without turning conversations into pressure."],
+            ["Affiliates and social sellers", "Every prospect conversation, managed across busy days."],
+            ["Relationship-driven operators", "Tiger sorts, remembers, and hands off. You keep the judgment."],
+          ].map(([title, body], i) => (
+            <FadeSection key={title} delay={i * 0.12}>
               <div className="flex gap-4 items-start p-5 rounded-lg border border-white/5 bg-white/[0.02]">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GREEN }}>
                   <svg className="w-3.5 h-3.5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <p className="text-white/80 text-base sm:text-lg leading-relaxed">{text}</p>
+                <div>
+                  <div className="text-white font-semibold text-base sm:text-lg">{title}</div>
+                  <p className="text-white/60 text-sm sm:text-base leading-relaxed mt-1">{body}</p>
+                </div>
               </div>
             </FadeSection>
           ))}
@@ -400,12 +464,15 @@ function PricingSection() {
               <p className="text-white/70 text-sm mb-6" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
                 Cancel anytime. No contracts. No setup fees.
               </p>
-              <p className="text-white/80 text-sm leading-relaxed mb-1 max-w-2xl">
-                <span className="font-semibold text-white">30-Day Conversation Guarantee</span> — if Tiger doesn't hold a real conversation with a prospect in your first 30 days, you get every dollar back.
-              </p>
-              <p className="text-white/50 text-xs leading-relaxed mb-8 max-w-2xl">
-                Five real exchanges with a real person. Import your people and send at least 10 Tiger Cards — Tiger does the rest.
-              </p>
+              <div className="p-5 rounded-lg border mb-8 max-w-2xl" style={{ borderColor: "rgba(74,222,128,0.4)", background: "rgba(74,222,128,0.07)" }}>
+                <p className="text-sm leading-relaxed mb-1">
+                  <span className="font-semibold" style={{ color: EYEBROW_GREEN }}>30-Day Conversation Guarantee</span>
+                  <span className="text-white/80"> — if Tiger doesn't hold a real conversation with a prospect in your first 30 days, you get every dollar back.</span>
+                </p>
+                <p className="text-white/50 text-xs leading-relaxed">
+                  Five real exchanges with a real person. Import your people and send at least 10 Tiger Cards — Tiger does the rest.
+                </p>
+              </div>
               <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-2xl">
                 A short setup checklist gets your Tiger ready — we walk you
                 through each step before you pay, so it's working for you from
@@ -434,6 +501,35 @@ function PricingSection() {
         </FadeSection>
       </div>
     </section>
+  );
+}
+
+function FAQItem({ q, children, defaultOpen = false }: { q: string; children: React.ReactNode; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="rounded-lg border border-white/5 bg-white/[0.02] overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="w-full flex items-center justify-between gap-4 p-6 text-left cursor-pointer hover:bg-white/[0.03] transition-colors duration-200"
+      >
+        <h3 className="text-white font-semibold text-lg">{q}</h3>
+        <motion.span animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.2 }} className="text-2xl leading-none flex-shrink-0" style={{ color: ORANGE }}>
+          +
+        </motion.span>
+      </button>
+      {/* Answer stays mounted while collapsed so crawlers always see the full FAQ text;
+          inert removes the hidden region (incl. its mailto link) from tab order and the a11y tree */}
+      <motion.div
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="overflow-hidden"
+        inert={!open}
+      >
+        <p className="text-white/70 text-base leading-relaxed px-6 pb-6">{children}</p>
+      </motion.div>
+    </div>
   );
 }
 
@@ -495,13 +591,12 @@ function FAQSection() {
             Clear expectations.
           </h2>
         </FadeSection>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((item, i) => (
-            <FadeSection key={item.q} delay={i * 0.1}>
-              <div className="p-6 rounded-lg border border-white/5 bg-white/[0.02]">
-                <h3 className="text-white font-semibold text-lg mb-3">{item.q}</h3>
-                <p className="text-white/70 text-base leading-relaxed">{renderAnswer(item.a)}</p>
-              </div>
+            <FadeSection key={item.q} delay={i * 0.06}>
+              <FAQItem q={item.q} defaultOpen={i === 0}>
+                {renderAnswer(item.a)}
+              </FAQItem>
             </FadeSection>
           ))}
         </div>
@@ -547,12 +642,12 @@ function OfferSection() {
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <FadeSection>
           <p className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Keep the next step <span style={{ color: ORANGE }}>in view.</span>
+            Every day you wait, a warm conversation <span style={{ color: ORANGE }}>goes cold.</span>
           </p>
         </FadeSection>
         <FadeSection delay={0.15}>
           <p className="text-white/70 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            Start with the quick setup. Then put your Tiger to work and keep every prospect conversation moving.
+            Quick setup, then your Tiger gets to work on every prospect thread you have.
           </p>
         </FadeSection>
         <FadeSection delay={0.3}>
