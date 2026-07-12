@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, ChevronDown, Clock, Menu, MessageSquare, NotebookTabs, Shield, Target, UserRoundCheck, X } from "lucide-react";
 import FooterSocialLinks from "@/components/FooterSocialLinks";
+import LegalDrawer from "@/components/LegalDrawer";
 
 const HERO_TIGER = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-hero-tiger-kREoKjDy7VbVLihfN3ac8E.webp";
 const ORANGE_BREAK = "https://d2xsxph8kpxj0f.cloudfront.net/310519663056989091/8mGGeGAbWRt2wNDPeh43Ek/tc-goods-orange-break-hLD5W3d5goMaak62rKQ5uW.webp";
@@ -195,6 +196,7 @@ function TigerChatDemo() {
 }
 
 function Hero() {
+  const [legalOpen, setLegalOpen] = useState(false);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -232,14 +234,22 @@ function Hero() {
                 See what it does
               </a>
             </div>
-            <p className="text-white/55 text-xs sm:text-sm max-w-3xl mt-5 leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-              Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company.
+            <p className="text-white/45 text-xs max-w-xl mt-5 leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              Independent software tool — not affiliated with or endorsed by any company.{" "}
+              <button
+                onClick={() => setLegalOpen(true)}
+                className="underline underline-offset-2 text-white/60 hover:text-white transition-colors cursor-pointer"
+              >
+                Full disclosure
+              </button>
             </p>
           </motion.div>
 
           <TigerChatDemo />
         </div>
       </div>
+
+      <LegalDrawer open={legalOpen} onClose={() => setLegalOpen(false)} initialSection="not-affiliated" />
 
       <motion.div className="absolute bottom-8 left-1/2 -translate-x-1/2" animate={{ y: [0, 8, 0] }} transition={{ duration: 2, repeat: Infinity }}>
         <ChevronDown className="w-6 h-6 text-white/30" />
