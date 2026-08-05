@@ -19,11 +19,22 @@ const FOOTER_DISCLAIMER =
 function FadeSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  // Fail-visible. The observer does not always fire for sections already on
+  // screen at first paint, and the old `: {}` fallback applied no properties —
+  // leaving those sections pinned at `initial` (opacity 0) forever, so the page
+  // rendered blank until something triggered a scroll. Content must never
+  // depend on an animation firing to become readable.
+  const [revealFallback, setRevealFallback] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setRevealFallback(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+  const revealed = inView || revealFallback;
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      animate={revealed ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >

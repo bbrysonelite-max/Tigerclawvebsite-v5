@@ -278,6 +278,15 @@ function Footer() {
 export default function Contact() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
+  // Fail-visible: the observer does not always fire for content already on
+  // screen at first paint, and the `: {}` fallback applies no properties —
+  // which would pin this section at `initial` (opacity 0) forever.
+  const [heroFallback, setHeroFallback] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setHeroFallback(true), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+  const heroRevealed = heroInView || heroFallback;
 
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
@@ -289,7 +298,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            animate={heroRevealed ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
             <p className="text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: EYEBROW_GREEN, fontFamily: "'IBM Plex Mono', monospace" }}>
