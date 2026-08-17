@@ -295,6 +295,17 @@ export function TermsOfService() {
       <H3>17. Miscellaneous</H3>
       <P>These Terms are the entire agreement between you and Tiger Claw regarding the Service. If any provision is unenforceable, the remainder remains in effect. Our failure to enforce a provision is not a waiver. You may not assign these Terms without our consent; we may assign them in connection with a merger, acquisition, or sale of assets.</P>
 
+      <H3>18. SMS / Text Messaging Program</H3>
+      <P>Tiger Claw and its operators send conversational, one-to-one text messages: personal follow-ups, appointment and video-call reminders, scheduling confirmations, replies to your questions, and occasional account or service updates.</P>
+      <ul className="mb-4">
+        <Li><Bold>Consent:</Bold> Text messages are sent only to individuals who have given prior express consent — for example, by submitting a mobile number through our opt-in form at tigerclaw.io/sms, by texting us first, or as part of an existing business relationship. Consent to receive text messages is not a condition of any purchase.</Li>
+        <Li><Bold>Message frequency:</Bold> Message frequency varies based on your activity and conversations.</Li>
+        <Li><Bold>Cost:</Bold> Message and data rates may apply, depending on your mobile plan.</Li>
+        <Li><Bold>Opt-out:</Bold> Reply STOP at any time to stop receiving text messages; a single final message will confirm your opt-out. Reply HELP for assistance, or contact us at <EmailLink />.</Li>
+        <Li><Bold>Carriers:</Bold> Mobile carriers are not liable for delayed or undelivered messages.</Li>
+        <Li><Bold>Privacy:</Bold> Mobile information and SMS opt-in consent are never shared with or sold to third parties or affiliates for their own marketing or promotional purposes. See our Privacy Policy at tigerclaw.io/legal/privacy.</Li>
+      </ul>
+
       <H3>Contact</H3>
       <P>Questions about these Terms: <EmailLink /></P>
     </div>
