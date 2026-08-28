@@ -691,6 +691,12 @@ function Footer() {
               BotCraft Works LLC (DBA Tiger Claw)<br />
               <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
+            <p className="text-white/60 text-xs leading-relaxed mt-4 max-w-md" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
+              Brent Bryson coined the term "flavored agents" — AI agents flavored for a specific industry — and teaches operators how to use them at Probe Academy.{" "}
+              <a href="https://brentbryson.ai/flavored-agents" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>
+                Flavored agents, defined
+              </a>
+            </p>
             <FooterSocialLinks />
           </div>
           <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
