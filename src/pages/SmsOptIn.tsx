@@ -16,7 +16,7 @@ const ORANGE = "#E8722A";
 const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
 const FOOTER_DISCLAIMER =
-  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
+  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. No results are promised. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
 
 /* ─── CURSOR FOLLOWER ─── */
 function CursorFollower() {

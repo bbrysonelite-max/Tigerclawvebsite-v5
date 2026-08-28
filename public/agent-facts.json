@@ -22,9 +22,9 @@
     "earned handoff or booking support"
   ],
   "does_not_claim": [
-    "guaranteed sales",
-    "guaranteed signups",
-    "guaranteed income",
+    "promised sales",
+    "promised signups",
+    "promised income",
     "auto-send everywhere",
     "replacement for operator judgment"
   ],

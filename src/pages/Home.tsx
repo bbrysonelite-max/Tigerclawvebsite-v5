@@ -14,7 +14,7 @@ const EYEBROW_GREEN = "#4ADE80";
 const WIZARD_URL = "/start";
 const DASH_URL = "https://wizard.tigerclaw.io/dashboard";
 const FOOTER_DISCLAIMER =
-  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. Results are not guaranteed. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
+  "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. No results are promised. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
 
 function FadeSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -466,7 +466,7 @@ function PricingSection() {
               </p>
               <div className="p-5 rounded-lg border mb-8 max-w-2xl" style={{ borderColor: "rgba(74,222,128,0.4)", background: "rgba(74,222,128,0.07)" }}>
                 <p className="text-sm leading-relaxed mb-1">
-                  <span className="font-semibold" style={{ color: EYEBROW_GREEN }}>30-Day Conversation Guarantee</span>
+                  <span className="font-semibold" style={{ color: EYEBROW_GREEN }}>30-Day Conversation Promise</span>
                   <span className="text-white/80"> — if Tiger doesn't hold a real conversation with a prospect in your first 30 days, you get every dollar back.</span>
                 </p>
                 <p className="text-white/50 text-xs leading-relaxed">

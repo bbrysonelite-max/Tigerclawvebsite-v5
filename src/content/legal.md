@@ -8,7 +8,7 @@ Product: Tiger Claw AI Follow-Up Assistant - $147/month
 
 Independent software tool. Not produced, approved, sponsored, endorsed, or
 recommended by any network marketing, direct selling, MLM, affiliate marketing,
-or social-selling company. Results are not guaranteed. Users are responsible
+or social-selling company. No results are promised. Users are responsible
 for their own company, program, privacy, advertising, do-not-contact, and
 communication compliance.
 
@@ -25,7 +25,7 @@ with the rules, policies, compensation-plan requirements, advertising standards,
 income-claim rules, privacy obligations, do-not-contact requests, and
 communication requirements of any company or program they participate in.
 
-Tiger Claw does not guarantee sales, signups, commissions, rank or rank
+Tiger Claw does not promise sales, signups, commissions, rank or rank
 advancement, income, recruiting results, customer acquisition, lead conversion,
 or any other business outcome. Tiger Claw provides software tools for
 organization, communication support, follow-up assistance, and workflow
@@ -50,11 +50,11 @@ A: No. Tiger Claw is independently built and operated. It is not produced,
 approved, sponsored, endorsed, or recommended by any network marketing, direct
 selling, MLM, affiliate marketing, or social-selling company.
 
-Q: Does Tiger Claw guarantee sales, signups, commissions, rank, income, or
+Q: Does Tiger Claw promise sales, signups, commissions, rank, income, or
 outcomes?
 
 A: No. Tiger Claw helps with organization, follow-up, reply drafting, objection
-support, notes, and next-step guidance. It does not guarantee sales, signups,
+support, notes, and next-step guidance. It does not promise sales, signups,
 commissions, rank, income, or any specific business outcome.
 
 Q: Do I still have to follow my company, program, and legal rules?
