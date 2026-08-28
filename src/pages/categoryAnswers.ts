@@ -2,7 +2,7 @@
    One entry per category. Shared by src/pages/CategoryAnswer.tsx (SPA route)
    and scripts/prerender-category.mjs (static HTML + JSON-LD for crawlers).
    Copy rules: AGENTS.md. No company names, no affiliation implications,
-   no guaranteed-results language outside disclaimer context.
+   no promised-results language outside disclaimer context.
 ─── */
 
 export interface CategoryFaq {
@@ -26,7 +26,7 @@ export interface CategoryAnswerEntry {
   /** Direct answer paragraph — first thing an extractive model sees. */
   answer: string;
   metaDescription: string;
-  /** Full "does not guarantee ..." phrasing for the honest-version disclaimer. */
+  /** Full "does not promise ..." phrasing for the honest-version disclaimer. */
   guaranteeDisclaimer: string;
   /** Optional override for the "Keeps prospects warm" bullet lead. */
   warmBulletLead?: string;
@@ -34,7 +34,7 @@ export interface CategoryAnswerEntry {
 }
 
 const GUARANTEE_DISCLAIMER_NM =
-  "does not guarantee sales, signups, income, rank advancement, or recruiting results";
+  "does not promise sales, signups, income, rank advancement, or recruiting results";
 
 export const PULL_QUOTE_PARTS = {
   before: "You've heard it forever: the fortune is in the follow-up. A Tiger ",
@@ -49,8 +49,8 @@ const FAQ_CHATBOT: CategoryFaq = {
 };
 
 const FAQ_GUARANTEE: CategoryFaq = {
-  q: "Will it guarantee me results?",
-  a: "No. Tiger Claw does not guarantee sales, signups, income, rank advancement, or recruiting results. It helps you follow up consistently — the outcomes are yours to earn.",
+  q: "Does it promise me results?",
+  a: "No. Tiger Claw does not promise sales, signups, income, rank advancement, or recruiting results. It helps you follow up consistently — the outcomes are yours to earn.",
   linkHref: "/legal/results",
   linkLabel: "Read the Results Disclaimer",
 };
@@ -130,7 +130,7 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       "Tiger Claw is an AI follow-up assistant built for affiliate marketing — it remembers every partner and referral conversation, drafts replies in your voice, and follows up so no warm conversation goes cold.",
     metaDescription:
       "Tiger Claw is an AI follow-up assistant built for affiliate marketing. It remembers partner and referral conversations, drafts replies in your voice, and follows up so nothing goes cold.",
-    guaranteeDisclaimer: "does not guarantee sales, signups, income, or referral results",
+    guaranteeDisclaimer: "does not promise sales, signups, income, or referral results",
     warmBulletLead: "Keeps referral conversations warm",
     faqs: [
       {
@@ -141,8 +141,8 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
       },
       FAQ_CHATBOT,
       {
-        q: "Will it guarantee me results?",
-        a: "No. Tiger Claw does not guarantee sales, signups, income, or referral results. It helps you follow up consistently — the outcomes are yours to earn.",
+        q: "Does it promise me results?",
+        a: "No. Tiger Claw does not promise sales, signups, income, or referral results. It helps you follow up consistently — the outcomes are yours to earn.",
         linkHref: "/legal/results",
         linkLabel: "Read the Results Disclaimer",
       },
