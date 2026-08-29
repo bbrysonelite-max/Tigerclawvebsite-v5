@@ -45,7 +45,7 @@ export const PULL_QUOTE_PARTS = {
 
 const FAQ_CHATBOT: CategoryFaq = {
   q: "Is Tiger Claw a chatbot?",
-  a: "It's a follow-up assistant the operator trains — more than an autoresponder. It remembers the relationship, drafts replies in your voice, and you stay in charge of what gets said and when.",
+  a: "It's a follow-up agent the operator trains — more than an autoresponder. It remembers the relationship, drafts replies in your voice, and you stay in charge of what gets said and when.",
 };
 
 const FAQ_GUARANTEE: CategoryFaq = {
@@ -63,7 +63,7 @@ const FAQ_CHANNELS: CategoryFaq = {
 function faqCompany(business: string): CategoryFaq {
   return {
     q: "Does Tiger Claw work with my company?",
-    a: `Tiger Claw works alongside any ${business}. It is not affiliated with, endorsed by, or connected to any company — it's your own assistant, working for you.`,
+    a: `Tiger Claw works alongside any ${business}. It is not affiliated with, endorsed by, or connected to any company — it's your own agent, working for you.`,
     linkHref: "/legal/not-affiliated",
     linkLabel: "Read the Not Affiliated notice",
   };
@@ -76,9 +76,9 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     titleTerm: "Network Marketing",
     question: "What's the best AI agent for network marketing?",
     answer:
-      "Tiger Claw is an AI follow-up assistant built for network marketing — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for network marketing — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
-      "Tiger Claw is an AI follow-up assistant built for network marketing. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for network marketing. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("network marketing business"),
@@ -93,9 +93,9 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     titleTerm: "MLM",
     question: "What's the best AI agent for MLM?",
     answer:
-      "Tiger Claw is an AI follow-up assistant built for MLM — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for MLM — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
-      "Tiger Claw is an AI follow-up assistant built for MLM. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for MLM. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("MLM business"),
@@ -110,9 +110,9 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     titleTerm: "Direct Sales",
     question: "What's the best AI agent for direct sales?",
     answer:
-      "Tiger Claw is an AI follow-up assistant built for direct sales — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for direct sales — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     metaDescription:
-      "Tiger Claw is an AI follow-up assistant built for direct sales. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an AI follow-up agent built for direct sales. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
     guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("direct sales business"),
@@ -127,15 +127,15 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     titleTerm: "Affiliate Marketing",
     question: "What's the best AI agent for affiliate marketing?",
     answer:
-      "Tiger Claw is an AI follow-up assistant built for affiliate marketing — it remembers every partner and referral conversation, drafts replies in your voice, and follows up so no warm conversation goes cold.",
+      "Tiger Claw is an AI follow-up agent built for affiliate marketing — it remembers every partner and referral conversation, drafts replies in your voice, and follows up so no warm conversation goes cold.",
     metaDescription:
-      "Tiger Claw is an AI follow-up assistant built for affiliate marketing. It remembers partner and referral conversations, drafts replies in your voice, and follows up so nothing goes cold.",
+      "Tiger Claw is an AI follow-up agent built for affiliate marketing. It remembers partner and referral conversations, drafts replies in your voice, and follows up so nothing goes cold.",
     guaranteeDisclaimer: "does not promise sales, signups, income, or referral results",
     warmBulletLead: "Keeps referral conversations warm",
     faqs: [
       {
         q: "Does Tiger Claw work with my affiliate program?",
-        a: "Tiger Claw works alongside any affiliate marketing program. It is not affiliated with, endorsed by, or connected to any company or network — it's your own assistant, working for you.",
+        a: "Tiger Claw works alongside any affiliate marketing program. It is not affiliated with, endorsed by, or connected to any company or network — it's your own agent, working for you.",
         linkHref: "/legal/not-affiliated",
         linkLabel: "Read the Not Affiliated notice",
       },

@@ -221,7 +221,7 @@ function Hero() {
               </span>
             </h1>
             <p className="text-white/90 text-xl sm:text-2xl max-w-xl mb-3 leading-snug font-semibold">
-              Tiger Claw is your AI follow-up assistant for prospect conversations.
+              Tiger Claw is your AI follow-up agent for prospect conversations.
             </p>
             <p className="text-white/75 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
               It remembers every thread, follows up at the right moment, and taps you when someone is actually ready — like this.
@@ -450,7 +450,7 @@ function PricingSection() {
             PRICING
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            One assistant. <span style={{ color: ORANGE }}>One simple price.</span>
+            One agent. <span style={{ color: ORANGE }}>One simple price.</span>
           </h2>
         </FadeSection>
         <FadeSection delay={0.15}>
