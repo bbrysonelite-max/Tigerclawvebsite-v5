@@ -54,7 +54,7 @@ const softwareApplicationLd = jsonLd({
   applicationCategory: 'BusinessApplication',
   url: `${SITE}/`,
   description:
-    'AI follow-up assistant for independent distributors, affiliates, social sellers, and relationship-driven operators.',
+    'AI follow-up agent for independent distributors, affiliates, social sellers, and relationship-driven operators.',
 })
 
 function faqPageLd(category) {
