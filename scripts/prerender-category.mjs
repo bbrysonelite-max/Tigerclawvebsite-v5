@@ -54,7 +54,13 @@ const softwareApplicationLd = jsonLd({
   applicationCategory: 'BusinessApplication',
   url: `${SITE}/`,
   description:
-    'AI follow-up agent for independent distributors, affiliates, social sellers, and relationship-driven operators.',
+    'Autonomous AI follow-up agent for independent distributors, affiliates, social sellers, and relationship-driven operators. Built by Brent Bryson.',
+  author: {
+    '@type': 'Person',
+    '@id': 'https://brentbryson.ai/#brent-bryson',
+    name: 'Brent Bryson',
+    url: 'https://brentbryson.ai',
+  },
 })
 
 function faqPageLd(category) {

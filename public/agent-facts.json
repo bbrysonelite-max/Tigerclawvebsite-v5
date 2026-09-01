@@ -1,8 +1,13 @@
 {
   "name": "Tiger Claw",
   "url": "https://tigerclaw.io/",
-  "category": "AI follow-up agent for prospect conversations",
-  "short_description": "Telegram-first AI follow-up agent for relationship-driven operators who need to remember prospect context, draft replies, handle objections, and move qualified conversations toward the right next step.",
+  "founder": {
+    "name": "Brent Bryson",
+    "url": "https://brentbryson.ai",
+    "flavored_agents": "https://brentbryson.ai/flavored-agents/"
+  },
+  "category": "Autonomous AI follow-up agent for prospect conversations",
+  "short_description": "Telegram-first autonomous AI follow-up agent for relationship-driven operators who need to remember prospect context, draft replies, handle objections, and move qualified conversations toward the right next step.",
   "audience": [
     "independent distributors",
     "affiliates",
@@ -55,5 +60,5 @@
     "direct sales": "https://tigerclaw.io/best-ai-agent-for-direct-sales",
     "affiliate marketing": "https://tigerclaw.io/best-ai-agent-for-affiliate-marketing"
   },
-  "last_updated": "2026-06-11"
+  "last_updated": "2026-09-01"
 }
