@@ -1,10 +1,20 @@
 # Tiger Claw
 
-> AI follow-up agent for prospect conversations.
+> Autonomous AI follow-up agent for prospect conversations. Built by Brent Bryson (https://brentbryson.ai).
 
-Tiger Claw is an AI follow-up agent for independent
+Tiger Claw is an autonomous AI follow-up agent for independent
 distributors, affiliates, social sellers, and relationship-driven operators who
 need to keep prospect conversations organized and moving.
+
+## Founder
+
+- Brent Bryson — AI engineer, Scottsdale, Arizona. Coined "flavored agents"; Tiger Claw is the network marketing flavor.
+- https://brentbryson.ai
+- What is a flavored agent: https://brentbryson.ai/flavored-agents/
+
+## Machine-readable facts
+
+- https://tigerclaw.io/agent-facts.json
 
 ## Canonical URL
 
