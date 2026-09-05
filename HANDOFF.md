@@ -17,7 +17,7 @@
 > Approved marketing face → existing Stripe Checkout → existing Stripe success redirect → existing wizard.
 > No extra page. No "Deploy your tiger in two minutes." No wizard-looking homepage. No agent improvisation.
 >
-> **Release artifact:** `releases/known-good-2026-04-27-final/` (snapshot of `dist/` at this state).
+> **Release artifact:** the 2026-04-27 known-good snapshot lived at `releases/known-good-2026-04-27-final/`; it was removed from the working tree on 2026-09-04 (stale entity/title copy on a public repo) and remains in git history.
 > **Deployment of record:** `https://tiger-claw-marketing-restore-1l9ytxuwp.vercel.app` (aliased to `tigerclaw.io` + `www.tigerclaw.io`).
 > **Final-pass tweaks (2026-04-27 evening):** footer logo swapped from Zap-in-orange-circle to favicon (Home + Contact); floating desktop nav text bumped from `text-white/60` `font-medium` `0.8rem` to `text-white/85` `font-semibold` `text-sm` for readability/contrast.
 
@@ -38,7 +38,7 @@ Restoration of the Manus-designed marketing site
 (`https://tigerclaw-8mggegab.manus.space/`), re-rendered as a Vite + React 19 +
 Tailwind v4 app and pushed to `tigerclaw.io`.
 
-Replaces the prior site with "Tiger Claw | Your AI Follow-Up Assistant."
+Replaces the prior site with "Tiger Claw | Your AI Follow-Up Agent."
 which was on Vercel project `tigerclaw-website` (now domain-less, kept as rollback).
 
 ---

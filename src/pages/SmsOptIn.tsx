@@ -261,14 +261,14 @@ function Footer() {
               <span className="text-white font-bold text-sm tracking-tight">TIGER CLAW</span>
             </div>
             <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-              BotCraft Works LLC (DBA Tiger Claw)<br />
+              Mariah Marketing LLC, doing business as Bot Craft Works<br />
               <a href="mailto:support@tigerclaw.io" className="underline underline-offset-2 hover:text-white transition-colors" style={{ color: ORANGE }}>support@tigerclaw.io</a>
             </p>
             <FooterSocialLinks />
           </div>
           <div className="text-left sm:text-right">
             <p className="text-white/70 text-sm" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
-              &copy; {new Date().getFullYear()} BotCraft Works LLC. All rights reserved.
+              &copy; {new Date().getFullYear()} Mariah Marketing LLC, doing business as Bot Craft Works. Tiger Claw is a product of Mariah Marketing LLC.
             </p>
           </div>
         </div>

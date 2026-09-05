@@ -92,7 +92,7 @@ export default function LegalDrawer({ open, onClose, initialSection }: LegalDraw
                     <h2 className="text-white font-bold text-base sm:text-lg tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                       Legal
                     </h2>
-                    <p className="text-white/50 text-xs hidden sm:block">BotCraft Works LLC (DBA Tiger Claw) · Updated {LEGAL_EFFECTIVE}</p>
+                    <p className="text-white/50 text-xs hidden sm:block">Mariah Marketing LLC, doing business as Bot Craft Works · Updated {LEGAL_EFFECTIVE}</p>
                   </>
                 )}
               </div>

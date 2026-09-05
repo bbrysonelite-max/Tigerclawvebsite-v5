@@ -6,8 +6,8 @@ or public routes.
 
 ## Project scope
 
-TigerClaw.io is the customer-facing marketing site for Tiger Claw, an AI
-follow-up assistant. It is not the enterprise platform site and must not pitch
+TigerClaw.io is the customer-facing marketing site for Tiger Claw, an autonomous AI
+follow-up agent. It is not the enterprise platform site and must not pitch
 the internal platform, stateless agent factory, Mine, Hive, or autonomous sales
 agent architecture.
 
@@ -22,7 +22,7 @@ https://tigerclaw.io/
 Use this positioning in public copy:
 
 ```text
-Tiger Claw is your AI follow-up assistant.
+Tiger Claw is your autonomous AI follow-up agent.
 ```
 
 The product helps independent distributors, affiliates, social sellers, and
@@ -77,7 +77,7 @@ Keep `index.html` metadata aligned with this exact customer-facing language.
 Title:
 
 ```text
-Tiger Claw | Your AI Follow-Up Assistant
+Tiger Claw | Your AI Follow-Up Agent
 ```
 
 Meta description:
@@ -89,25 +89,25 @@ Tiger Claw helps independent distributors, affiliates, and relationship-driven o
 Open Graph title:
 
 ```text
-Tiger Claw — Your AI Follow-Up Assistant
+Tiger Claw — Your AI Follow-Up Agent
 ```
 
 Open Graph description:
 
 ```text
-Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own AI assistant.
+Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own autonomous AI follow-up agent.
 ```
 
 Twitter title:
 
 ```text
-Tiger Claw — Your AI Follow-Up Assistant
+Tiger Claw — Your AI Follow-Up Agent
 ```
 
 Twitter description:
 
 ```text
-Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own AI assistant.
+Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own autonomous AI follow-up agent.
 ```
 
 ## Development workflow
@@ -136,7 +136,7 @@ npm run build
 Before deploying, search the repository for stale public copy:
 
 ```bash
-rg -n "Nu Skin|Nuskin|stateless|multi-tenant|Mine|Hive|lead intelligence refinery|AI Director of Operations|Autonomous AI Sales Agents|closes deals|guarantee|guaranteed|commissions|rank advancement|income|Concept A|Authority|BotCraftWorks" -g '!node_modules' -g '!dist'
+rg -n "Nu Skin|Nuskin|stateless|multi-tenant|Mine|Hive|lead intelligence refinery|AI Director of Operations|Autonomous AI Sales Agents|closes deals|guarantee|guaranteed|commissions|rank advancement|income|Concept A|Authority|BotCraftWorks|BotCraft Works|Bot Craft Works LLC|State of Arizona|Maricopa County|help@tigerclaw\.io" -g '!node_modules' -g '!dist'
 ```
 
 Customer-facing matches must be removed or rewritten. Legal language that says

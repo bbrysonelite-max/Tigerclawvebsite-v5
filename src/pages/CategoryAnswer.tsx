@@ -196,8 +196,7 @@ export default function CategoryAnswer({ slug }: { slug: string }) {
       <footer className="border-t border-white/5 bg-[#050505] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} BotCraft Works LLC (DBA Tiger Claw). All rights
-            reserved. Tiger Claw is not affiliated with, endorsed by, or connected to any company.
+            &copy; {new Date().getFullYear()} Mariah Marketing LLC, doing business as Bot Craft Works. Tiger Claw is a product of Mariah Marketing LLC. Tiger Claw is not affiliated with, endorsed by, or connected to any company.
           </p>
         </div>
       </footer>

@@ -8,7 +8,7 @@ It aligns TigerClaw.io with TheGoods.ai without merging their audiences.
 TigerClaw.io is the customer product site. TheGoods.ai is the company and
 platform site. Keep this separation clear on every public page.
 
-- TigerClaw.io message: Tiger Claw is your AI follow-up assistant.
+- TigerClaw.io message: Tiger Claw is your autonomous AI follow-up agent.
 - TigerClaw.io audience: independent distributors, affiliates, social sellers,
   and relationship-driven operators.
 - TigerClaw.io product promise: help users remember prospect details, draft
@@ -47,7 +47,7 @@ people, or produces business outcomes without human review.
 
 ## Checkout guardrails
 
-Checkout copy must describe a follow-up assistant subscription, not recruiting
+Checkout copy must describe an autonomous AI follow-up agent subscription, not recruiting
 automation.
 
 - Keep the price clear: `$147/month`.
