@@ -68,7 +68,7 @@ function pageHtml({ title, description, canonical, bodyInner }) {
       </main>
       <footer class="border-t border-white/10 py-8">
         <div class="max-w-3xl mx-auto px-6 text-center text-white/50 text-sm">
-          &copy; ${year} BotCraft Works LLC (DBA Tiger Claw). All rights reserved.
+          &copy; ${year} Mariah Marketing LLC, doing business as Bot Craft Works. Tiger Claw is a product of Mariah Marketing LLC.
         </div>
       </footer>
     </div>
@@ -89,7 +89,7 @@ for (const s of sections) {
     path.join(slugDir, 'index.html'),
     pageHtml({
       title: `${s.label} · Tiger Claw`,
-      description: `${s.label} for Tiger Claw (BotCraft Works LLC). Effective ${LEGAL_EFFECTIVE}.`,
+      description: `${s.label} for Tiger Claw (Mariah Marketing LLC dba Bot Craft Works). Effective ${LEGAL_EFFECTIVE}.`,
       canonical: `${SITE}/legal/${s.slug}`,
       bodyInner: `<a href="/legal" class="inline-block text-white/60 hover:text-white text-sm mb-8">&larr; All policies</a>${inner}`,
     }),
@@ -105,7 +105,7 @@ writeFileSync(
   path.join(distDir, 'legal', 'index.html'),
   pageHtml({
     title: 'Legal · Tiger Claw',
-    description: `Tiger Claw legal policies (BotCraft Works LLC). Effective ${LEGAL_EFFECTIVE}.`,
+    description: `Tiger Claw legal policies (Mariah Marketing LLC dba Bot Craft Works). Effective ${LEGAL_EFFECTIVE}.`,
     canonical: `${SITE}/legal`,
     bodyInner: `<h1 class="text-3xl font-bold text-white mb-6">Legal</h1>\n      <ul>\n        ${list}\n      </ul>`,
   }),

@@ -1,8 +1,8 @@
 # Tiger Claw legal copy
 
-Prepared for: BotCraft Works LLC, DBA Tiger Claw
+Prepared for: Mariah Marketing LLC, dba Bot Craft Works
 
-Product: Tiger Claw AI Follow-Up Assistant - $147/month
+Product: Tiger Claw ($147/month)
 
 ## Public disclaimer
 

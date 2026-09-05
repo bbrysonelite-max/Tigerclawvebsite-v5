@@ -1,7 +1,7 @@
 # Tiger Claw marketing site
 
 This repository contains the public TigerClaw.io marketing site for Tiger Claw,
-the AI follow-up assistant for independent distributors, affiliates, and
+the autonomous AI follow-up agent for independent distributors, affiliates, and
 relationship-driven operators.
 
 The customer-facing message is simple: Tiger Claw helps users remember prospect
@@ -22,7 +22,6 @@ Important files:
 - `src/content/legal.md`: Legal and disclaimer source copy.
 - `index.html`: Public title, description, Open Graph, and Twitter metadata.
 - `public/`: Favicons and touch icon.
-- `releases/`: Known-good release snapshots and handoff artifacts.
 
 ## Local development
 
@@ -77,7 +76,7 @@ Keep TigerClaw.io focused on the customer product, not the internal platform.
 
 Use this core positioning:
 
-> Tiger Claw is your AI follow-up assistant.
+> Tiger Claw is your autonomous AI follow-up agent.
 
 Do not use public copy that implies affiliation with any network marketing,
 direct selling, MLM, affiliate marketing, or social-selling company. Do not name
@@ -116,7 +115,7 @@ The public metadata for TigerClaw.io must stay aligned with the customer product
 Title:
 
 ```text
-Tiger Claw | Your AI Follow-Up Assistant
+Tiger Claw | Your AI Follow-Up Agent
 ```
 
 Meta description:
@@ -128,11 +127,11 @@ Tiger Claw helps independent distributors, affiliates, and relationship-driven o
 Open Graph and Twitter title:
 
 ```text
-Tiger Claw — Your AI Follow-Up Assistant
+Tiger Claw — Your AI Follow-Up Agent
 ```
 
 Open Graph and Twitter description:
 
 ```text
-Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own AI assistant.
+Follow up faster, remember prospect details, handle common objections, and keep serious conversations moving with your own autonomous AI follow-up agent.
 ```

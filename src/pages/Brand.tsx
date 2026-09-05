@@ -353,7 +353,7 @@ export default function Brand() {
 
       <footer className="border-t border-white/5 bg-[#050505] py-8">
         <div className="max-w-5xl mx-auto px-6 text-center text-white/40 text-sm">
-          Tiger Claw Brand Book · BotCraft Works LLC
+          Tiger Claw Brand Book · Mariah Marketing LLC, doing business as Bot Craft Works
         </div>
       </footer>
 

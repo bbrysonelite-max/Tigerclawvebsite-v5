@@ -1,8 +1,8 @@
 export const SOCIAL_LINKS = {
   instagram: "",
   tiktok: "",
-  youtube: "",
-  linkedin: "",
+  youtube: "https://www.youtube.com/@BrentBrysonaios",
+  linkedin: "https://www.linkedin.com/company/tigerclaw-io/",
   x: "",
 } as const;
 

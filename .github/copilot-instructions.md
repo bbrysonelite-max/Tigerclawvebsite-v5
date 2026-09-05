@@ -2,7 +2,7 @@
 
 - Read the root `AGENTS.md` before suggesting code, copy, metadata, legal, or
   deployment changes.
-- Keep TigerClaw.io customer-facing: AI follow-up assistant language only.
+- Keep TigerClaw.io customer-facing: autonomous AI follow-up agent language only.
 - Do not pitch the internal platform, Mine, Hive, stateless agent factory, or
   autonomous sales-agent architecture on this site.
 - Do not add specific company names or guaranteed-results language.

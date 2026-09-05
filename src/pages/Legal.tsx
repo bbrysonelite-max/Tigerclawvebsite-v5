@@ -109,7 +109,7 @@ export function PrivacyPolicy() {
       <EffectiveDate />
 
       <H3>Who We Are</H3>
-      <P>This Privacy Policy describes how BotCraft Works LLC, doing business as Tiger Claw ("Tiger Claw," "we," "us," or "our"), collects, uses, and discloses information when you use our website at tigerclaw.io and our Tiger Claw AI Follow-Up Assistant service (the "Service").</P>
+      <P>This Privacy Policy describes how Mariah Marketing LLC, doing business as Bot Craft Works ("Tiger Claw" is our product; "Tiger Claw," "we," "us," or "our"), collects, uses, and discloses information when you use our website at tigerclaw.io and our Tiger Claw AI Follow-Up Assistant service (the "Service").</P>
       <P>Contact: <EmailLink /> | Mailing address: <AddressInline /></P>
 
       <H3>Information We Collect</H3>
@@ -121,7 +121,7 @@ export function PrivacyPolicy() {
         <Li>Communications: messages you send to our support or that we send to you</Li>
       </ul>
 
-      <P><Bold>From Prospects (people your assistant helps you communicate with):</Bold></P>
+      <P><Bold>From Prospects (people your agent helps you communicate with):</Bold></P>
       <ul className="mb-4">
         <Li>Channel identifiers and handles for the channels you connect — for example Telegram handles and chat IDs, WhatsApp numbers, email addresses, SMS mobile numbers, and LINE user IDs</Li>
         <Li>Messages, notes, and follow-up details you submit or connect to the Service</Li>
@@ -211,7 +211,7 @@ export function TermsOfService() {
       <EffectiveDate />
 
       <H3>1. Agreement to Terms</H3>
-      <P>These Terms of Service ("Terms") are a binding contract between you ("Operator," "you") and BotCraft Works LLC, doing business as Tiger Claw ("Tiger Claw," "we," "us," "our"). By accessing or using the Tiger Claw AI Follow-Up Assistant service or website at tigerclaw.io (the "Service"), you agree to these Terms. If you do not agree, do not use the Service.</P>
+      <P>These Terms of Service ("Terms") are a binding contract between you ("Operator," "you") and Mariah Marketing LLC, doing business as Bot Craft Works ("Tiger Claw" is our product; "Tiger Claw," "we," "us," "our"). By accessing or using the Tiger Claw AI Follow-Up Assistant service or website at tigerclaw.io (the "Service"), you agree to these Terms. If you do not agree, do not use the Service.</P>
 
       <H3>2. Eligibility</H3>
       <P>You must be at least 18 years old and have the legal capacity to enter into a binding contract. By using the Service, you represent that you meet these requirements.</P>
@@ -273,18 +273,18 @@ export function TermsOfService() {
       <P>Some jurisdictions do not allow these limitations; in those jurisdictions, our liability is limited to the maximum extent permitted.</P>
 
       <H3>12. Indemnification</H3>
-      <P>You agree to defend, indemnify, and hold harmless Tiger Claw, BotCraft Works LLC, and their officers, employees, and agents from any claim, loss, damage, or expense (including reasonable attorneys' fees) arising out of: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third-party right, including a connected messaging platform's terms of service, any law, or any individual's privacy rights; (d) content sent through your workflow; or (e) any claim that your use of the Service caused harm to a prospect or other person.</P>
+      <P>You agree to defend, indemnify, and hold harmless Tiger Claw, Mariah Marketing LLC, and their officers, employees, and agents from any claim, loss, damage, or expense (including reasonable attorneys' fees) arising out of: (a) your use of the Service; (b) your violation of these Terms; (c) your violation of any third-party right, including a connected messaging platform's terms of service, any law, or any individual's privacy rights; (d) content sent through your workflow; or (e) any claim that your use of the Service caused harm to a prospect or other person.</P>
 
       <H3>13. Termination</H3>
       <P>We may suspend or terminate your access to the Service at any time, with or without cause, with reasonable notice where practicable. You may cancel at any time under Section 4.</P>
       <P>Upon termination, your right to use the Service ends immediately. Sections that by their nature should survive termination (including Sections 8, 10, 11, 12, 14, 15, and 16) will survive.</P>
 
       <H3>14. Governing Law</H3>
-      <P>These Terms are governed by the laws of the State of Arizona, without regard to its conflict-of-laws principles.</P>
+      <P>These Terms are governed by the laws of the State of Utah, without regard to its conflict-of-laws principles.</P>
 
       <H3>15. Dispute Resolution and Arbitration</H3>
       <P><Bold>Please read this section carefully. It affects your legal rights.</Bold></P>
-      <P>Any dispute arising out of or relating to these Terms or the Service will be resolved through binding individual arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. Arbitration will take place in Maricopa County, Arizona, or virtually by agreement of the parties.</P>
+      <P>Any dispute arising out of or relating to these Terms or the Service will be resolved through binding individual arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules. Arbitration will take place in the State of Utah, or virtually by agreement of the parties.</P>
       <P><Bold>Class action waiver:</Bold> You and Tiger Claw agree that disputes will be resolved only on an individual basis and not as part of any class or consolidated action.</P>
       <P><Bold>Exceptions:</Bold> Either party may seek injunctive relief in court for intellectual property infringement or unauthorized access to the Service.</P>
       <P><Bold>Opt-out:</Bold> You may opt out of this arbitration provision by emailing <EmailLink /> within 30 days of first accepting these Terms, with the subject line "Arbitration Opt-Out."</P>
@@ -414,7 +414,7 @@ export function DMCAPolicy() {
       </ol>
 
       <H3>Send notices to our Designated Agent:</H3>
-      <P>BotCraft Works LLC — DMCA Agent<br /><AddressBlock />Email: <EmailLink address={DMCA_EMAIL} /></P>
+      <P>Mariah Marketing LLC (dba Bot Craft Works) — DMCA Agent<br /><AddressBlock />Email: <EmailLink address={DMCA_EMAIL} /></P>
 
       <P><Bold>Counter-notices</Bold> may be submitted by users whose content was removed, following the requirements of 17 U.S.C. § 512(g).</P>
       <P><Bold>Repeat infringers</Bold> will have their accounts terminated.</P>
@@ -537,7 +537,7 @@ function LegalShell({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-white/5 bg-[#050505] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-white/50 text-sm">&copy; {new Date().getFullYear()} BotCraft Works LLC (DBA Tiger Claw). All rights reserved.</p>
+          <p className="text-white/50 text-sm">&copy; {new Date().getFullYear()} Mariah Marketing LLC, doing business as Bot Craft Works. Tiger Claw is a product of Mariah Marketing LLC.</p>
         </div>
       </footer>
     </div>
@@ -576,7 +576,7 @@ export default function Legal() {
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
           Legal
         </h1>
-        <p className="text-white/60 text-base">BotCraft Works LLC (DBA Tiger Claw) · Last updated: {EFFECTIVE}</p>
+        <p className="text-white/60 text-base">Mariah Marketing LLC, doing business as Bot Craft Works · Last updated: {EFFECTIVE}</p>
       </div>
       <div className="grid sm:grid-cols-2 gap-3">
         {sections.map((s) => (

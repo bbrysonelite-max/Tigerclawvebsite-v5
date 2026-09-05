@@ -10,7 +10,7 @@ Website URL: `https://thegoods.ai`
 - [ ] LinkedIn
   - Website: `https://thegoods.ai`
   - Bio: The Goods builds cloud-native AI agent infrastructure for operators,
-    agencies, and teams. Creator of Tiger Claw, an AI follow-up assistant for
+    agencies, and teams. Creator of Tiger Claw, an autonomous AI follow-up agent for
     relationship-driven builders.
 
 - [ ] X
@@ -39,18 +39,18 @@ Website URL: `https://tigerclaw.io`
 
 - [ ] LinkedIn
   - Website: `https://tigerclaw.io`
-  - Bio: Tiger Claw is your AI follow-up assistant for prospect conversations,
+  - Bio: Tiger Claw is your autonomous AI follow-up agent for prospect conversations,
     objection support, notes, and next-step guidance.
 
 - [ ] X
   - Website: `https://tigerclaw.io`
-  - Bio: Your AI follow-up assistant. Remember prospects, draft better replies,
+  - Bio: Your autonomous AI follow-up agent. Remember prospects, draft better replies,
     handle objections, and keep conversations moving.
 
 - [ ] YouTube
   - Website: `https://tigerclaw.io`
-  - Bio: Demos and practical walkthroughs for using Tiger Claw as your AI
-    follow-up assistant.
+  - Bio: Demos and practical walkthroughs for using Tiger Claw as your autonomous AI
+    follow-up agent.
 
 - [ ] TikTok
   - Website: `https://tigerclaw.io`
@@ -59,5 +59,5 @@ Website URL: `https://tigerclaw.io`
 
 - [ ] Instagram
   - Website: `https://tigerclaw.io`
-  - Bio: Your AI follow-up assistant for prospect conversations, replies,
+  - Bio: Your autonomous AI follow-up agent for prospect conversations, replies,
     objections, notes, and next steps.
