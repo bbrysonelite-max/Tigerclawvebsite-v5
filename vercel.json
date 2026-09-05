@@ -1,6 +1,18 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.tigerclaw.io" }],
+      "destination": "https://tigerclaw.io/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "tiger-claw-marketing-restore.vercel.app" }],
+      "destination": "https://tigerclaw.io/:path*",
+      "permanent": true
+    },
+    {
       "source": "/start",
       "destination": "https://wizard.tigerclaw.io/",
       "permanent": false
