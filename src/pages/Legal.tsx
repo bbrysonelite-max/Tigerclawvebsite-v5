@@ -121,7 +121,7 @@ export function PrivacyPolicy() {
         <Li>Communications: messages you send to our support or that we send to you</Li>
       </ul>
 
-      <P><Bold>From Prospects (people your assistant helps you communicate with):</Bold></P>
+      <P><Bold>From Prospects (people your agent helps you communicate with):</Bold></P>
       <ul className="mb-4">
         <Li>Channel identifiers and handles for the channels you connect — for example Telegram handles and chat IDs, WhatsApp numbers, email addresses, SMS mobile numbers, and LINE user IDs</Li>
         <Li>Messages, notes, and follow-up details you submit or connect to the Service</Li>
