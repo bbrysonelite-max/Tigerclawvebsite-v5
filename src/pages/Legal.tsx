@@ -19,7 +19,7 @@ const ADDRESS_LINES = [
   "Suite B4-7254",
   "Scottsdale, AZ 85260",
 ];
-const EFFECTIVE = "April 23, 2026";
+const EFFECTIVE = "September 5, 2026";
 
 export const LEGAL_EFFECTIVE = EFFECTIVE;
 
