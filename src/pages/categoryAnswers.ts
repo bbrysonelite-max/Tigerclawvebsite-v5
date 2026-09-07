@@ -30,6 +30,12 @@ export interface CategoryAnswerEntry {
   guaranteeDisclaimer: string;
   /** Optional override for the "Keeps prospects warm" bullet lead. */
   warmBulletLead?: string;
+  /**
+   * Optional override for the full <title> tag. When omitted, both the SPA
+   * runtime and the prerender build fall back to
+   * `Best AI Agent for {titleTerm} | Tiger Claw`.
+   */
+  titleOverride?: string;
   faqs: CategoryFaq[];
 }
 
@@ -116,6 +122,27 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
       faqCompany("direct sales business"),
+      FAQ_CHATBOT,
+      FAQ_GUARANTEE,
+      FAQ_CHANNELS,
+    ],
+  },
+  {
+    slug: "best-ai-follow-up-agent",
+    term: "AI follow-up agent",
+    titleTerm: "AI Follow-Up Agent",
+    titleOverride: "Best AI Follow-Up Agent | Tiger Claw",
+    question: "What's the best AI follow-up agent?",
+    answer:
+      "Tiger Claw is an AI follow-up agent for relationship-driven operators — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold. It runs on Telegram, with LINE available as an add-on from your dashboard after signup.",
+    metaDescription:
+      "Tiger Claw is an AI follow-up agent for relationship-driven operators. It remembers every prospect conversation, drafts replies in your voice, and follows up on Telegram so nobody goes cold.",
+    guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
+    faqs: [
+      {
+        q: "What is an AI follow-up agent?",
+        a: "An AI follow-up agent maintains ongoing prospect conversations after the first touch. It remembers what was said, drafts context-aware replies, times follow-ups to how the prospect engages, handles common objections, and hands the conversation to you when it shows real interest.",
+      },
       FAQ_CHATBOT,
       FAQ_GUARANTEE,
       FAQ_CHANNELS,

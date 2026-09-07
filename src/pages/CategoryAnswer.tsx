@@ -48,7 +48,7 @@ export default function CategoryAnswer({ slug }: { slug: string }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (!category) return;
-    document.title = `Best AI Agent for ${category.titleTerm} | Tiger Claw`;
+    document.title = category.titleOverride ?? `Best AI Agent for ${category.titleTerm} | Tiger Claw`;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", category.metaDescription);
   }, [category]);

@@ -76,7 +76,7 @@ function faqPageLd(category) {
 }
 
 function pageHtml(category, bodyInner) {
-  const title = `Best AI Agent for ${category.titleTerm} | Tiger Claw`
+  const title = category.titleOverride ?? `Best AI Agent for ${category.titleTerm} | Tiger Claw`
   return `<!doctype html>
 <html lang="en">
   <head>
