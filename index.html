@@ -34,7 +34,17 @@
             "alternateName": "Bot Craft Works",
             "url": "https://tigerclaw.io/",
             "email": "support@tigerclaw.io",
-            "description": "Tiger Claw builds AI follow-up software for relationship-driven operators.",
+            "description": "Tiger Claw builds an autonomous AI follow-up agent for relationship-driven operators — independent distributors, affiliates, and social sellers.",
+            "knowsAbout": [
+              "AI follow-up agent",
+              "Prospect conversation memory",
+              "Telegram sales follow-up",
+              "Objection handling for sales conversations",
+              "Network marketing follow-up",
+              "MLM follow-up software",
+              "Direct sales follow-up",
+              "Affiliate marketing follow-up"
+            ],
             "sameAs": [
               "https://www.linkedin.com/company/tigerclaw-io",
               "https://www.crunchbase.com/organization/tiger-claw-6d53",
@@ -45,6 +55,8 @@
               "@id": "https://brentbryson.ai/#brent-bryson",
               "name": "Brent Bryson",
               "url": "https://brentbryson.ai",
+              "jobTitle": "AI Engineer",
+              "description": "AI engineer based in Scottsdale, Arizona. Coined the term 'flavored agents'; Tiger Claw is the network-marketing flavor.",
               "sameAs": [
                 "https://www.linkedin.com/in/brentbryson",
                 "https://github.com/bbrysonelite-max",
@@ -57,39 +69,86 @@
             "@id": "https://tigerclaw.io/#website",
             "url": "https://tigerclaw.io/",
             "name": "Tiger Claw",
-            "publisher": {
-              "@id": "https://tigerclaw.io/#organization"
-            }
+            "publisher": { "@id": "https://tigerclaw.io/#organization" },
+            "inLanguage": "en-US"
           },
           {
-            "@type": "SoftwareApplication",
+            "@type": ["SoftwareApplication", "Product"],
             "@id": "https://tigerclaw.io/#software",
             "name": "Tiger Claw",
+            "alternateName": "Tiger Claw AI Follow-Up Agent",
             "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
+            "applicationSubCategory": "AI follow-up agent",
+            "operatingSystem": "Web, Telegram",
             "url": "https://tigerclaw.io/",
-            "description": "Autonomous AI follow-up agent for prospect conversations, reply drafting, objection support, conversation memory, and qualified next-step guidance. Built by Brent Bryson — the network marketing flavor of a flavored agent.",
-            "provider": {
-              "@id": "https://tigerclaw.io/#organization"
-            },
+            "brand": { "@id": "https://tigerclaw.io/#organization" },
+            "description": "Autonomous AI follow-up agent for prospect conversations. Remembers every thread, drafts replies in the operator's voice, handles common objections, and moves qualified conversations toward the right next step. Telegram-first, with LINE as a dashboard add-on.",
+            "featureList": [
+              "Conversation memory across every prospect thread",
+              "Context-aware follow-up timing",
+              "Reply drafting in the operator's voice",
+              "Common objection support",
+              "Qualified movement detection",
+              "Earned handoff and booking support"
+            ],
+            "provider": { "@id": "https://tigerclaw.io/#organization" },
+            "author": { "@id": "https://brentbryson.ai/#brent-bryson" },
             "offers": {
               "@type": "Offer",
               "price": "147.00",
               "priceCurrency": "USD",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "147.00",
+                "priceCurrency": "USD",
+                "billingIncrement": 1,
+                "unitCode": "MON",
+                "referenceQuantity": {
+                  "@type": "QuantitativeValue",
+                  "value": 1,
+                  "unitCode": "MON"
+                }
+              },
               "availability": "https://schema.org/InStock",
               "url": "https://tigerclaw.io/start"
-            },
-            "author": {
-              "@id": "https://brentbryson.ai/#brent-bryson"
             }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://tigerclaw.io/#jobs",
+            "name": "Six jobs Tiger Claw handles every day",
+            "itemListOrder": "https://schema.org/ItemListOrderAscending",
+            "numberOfItems": 6,
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Talks naturally", "description": "One question at a time. Feels like a real conversation, not a broadcast." },
+              { "@type": "ListItem", "position": 2, "name": "Remembers everything", "description": "Pain points, objections, timing, and prior thread history for every prospect." },
+              { "@type": "ListItem", "position": 3, "name": "Follows up on time", "description": "Context-aware follow-up. Never a generic 'just checking in.'" },
+              { "@type": "ListItem", "position": 4, "name": "Spots real interest", "description": "Separates casual curiosity from qualified movement so operator time isn't wasted." },
+              { "@type": "ListItem", "position": 5, "name": "Guards operator time", "description": "Casual interest never reaches the operator; serious conversations do." },
+              { "@type": "ListItem", "position": 6, "name": "Earns the next step", "description": "A booking link is offered after context, not as a reflex." }
+            ]
           },
           {
             "@type": "FAQPage",
             "@id": "https://tigerclaw.io/#faq",
-            "isPartOf": {
-              "@id": "https://tigerclaw.io/#website"
-            },
+            "isPartOf": { "@id": "https://tigerclaw.io/#website" },
             "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the best AI follow-up agent?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tiger Claw is an autonomous AI follow-up agent built for relationship-driven operators. It remembers every prospect conversation, drafts replies in the operator's voice, handles common objections, and only hands the conversation back when the prospect shows qualified movement. It runs on Telegram, with LINE available as a dashboard add-on."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there an AI agent that remembers prospect conversations?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Tiger Claw is designed around conversation memory: it retains pain points, objections, timing, and prior thread history for every prospect, so follow-ups reference real context instead of generic check-ins."
+                }
+              },
               {
                 "@type": "Question",
                 "name": "Where does my Tiger work?",

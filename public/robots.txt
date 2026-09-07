@@ -1,3 +1,72 @@
+# tigerclaw.io — robots.txt
+# Explicit allowlist for AI assistants + traditional search crawlers.
+# Explicit `Allow` beats an implicit `Allow: /` fallback for some AI
+# crawler stacks and guards against future CDN defaults flipping to
+# disallow.
+
+# ---------- OpenAI ----------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ---------- Anthropic ----------
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ---------- Perplexity ----------
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ---------- Google (traditional + AI Overviews / Gemini training) ----------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# ---------- Microsoft / Bing / Copilot ----------
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ---------- Meta ----------
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+# ---------- Apple ----------
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ---------- Common Crawl (feeds many LLM training datasets) ----------
+User-agent: CCBot
+Allow: /
+
+# ---------- Everyone else ----------
 User-agent: *
 Allow: /
 
