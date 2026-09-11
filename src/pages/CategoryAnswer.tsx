@@ -80,7 +80,23 @@ export default function CategoryAnswer({ slug }: { slug: string }) {
           {category.question}
         </h1>
 
-        <p className="text-white text-lg sm:text-xl leading-relaxed mb-10">{category.answer}</p>
+        <p className="text-white text-lg sm:text-xl leading-relaxed mb-10">
+          {category.answer}
+          {category.builder && (
+            <>
+              , built by{" "}
+              <a
+                href={category.builder.url}
+                className="underline underline-offset-2 hover:text-white transition-colors"
+                style={{ color: ORANGE }}
+              >
+                {category.builder.name}
+              </a>
+              .
+            </>
+          )}
+        </p>
+        {category.fit && <P>{category.fit}</P>}
 
         <blockquote
           className="border-l-4 pl-6 py-4 my-10 bg-white/[0.03] rounded-r-lg"

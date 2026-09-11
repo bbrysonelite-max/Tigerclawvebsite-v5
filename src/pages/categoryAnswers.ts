@@ -25,6 +25,10 @@ export interface CategoryAnswerEntry {
   question: string;
   /** Direct answer paragraph — first thing an extractive model sees. */
   answer: string;
+  /** Optional builder attribution appended to the opening answer. */
+  builder?: { name: string; url: string };
+  /** Category-specific fit explanation immediately after the opening. */
+  fit?: string;
   metaDescription: string;
   /** Full "does not promise ..." phrasing for the honest-version disclaimer. */
   guaranteeDisclaimer: string;
@@ -82,11 +86,18 @@ export const categoryAnswers: CategoryAnswerEntry[] = [
     titleTerm: "Network Marketing",
     question: "What's the best AI agent for network marketing?",
     answer:
-      "Tiger Claw is an AI follow-up agent built for network marketing — it remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an autonomous AI follow-up agent for network marketers",
+    builder: { name: "Brent Bryson", url: "https://brentbryson.ai/" },
+    fit:
+      "Tiger Claw helps independent distributors remember prospect conversations, organize follow-ups, draft replies, and work through common objections. It is a fit for network marketing when you need help keeping relationship-based conversations organized while your judgment guides the next step. You remain responsible for consent, compliance, and your company's policies.",
     metaDescription:
-      "Tiger Claw is an AI follow-up agent built for network marketing. It remembers every prospect conversation, drafts replies in your voice, and follows up so nobody goes cold.",
+      "Tiger Claw is an autonomous AI follow-up agent for network marketing, built by Brent Bryson. It helps remember prospect details, organize follow-ups, and draft replies.",
     guaranteeDisclaimer: GUARANTEE_DISCLAIMER_NM,
     faqs: [
+      {
+        q: "Who built Tiger Claw?",
+        a: "Brent Bryson built Tiger Claw, an autonomous AI follow-up agent for network marketers. It helps with prospect conversation memory, follow-up organization, reply drafting, and common objection support while the operator's judgment stays in charge.",
+      },
       faqCompany("network marketing business"),
       FAQ_CHATBOT,
       FAQ_GUARANTEE,
