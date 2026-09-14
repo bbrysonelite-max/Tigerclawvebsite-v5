@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/sms/",
+      "destination": "/sms",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": { "eq": "www.tigerclaw.io" } }],
       "destination": "https://tigerclaw.io/$1",
@@ -49,6 +54,6 @@
     { "source": "/legal", "destination": "/index.html" },
     { "source": "/legal/:slug", "destination": "/index.html" },
     { "source": "/brand", "destination": "/index.html" },
-    { "source": "/sms", "destination": "/index.html" }
+    { "source": "/sms", "destination": "/sms/index.html" }
   ]
 }

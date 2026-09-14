@@ -8,13 +8,15 @@ import FooterSocialLinks from "@/components/FooterSocialLinks";
    Web opt-in form for A2P 10DLC compliance.
    Collects mobile number + explicit (NOT pre-checked) consent, states message
    type, frequency, rates, STOP/HELP, and links to Terms + Privacy.
-   Design matches the Tiger Claw dark theme. Submit emails the opt-in to
-   support@tigerclaw.io (same no-backend mailto pattern as Contact).
+   Design matches the Tiger Claw dark theme. Prepare an email request for
+   support@tigerclaw.io; only the user's email app can send it.
 ─── */
 
 const ORANGE = "#E8722A";
 const GREEN = "#22C55E";
 const EYEBROW_GREEN = "#4ADE80";
+const SMS_CONSENT =
+  "I agree to receive recurring automated text messages (follow-ups, reminders, scheduling confirmations, and occasional updates) from Tiger Claw at the number provided. Consent is not a condition of any purchase. Message and data rates may apply. Message frequency varies. Reply STOP to cancel, HELP for help.";
 const FOOTER_DISCLAIMER =
   "Independent software tool. Not produced, approved, sponsored, endorsed, or recommended by any network marketing, direct selling, MLM, affiliate marketing, or social-selling company. No results are promised. Users are responsible for their own company, program, privacy, advertising, do-not-contact, and communication compliance.";
 
@@ -134,34 +136,39 @@ function OptInForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [emailUrl, setEmailUrl] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!consent) return;
     const subject = encodeURIComponent("SMS Opt-In");
     const body = encodeURIComponent(
-      `New SMS opt-in via tigerclaw.io/sms\n\n` +
+      `SMS opt-in request via https://tigerclaw.io/sms\n\n` +
       `Name: ${name}\n` +
-      `Mobile number: ${phone}\n` +
-      `Consent: YES — agreed to receive recurring automated follow-up text messages from Tiger Claw.\n` +
-      `Submitted: ${new Date().toISOString()}`
+      `Mobile number: ${phone.trim()}\n` +
+      `Consent checkbox: checked\n` +
+      `Wording shown: ${SMS_CONSENT}\n` +
+      `Request prepared: ${new Date().toISOString()}\n` +
+      `This email must be sent to request opt-in; preparing it does not confirm enrollment.`
     );
-    window.location.href = `mailto:support@tigerclaw.io?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    const url = `mailto:support@tigerclaw.io?subject=${subject}&body=${body}`;
+    setEmailUrl(url);
   };
 
-  if (submitted) {
+  if (emailUrl) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6" style={{ background: `${GREEN}20` }}>
           <Check className="w-7 h-7" style={{ color: GREEN }} />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>You're opted in</h3>
+        <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Finish in your email app</h3>
         <p className="text-white/70 text-sm max-w-sm">
-          Thanks for confirming. You'll receive follow-up text messages at the number you provided.
-          Reply STOP at any time to cancel, or HELP for help.
+          Send the prepared email to support@tigerclaw.io to request SMS opt-in.
+          This page cannot confirm that your email was sent or that you are enrolled.
+          Use the link below to open your email app. If it does not open, contact support@tigerclaw.io.
         </p>
+        <a href={emailUrl} className="mt-5 underline text-white">Open the prepared email</a>
+        <button type="button" onClick={() => setEmailUrl("")} className="mt-4 underline text-white/80">Back to the form</button>
       </div>
     );
   }
@@ -169,11 +176,14 @@ function OptInForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="block text-white/85 text-sm font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+        <label htmlFor="sms-name" className="block text-white/85 text-sm font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
           Name
         </label>
         <input
           type="text"
+          id="sms-name"
+          name="name"
+          autoComplete="name"
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -182,11 +192,15 @@ function OptInForm() {
         />
       </div>
       <div>
-        <label className="block text-white/85 text-sm font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+        <label htmlFor="sms-phone" className="block text-white/85 text-sm font-semibold mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
           Mobile Phone Number<span style={{ color: ORANGE }}> *</span>
         </label>
         <input
           type="tel"
+          pattern={".*\\S.*"}
+          id="sms-phone"
+          name="phone"
+          autoComplete="tel"
           placeholder="(555) 123-4567"
           required
           value={phone}
@@ -200,15 +214,14 @@ function OptInForm() {
       <label className="flex items-start gap-3 cursor-pointer rounded-xl border border-white/10 bg-white/[0.03] p-4 hover:border-white/20 transition-colors">
         <input
           type="checkbox"
+          name="consent"
+          required
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
           className="mt-1 h-5 w-5 shrink-0 accent-[#E8722A]"
         />
         <span className="text-white/80 text-sm leading-relaxed" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          I agree to receive recurring automated text messages (follow-ups, reminders,
-          scheduling confirmations, and occasional updates) from Tiger Claw at the number
-          provided. Consent is not a condition of any purchase. Message and data rates may
-          apply. Message frequency varies. Reply STOP to cancel, HELP for help.
+          {SMS_CONSENT}
         </span>
       </label>
 
@@ -218,8 +231,19 @@ function OptInForm() {
         className="w-full py-4 rounded-xl text-sm font-bold tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-300 enabled:hover:brightness-110 enabled:hover:scale-[1.02] enabled:hover:shadow-[0_4px_30px_rgba(232,114,42,0.5)] enabled:hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed"
         style={{ background: ORANGE, color: "#000", fontFamily: "'Space Grotesk', sans-serif" }}
       >
-        Yes, sign me up! <ArrowLeft className="w-4 h-4 rotate-[135deg]" />
+        Prepare opt-in email <ArrowLeft className="w-4 h-4 rotate-[135deg]" />
       </button>
+
+      <p className="text-white/70 text-sm">
+        Prepare your request, then open your email app and send it to request
+        opt-in. Preparing an email does not enroll you.
+      </p>
+      <noscript>
+        <p className="text-white/80 text-sm">
+          JavaScript is needed to prepare the email from this form. You can also
+          contact <a href="mailto:support@tigerclaw.io" className="underline">support@tigerclaw.io</a> for help requesting SMS opt-in.
+        </p>
+      </noscript>
 
       <p className="text-white/55 text-xs leading-relaxed text-center" style={{ fontFamily: "'IBM Plex Mono', monospace" }}>
         By submitting, you agree to our{" "}
@@ -313,7 +337,7 @@ export default function SmsOptIn() {
       <section className="pt-32 pb-10 sm:pt-40 sm:pb-12" ref={heroRef}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
@@ -336,7 +360,7 @@ export default function SmsOptIn() {
       <section className="pb-20 sm:pb-28">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="rounded-2xl border border-white/10 bg-[#111] p-8 sm:p-10"
@@ -346,7 +370,7 @@ export default function SmsOptIn() {
 
           {/* What to expect — the carrier-required disclosures, in plain sight */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10"
