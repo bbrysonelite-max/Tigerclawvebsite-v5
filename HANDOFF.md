@@ -1,5 +1,11 @@
 # Tiger Claw Marketing Site — Handoff
 
+> September 14, 2026: this document below is a historical snapshot, including
+> stale statements that the project has no Git repository and no legal routes.
+> Current SMS repair state, checks, and rollback are in SOTU.md, PROGRESS.md,
+> and NEXT_SESSION.md. Current AGENTS.md and source govern the site; the
+> user-authorized SMS repair does not change checkout, wizard, or domains.
+
 > ## ⚠️ KNOWN GOOD STATE — DO NOT MODIFY WITHOUT BRENT APPROVAL
 >
 > - **Public face:** approved
